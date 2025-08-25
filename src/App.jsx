@@ -11,10 +11,10 @@ import Footer from './components/Footer.jsx'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from './components/common/Layout.jsx'
 import TalleresEcosDelSer from './pages/TalleresEcosDelSer.jsx'
-
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '')
 export default function App() {
   return (
-    <Router>
+    <Router basename={basename}>
       <Layout>
         <Routes>
           <Route path="/" element={<Hero />} />
