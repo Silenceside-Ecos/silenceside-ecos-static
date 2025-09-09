@@ -1,8 +1,8 @@
 import { Nivel } from "./nivel";
 
 export class Eco {
-    id: number;
-    nombre: string;
+    id: number; 
+    nombre: string; 
     descripcion: string;
     niveles: Nivel[];
 
