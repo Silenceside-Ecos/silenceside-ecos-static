@@ -24,7 +24,7 @@ export default function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/cta" element={<CTA />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/talleres" element={<TalleresEcosDelSer />} />
+          <Route path="/espacios_e" element={<TalleresEcosDelSer />} />
         </Routes>
       </Layout>
     </Router>
