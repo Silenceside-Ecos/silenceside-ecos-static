@@ -1,61 +1,66 @@
 {
-  "title": "Talleres Ecos del Ser",
+  "title": "Espacios_e",
   "subtitle": "",
   "intro": [
-    "Ofrece diferentes talleres que le darán a conocer aspectos de su vida que pulsan escondidos en la profundidad de su Conciencia y así como herramientas que ayudarán a entender cómo develarlos para su cambio.",
-    "Los Talleres Ecos del Ser se dividen en tres niveles que permitirán, paso a paso, ir abriendo las compuertas de su realidad conociendo, aprendiendo y practicando para su transformación integral."
+    "Lugares donde el eco trae la memoria de ¿quiénes somos y que venimos a hacer? Ofrece diferentes espacios orientados a crear las bases para el cambio de la percepción, la satisfacción y la felicidad del Ser humano.",
+    "Entre estos campos están:"
   ],
   "sections": [
     {
-      "title": "Nivel 1. Lo que el cuerpo calla",
-      "description": "Este nivel inicial permite encontrar su huella ancestral causante de lo que el cuerpo calla y cómo se expresa en su cuerpo (físico-mental-emocional-espiritual).",
+      "title": "Ecos del Ser",
+      "description": "Ecos del ser se refiere a todo lo que esta resonando como un eco dentro la conciencia profunda, como forma de llamar la atención de la conciencia superficial. La información que incluye tiene 3 tiempos o niveles, agrupados en un conjunto de talleres y encuentros que propician la conexión y adquisición de conocimientos y recursos para el aprendizaje y crecimiento en el orden personal, lo cual repercute así mismo en la armonía grupal.",
       "items": [
         {
-          "title": "Serie I. El ser y el silencio",
+          "title": "Nivel I. Lo que el cuerpo calla",
           "objectives": [
             "Conocer los aspectos relacionados con Lo que el cuerpo calla.",
             "Aprender diferentes habilidades para develar y cambiar Lo que el cuerpo calla."
           ],
           "content": {
             "Talleres": [
-              "La estructura básica disparadora de lo que el cuerpo calla",
-              "El cuerpo y sus niveles",
-              "La percepción de la realidad desde la conciencia y el inconsciente",
-              "Las necesidades y problemáticas del ser",
-              "La identidad del ser y los Espejos"
-            ],
-            "Mecanismo de expresión de la estructura básica 1": [
-              "Las emociones, sentimientos, sensaciones",
-              "Los sistemas sensoriales VAC"
-            ],
-            "Mecanismo de expresión de la estructura básica 2": [
-              "Los pensamientos, niveles de la Mente",
-              "Tipos de pensamientos",
-              "Las creencias y los valores",
-              "La línea del tiempo cotidiano y los valores"
-            ],
-            "Mecanismo de expresión de la estructura básica 3": [
-              "El lenguaje comunicacional del cuerpo",
-              "La palabra y el cuerpo"
-            ],
-            "Mecanismo de expresión de la estructura básica 4": [
-              "La denuncia o revelación",
-              "Los conflictos y las actitudes ante la denuncia"
-            ],
-            "La expresión de la denuncia": [
-              "Niveles de expresión y sus fases",
-              "Expresión cerebral y corporal de la denuncia",
-              "Expresión psíquica de la denuncia"
-            ],
-            "La autogestión de las memorias silenciadas": [
-              "Los recuerdos. Tipos",
-              "Las memorias silenciadas",
-              "El método para el cambio (RRI)"
+              "Taller 1. La estructura básica del ser. El asiento de lo que el cuerpo calla",
+              "Taller 2. Mecanismo de expresión de la estructura básica. Parte 1: la identidad y los espejos.",
+              "Taller 3. Mecanismo de expresión de la estructura básica. Parte 2: Las emociones, sentimientos, sensaciones. Las VAC",
+              "Taller 4. Mecanismo de expresión de la estructura básica. Parte 3: Los pensamientos, las creencias y los valores.",
+              "Taller 5. Mecanismo de expresión de la estructura básica. Parte 4: El lenguaje comunicacional del cuerpo",
+              "Taller 6. La expresión de la denuncia.",
+              "Taller 7. La autogestión de las memorias silenciadas."
             ]
           }
         },
         {
-          "title": "Serie II. El ser y los bucles. La dinámica perpetua",
+          "title": "Nivel II. La realidad y la ilusión",
+          "objectives": [
+            "Enfocado en la creación de un protocolo propio vivencial",
+            "Conocer los ciclos del tiempo y su dinámica",
+            "Entender el bucle como perpetuidad",
+            "Adquirir habilidades para desprogramar los bucles residuales ancestrales y remodelar su propia vida"
+          ],
+          "content": {
+            "Talleres": [
+              {
+                "El tiempo y los ciclos": [
+                  "Tiempo cósmico, universal y planetario",
+                  "La vida cotidiana: periodos anuales, mensuales, diarios, personales, grupales"
+                ]
+              },
+              "Los bucles y los malestares: la perpetuidad y los ciclos celulares",
+              "La huella primigenia",
+              "Memorias propias (denuncias)",
+              "Memorias paternas y maternas: la impresión del Yo",
+              {
+                "Memorias ancestrales del clan familiar": [
+                  "Nuclear",
+                  "Linaje de la primera cuarteta",
+                  "Resonancia en los clanes externos",
+                  "La paradoja del tiempo"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "title": "Nivel III. La realidad y la misión",
           "objectives": [
             "Enfocado en la creación de un protocolo propio vivencial",
             "Conocer los ciclos del tiempo y su dinámica",
@@ -88,7 +93,7 @@
       ]
     },
     {
-      "title": "Nivel 2. La realidad y la Ilusión",
+      "title": "Ecos del Silencio",
       "description": "Este nivel medio se enfoca en el crecimiento y desarrollo del ser como Humano.",
       "items": [
         {
@@ -114,7 +119,57 @@
       ]
     },
     {
-      "title": "Nivel 3. La Realidad y la Misión",
+      "title": "Ecos del movimiento",
+      "description": "Este nivel superior está enfocado en el entendimiento del Ser.",
+      "objectives": [
+        "Conocer quién es realmente",
+        "Entender su misión real como Ser",
+        "Aprender diferentes habilidades para estar en coherencia con la Misión y el Propósito primordial"
+      ],
+      "items": [
+        {
+          "title": "Serie I. Las pruebas y desafíos. El cambio",
+          "content": [
+            "Niveles de pruebas y desafíos",
+            "La objetividad de la ecuanimidad ante el cambio"
+          ]
+        },
+        {
+          "title": "Serie II. La Misión y el propósito del Ser",
+          "content": [
+            "Misión del Ser contra ser",
+            "Propósitos primigenio y secundarios"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ecos del sonido",
+      "description": "Este nivel superior está enfocado en el entendimiento del Ser.",
+      "objectives": [
+        "Conocer quién es realmente",
+        "Entender su misión real como Ser",
+        "Aprender diferentes habilidades para estar en coherencia con la Misión y el Propósito primordial"
+      ],
+      "items": [
+        {
+          "title": "Serie I. Las pruebas y desafíos. El cambio",
+          "content": [
+            "Niveles de pruebas y desafíos",
+            "La objetividad de la ecuanimidad ante el cambio"
+          ]
+        },
+        {
+          "title": "Serie II. La Misión y el propósito del Ser",
+          "content": [
+            "Misión del Ser contra ser",
+            "Propósitos primigenio y secundarios"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ecos de la Naturaleza",
       "description": "Este nivel superior está enfocado en el entendimiento del Ser.",
       "objectives": [
         "Conocer quién es realmente",

@@ -9,7 +9,7 @@ const links = [
   // { href: '/faq', label: 'FAQ' },
   { href: '/', label: 'Inicio' },
   { href: '/contact', label: 'Contacto' },
-  { href: '/talleres', label: 'Talleres' },
+  { href: '/espacios_e', label: 'Espacios_e' },
 ]
 
 function ThemeToggle() {
