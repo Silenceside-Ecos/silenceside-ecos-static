@@ -1,5 +1,5 @@
 {
-  "name": "react-tailwind-marketing-starter",
+  "name": "silenceside-ecos-static",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -15,6 +15,7 @@
     "react-router-dom": "^7.8.1"
   },
   "devDependencies": {
+    "@types/node": "^24.3.1",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
