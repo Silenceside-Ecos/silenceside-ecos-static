@@ -4,7 +4,7 @@ export class Eco {
     id: number; 
     nombre: string; 
     descripcion: string;
-    niveles: Nivel[];
+    niveles?: Nivel[];
 
     constructor(id: number, nombre: string, descripcion: string, niveles: Nivel[]) {
         this.id = id;
