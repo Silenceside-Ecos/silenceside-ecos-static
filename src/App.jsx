@@ -26,6 +26,7 @@ export default function App() {
           <Route path="/cta" element={<CTA />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/espacios_e" element={<EspaciosE />} />
+          <Route path="/ecos-del-ser" element={<TalleresEcosDelSer />} />
         </Routes>
       </Layout>
     </Router>

@@ -1,44 +1,73 @@
+import { Link } from 'react-router-dom'
+
 const BRAND = {
   primary: "teal",
   primaryHex: "#14b8a6", // aqua SilenceSide
 };
 
 const goals = [
-  {
-    icon: "🌱",
-    title: "Autoconocimiento profundo",
-    text: "Descubre quién eres realmente y cómo tus memorias emocionales influyen en tu vida.",
+  {    
+    imagen: "/images/ecos-del-ser.webp",
+    title: "Ecos del Ser",
+    text: "Ecos del ser es una propuesta de Espacios_e para el conocimiento y entendimiento de los Saberes Integrados que constituyen la base del sostenimiento del Bienestar del Ser.",
     bg: "bg-teal-50 dark:bg-teal-900/40",
+    link: '/ecos-del-ser'
   },
   {
-    icon: "💫",
-    title: "Gestión emocional efectiva",
-    text: "Aprende herramientas prácticas para transformar el estrés y la ansiedad en bienestar.",
-    bg: "bg-indigo-50 dark:bg-indigo-900/40",
+    imagen: "/images/ecos-del-silencio.jpg",
+    title: "Ecos del Silencio",
+    text: "Se enfoca en la conexión con la calma interna, la observación consciente, la escucha del cuerpo y las emociones, y el reencuentro con la esencia.",
+    bg: "bg-teal-50 dark:bg-indigo-900/40",
+    link: '/'
   },
   {
-    icon: "🔑",
-    title: "Liberación de patrones",
-    text: "Identifica y sana las raíces ocultas que limitan tu crecimiento personal.",
+    imagen:'/images/ecos-del-movimiento.jpeg',
+    title: "Ecos del Movimiento",
+    text: "Conecta el cuerpo con la emoción y la energía. Es un espacio ideal para trabajar la liberación, la conciencia corporal y la integración emocional a través del movimiento.",
     bg: "bg-amber-50 dark:bg-amber-900/40",
+    link: '/'
   },
   {
-    icon: "🌟",
-    title: "Transformación integral",
-    text: "Conecta cuerpo, mente y emociones para vivir en equilibrio y plenitud.",
+    imagen:'/images/ecos-del-sonido.jpeg',
+    title: "Ecos del Sonido",
+    text: "Explora la relación entre el sonido, la vibración y el equilibrio del ser. Los participantes descubren cómo el sonido influye en las emociones, la energía y la salud integral.",
     bg: "bg-fuchsia-50 dark:bg-fuchsia-900/40",
+    link: '/'
   },
   {
-    icon: "🤝",
-    title: "Acompañamiento cercano",
-    text: "Vive cada proceso con apoyo humano, respeto y un enfoque personalizado.",
+    imagen:'/images/ecos-de-la-naturaleza.jpeg',
+    title: "Ecos de la Naturaleza",
+    text: "Reconectar al ser humano con la naturaleza exterior e interior entendiendo que lo que sucede en la naturaleza también ocurre dentro de nosotros.",
     bg: "bg-lime-50 dark:bg-lime-900/40",
+    link: '/'
   },
   {
-    icon: "📚",
-    title: "Aprendizaje práctico",
-    text: "Talleres y materiales aplicables a tu día a día para lograr cambios reales.",
-    bg: "bg-rose-50 dark:bg-rose-900/40",
+    imagen:'/images/ecos-audioviduales.jpeg',
+    title: "Ecos Audiovisuales",
+    text: "Un espacio donde el sonido, la imagen y la emoción se unen para transmitir la esencia de Silenceside Ecos. Aquí encontrarás videos, grabaciones y materiales visuales que reflejan la filosofía de nuestros programas.",
+    bg: "bg-lime-50 dark:bg-lime-900/40",
+    link: '/'
+  },  
+  {
+    imagen:'/images/ecos-de-aromas.jpg',
+    title: "Ecos de Aromas",
+    text: "Se enfoca en guiar a los participantes a descubrir el lenguaje invisible de los aromas y su capacidad para equilibrar cuerpo, mente y espíritu.",
+    bg: "bg-lime-50 dark:bg-lime-900/40",
+    link: '/'
+  },    
+  {
+    imagen:'/images/ecos-del-universo.jpg',
+    title: "Ecos del Universo",
+    text: "Reconectar al ser humano con la energía cósmica y las leyes universales que influyen en su vida, para vivir en mayor armonía, propósito y coherencia interior.",
+    bg: "bg-lime-50 dark:bg-lime-900/40",
+    link: '/'
+  },   
+  {
+    imagen:'/images/ecos-de-la-tierra.webp',
+    title: "Ecos de la Tierra",
+    text: "Representa la conexión con lo tangible, lo estable y lo natural. Es el espacio donde se despierta la conciencia del cuerpo, del entorno y de las raíces internas. Simboliza el arraigo, la nutrición, la seguridad y la presencia.",
+    bg: "bg-lime-50 dark:bg-lime-900/40",
+    link: '/'
   },
 ];
 
@@ -46,7 +75,7 @@ export default function EspaciosE() {
   return (
     <section
       aria-labelledby="goals-title"
-      className="relative py-16 sm:py-20 bg-gradient-to-b from-teal-50/60 to-white dark:from-teal-950/60 dark:to-slate-950 transition-colors"
+      className="relative py-16 sm:py-20 bg-gradient-to-b from-teal-50/60 to-white dark:from-teal-950/60 dark:to-slate-950 transition-colors"      
     >
       {/* Glow decor */}
       <div
@@ -58,19 +87,15 @@ export default function EspaciosE() {
         }}
       />
       <div className="mx-auto max-w-6xl px-4">
-        <header className="text-center">
-          <p className="inline-block rounded-full border border-teal-200 dark:border-teal-800 bg-white/60 dark:bg-teal-950/60 px-3 py-1 text-sm text-slate-600 dark:text-teal-200">
-            SilenceSide Ecos
-          </p>
+        <header className="text-center">         
           <h2
             id="goals-title"
             className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 dark:text-teal-100"
           >
-            ✨ Nuestros Objetivos
+            ✨ Espacios_e
           </h2>
           <p className="mt-3 text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            Bienestar, crecimiento y transformación con una guía cercana y
-            práctica.
+            Espacios_e es una propuesta de encuentros, talleres y seminarios, que propicia el aprendizaje, crecimiento y desarrollo humano personal y grupal, a través del conocimiento y entendimiento de los Saberes Integrados que constituyen la base del sostenimiento del Bienestar del Ser.
           </p>
         </header>
 
@@ -78,19 +103,34 @@ export default function EspaciosE() {
           {goals.map((g) => (
             <article
               key={g.title}
-              className={`${g.bg} rounded-2xl p-6 shadow-sm ring-1 ring-black/5 dark:ring-white/10 transition-transform hover:-translate-y-0.5 hover:shadow-md`}
+              className={`${g.bg} rounded-2xl p-6 shadow-sm ring-1 ring-black/5 dark:ring-white/10 transition-transform hover:-translate-y-0.5 hover:shadow-md flex flex-col justify-between`}
+              style={{
+                height: '500px',                
+              }}
             >
-              <div className="w-14 h-14 rounded-full bg-white dark:bg-slate-900 grid place-items-center shadow-sm ring-1 ring-black/5 dark:ring-white/10">
-                <span className="text-2xl" aria-hidden="true">
-                  {g.icon}
-                </span>
+              <div>                
+                <h1 className="mt-4 mb-6 text-lg font-semibold text-slate-900 dark:text-teal-200 text-center" style={{ color: '#d1b066' }}>
+                  {g.title}
+                </h1>                
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-teal-100">
-                {g.title}
-              </h3>
-              <p className="mt-1 text-slate-600 dark:text-slate-300">
+              <div style={{flex: '1'}}>
+                <p className="mt-1 text-slate-600 dark:text-slate-300">
                 {g.text}
-              </p>
+                </p>
+              </div>
+              <div className="mt-4 mb-6 bg-white dark:bg-slate-900 grid place-items-center shadow-sm ring-1 ring-black/5 dark:ring-white/10" style={{ borderRadius: '8px'}}>
+                <img src={g.imagen} alt={g.title} style={{height:'150px', width: '100%', borderRadius: '8px', backgroundSize:'cover'}}/>
+              </div>
+              {g.link && (
+                <div className="mt-4 flex justify-end">
+                  <Link
+                    to={g.link}
+                    className="inline-block px-4 py-2 bg-teal-600 text-white rounded-lg shadow hover:bg-teal-700 transition-colors text-sm font-medium"
+                  >
+                    Read more
+                  </Link>
+                </div>
+              )}
             </article>
           ))}
         </div>
