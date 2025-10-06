@@ -77,14 +77,14 @@ export default function Hero() {
           </div>
           <div className="fade-in flex justify-center">
             <div className="glass rounded-3xl p-6 md:p-8 flex flex-col items-center shadow-lg">
-              <div className="aspect-video rounded-2xl bg-gradient-to-br from-sky-200 to-indigo-200 dark:from-sky-900/30 dark:to-indigo-900/30 grid place-items-center transition-transform duration-300 hover:scale-105">
+              <div className="">
                 <img
-                  src="/logo.svg"
+                  src="images/prioridad.webp"
                   alt="Logo de SilenceSide Ecos, símbolo de crecimiento y equilibrio"
                   className="h-24 w-24 mx-auto drop-shadow-lg transition-transform duration-300 hover:rotate-6"
                   loading="lazy"
-                  width={96}
-                  height={96}
+                  width={150}
+                  height={100}
                 />
               </div>
               <div className="mt-6 text-center">

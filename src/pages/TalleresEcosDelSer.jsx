@@ -98,13 +98,13 @@ export default function TalleresEcosDelSer() {
     <main className="container mx-auto py-12 px-4 max-w-3xl">
       <div className="mb-10 text-center">        
         <div style={{display:'flex', justifyContent:'center', alignItems:'center', marginBottom:'20px'}}>
-          <img src="/images/ecos-del-ser.webp" alt="Silenceside Ecos Logo" style={{height:'150px', width: '50%', borderRadius: '8px', backgroundSize:'cover'}}/>
+          <img src="images/ecos-del-ser.webp" alt="Silenceside Ecos Logo" style={{height:'150px', width: '50%', borderRadius: '8px', backgroundSize:'cover'}}/>
         </div>
-        <h1 className="text-4xl mb-4 mt-6 font-extrabold text-sky-900 dark:text-sky-200 mb-2 tracking-tight" style={{ color: '#d1b066' }}>
+        <h1 className="text-4xl mb-4 mt-6 font-semibold text-sky-900 dark:text-sky-200 mb-2 tracking-tight" style={{ color: '#d1b066' }}>
           Ecos del Ser
         </h1>
         <p className="mb-2 text-lg text-slate-700 dark:text-slate-300">
-          Ecos del ser es una propuesta de Espacios_e para el conocimiento y entendimiento de los Saberes Integrados que constituyen la base del sostenimiento del Bienestar del Ser.
+          Es una propuesta de Espacios_e para el conocimiento y entendimiento de los Saberes Integrados que constituyen la base del sostenimiento del Bienestar del Ser.
         </p>
         <p className="mb-2 text-lg text-slate-700 dark:text-slate-300">   
           Se refiere a todo lo que está resonando como un eco dentro la conciencia profunda, como forma de llamar la atención de la conciencia superficial.
