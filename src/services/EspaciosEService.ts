@@ -49,7 +49,7 @@ export const getStaticEspaciosE = (): Espacio[] => {
     const nivel2EcoSer = new Nivel(
         2,
         'Nivel 2 Medio. La realidad y la ilusión',
-        '',
+        'Este nivel está enfocado en el entendimiento de la realidad como imaginario, ilusión o entorno evidente, así como el logro de la transformación interna y externa del ser para su crecimiento y desarrollo como Humano.',
         []
     );
     
@@ -83,7 +83,7 @@ export const getStaticEspaciosE = (): Espacio[] => {
     const nivel3EcoSer = new Nivel(
         3,
         'Nivel 3 Avanzado. La Realidad y la Misión de vida',
-        '',
+        'Enfocada en el entendimiento del Ser ante las pruebas y desafíos que la Realidad genuina y cambiante propone, conociendo que todo lo que acontece, son escalones de una Gran escalera, que uno decide si subir o bajar. Todo esto con el objetivo de llevar a cabo la verdadera Misión del Ser como Humano.',
         []
     );
 

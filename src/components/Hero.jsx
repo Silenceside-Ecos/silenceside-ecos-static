@@ -21,50 +21,21 @@ export default function Hero() {
       <div className="container py-16">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 fade-in">
-            <h2 className="font-extrabold text-4xl md:text-6xl tracking-tight leading-tight text-sky-900 dark:text-sky-200 drop-shadow-sm animate-fade-in">
-              Crecimiento personal y gestión emocional
+            <h2 className="font-extrabold text-4xl md:text-5xl tracking-tight leading-tight text-sky-900 dark:text-sky-200 drop-shadow-sm animate-fade-in">
+              Tu camino hacia una vida más consciente y abundante comienza aquí
             </h2>
             <p className="text-slate-700 dark:text-slate-300 text-lg animate-slide-in">
-              SilenceSide Ecos es un espacio dedicado al crecimiento personal y
-              la gestión emocional, donde acompañamos a las personas a descubrir
-              su verdadero potencial, sanar sus memorias emocionales y
-              transformar su vida desde adentro hacia afuera.
+              Somos una Empresa de Desarrollo Humano y Conciencia Integral, que te guía a reconectar con tu esencia, sanar tus memorias y elevar tu vibración, a través de experiencias vivenciales, espiritualidad práctica y productos holísticos creados para tu bienestar.
             </p>
             <p className="text-slate-700 dark:text-slate-300 text-lg animate-slide-in">
-              Ofrecemos{" "}
-              <span className="font-semibold text-sky-600 dark:text-sky-400">
-                talleres vivenciales
-              </span>
-              ,{" "}
-              <span className="font-semibold text-sky-600 dark:text-sky-400">
-                asesorías personalizadas
-              </span>{" "}
-              y{" "}
-              <span className="font-semibold text-sky-600 dark:text-sky-400">
-                materiales de estudio
-              </span>{" "}
-              que integran conocimiento, práctica y autoconciencia, brindando
-              herramientas para alcanzar una vida más plena, consciente y en
-              equilibrio.
+              En nuestros talleres descubrirás cómo entender tu historia, transformar tus emociones y diseñar un futuro consciente y próspero, en armonía contigo mismo y con el Universo.             
+              
             </p>
-            <ul
-              className="grid sm:grid-cols-2 gap-3"
-              aria-label="Beneficios principales"
-            >
-              {bullets.map((b) => (
-                <li key={b} className="flex items-start gap-3">
-                  <span className="mt-1 p-1 rounded-full bg-sky-100 dark:bg-sky-900/40">
-                    <Check
-                      className="w-4 h-4 text-sky-600 dark:text-sky-400"
-                      aria-hidden="true"
-                    />
-                  </span>
-                  <span className="text-sm text-slate-800 dark:text-slate-200">
-                    {b}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <p className="text-slate-700 dark:text-slate-300 text-lg animate-slide-in">
+              Vive la experiencia SilenceSide Ecos y siente cómo cada encuentro, aroma o palabra se convierte en un eco de evolución.
+              
+            </p>
+           
             <div className="mt-6">
               <Link
                 to="/contact"
@@ -94,18 +65,7 @@ export default function Hero() {
                 <div className="mt-2 font-semibold text-xl text-slate-700 dark:text-slate-200">
                   Descubre tu potencial, sana y crece
                 </div>
-              </div>
-              {/* Trust badge */}
-              <div className="mt-4 flex items-center gap-2">
-                <img
-                  src="/verified.svg"
-                  alt="Sitio verificado y seguro"
-                  className="h-5"
-                />
-                <span className="text-xs text-slate-500 dark:text-slate-400">
-                  Sitio verificado
-                </span>
-              </div>
+              </div>              
             </div>
           </div>
         </div>
