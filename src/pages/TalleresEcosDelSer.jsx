@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getStaticEspaciosE } from "../services/EspaciosEService";
+import { getEspacioEById } from "../services/EspaciosEService"; // Adjust the path as needed
 
 function Accordion({ title, children, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -81,42 +81,67 @@ function renderAccordion(section) {
 }
 
 export default function TalleresEcosDelSer() {
-  const [espacios, setEspacios] = useState([]);
+  const [espacio, setEspacio] = useState(null);
 
   React.useEffect(() => {
     // Replace this with your actual data fetching logic
     // For now, we assume Espacio has a static method to get all espacios
     async function fetchEspacios() {
       // If getStaticEspaciosE is async, await it
-      const data = getStaticEspaciosE();
-      setEspacios(data);
+      const data = await getEspacioEById(1);
+      setEspacio(data);
     }
     fetchEspacios();
   }, []);
 
   return (
     <main className="container mx-auto py-12 px-4 max-w-3xl">
-      <div className="mb-10 text-center">        
-        <div style={{display:'flex', justifyContent:'center', alignItems:'center', marginBottom:'20px'}}>
-          <img src="images/ecos-del-ser.webp" alt="Silenceside Ecos Logo" style={{height:'150px', width: '50%', borderRadius: '8px', backgroundSize:'cover'}}/>
+      <div className="mb-10 text-center">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginBottom: "20px",
+          }}
+        >
+          <img
+            src="images/ecos-del-ser.webp"
+            alt="Silenceside Ecos Logo"
+            style={{
+              height: "150px",
+              width: "50%",
+              borderRadius: "8px",
+              backgroundSize: "cover",
+            }}
+          />
         </div>
-        <h1 className="text-4xl mb-4 mt-6 font-semibold text-sky-900 dark:text-sky-200 mb-2 tracking-tight" style={{ color: '#d1b066' }}>
+        <h1
+          className="text-4xl mb-4 mt-6 font-semibold text-sky-900 dark:text-sky-200 mb-2 tracking-tight"
+          style={{ color: "#d1b066" }}
+        >
           Ecos del Ser
         </h1>
         <p className="mb-2 text-lg text-slate-700 dark:text-slate-300">
-          Es una propuesta de Espacios_e para el conocimiento y entendimiento de los Saberes Integrados que constituyen la base del sostenimiento del Bienestar del Ser.
-        </p>
-        <p className="mb-2 text-lg text-slate-700 dark:text-slate-300">   
-          Se refiere a todo lo que está resonando como un eco dentro la conciencia profunda, como forma de llamar la atención de la conciencia superficial.
+          Es una propuesta de Espacios_e para el conocimiento y entendimiento de
+          los Saberes Integrados que constituyen la base del sostenimiento del
+          Bienestar del Ser.
         </p>
         <p className="mb-2 text-lg text-slate-700 dark:text-slate-300">
-          Su objetivo fundamental es aprender desde lo personal y lo grupal, aquellas lecciones básicas y silenciadas, que forman parte de nuestra sabiduría como seres humanos y que se entrelazan con los conocimientos avanzados del día de hoy.       </p>
+          Se refiere a todo lo que está resonando como un eco dentro la
+          conciencia profunda, como forma de llamar la atención de la conciencia
+          superficial.
+        </p>
+        <p className="mb-2 text-lg text-slate-700 dark:text-slate-300">
+          Su objetivo fundamental es aprender desde lo personal y lo grupal,
+          aquellas lecciones básicas y silenciadas, que forman parte de nuestra
+          sabiduría como seres humanos y que se entrelazan con los conocimientos
+          avanzados del día de hoy.{" "}
+        </p>
       </div>
-      {espacios.map((espacio) => (
-        <section key={espacio.id} className="mb-8">          
-          {espacio.ecos && espacio.ecos.map(renderAccordion)}
-        </section>
-      ))}
+      <section key={espacio?.id} className="mb-8">
+        {espacio?.ecos && espacio.ecos.map(renderAccordion)}
+      </section>
     </main>
   );
 }

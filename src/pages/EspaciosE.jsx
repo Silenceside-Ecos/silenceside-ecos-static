@@ -18,56 +18,56 @@ const goals = [
     title: "Ecos del Silencio",
     text: "Se enfoca en la conexión con la calma interna, la observación consciente, la escucha del cuerpo, las emociones y el reencuentro con la esencia primordial.",
     bg: "bg-teal-50 dark:bg-indigo-900/40",
-    link: "/",
+    link: null,
   },
   {
     imagen: "images/ecos-del-movimiento.jpeg",
     title: "Ecos del Movimiento",
     text: "Conecta el cuerpo, la emoción y la energía. Es un espacio ideal para trabajar la liberación, la conciencia corporal y la integración emocional a través del movimiento.",
     bg: "bg-teal-50 dark:bg-amber-900/40",
-    link: "/",
+    link: null,
   },
   {
     imagen: "images/ecos-del-sonido.jpeg",
     title: "Ecos del Sonido",
     text: "Explora la relación entre el sonido, la vibración y el equilibrio del ser. Los participantes descubren cómo el sonido influye en las emociones, la energía y la salud integral.",
     bg: "bg-teal-50 dark:bg-fuchsia-900/40",
-    link: "/",
+    link: null,
   },
   {
     imagen: "images/ecos-de-la-naturaleza.jpeg",
     title: "Ecos de la Naturaleza",
     text: "Reconectar al ser humano con la naturaleza exterior e interior, entendiendo que lo que sucede en la naturaleza también ocurre dentro de nosotros.",
     bg: "bg-teal-50 dark:bg-lime-900/40",
-    link: "/",
+    link: null,
   },
   {
     imagen: "images/ecos-audioviduales.jpeg",
     title: "Ecos Audiovisuales",
     text: "Un espacio donde el sonido, la imagen y la emoción se unen para transmitir la esencia de Silenceside Ecos. Aquí encontrarás videos, grabaciones y materiales visuales que reflejan la filosofía de nuestros programas.",
     bg: "bg-teal-50 dark:bg-lime-900/40",
-    link: "/",
+    link: null,
   },
   {
     imagen: "images/ecos-de-aromas.jpg",
     title: "Ecos de Aromas",
     text: "Se enfoca en guiar a los participantes a descubrir el lenguaje invisible de los aromas y su capacidad para equilibrar cuerpo, mente y espíritu.",
     bg: "bg-teal-50 dark:bg-lime-900/40",
-    link: "/",
+    link: null,
   },
   {
     imagen: "images/ecos-del-universo.jpg",
     title: "Ecos del Universo",
     text: "Reconectar al ser humano con la energía cósmica y las leyes universales que influyen en su vida, lo que propicia una mayor armonía, propósito y coherencia interior.",
     bg: "bg-teal-50 dark:bg-lime-900/40",
-    link: "/",
+    link: null,
   },
   {
     imagen: "images/ecos-de-la-tierra.webp",
     title: "Ecos de la Tierra",
     text: "Representa la conexión con lo tangible, lo estable y lo natural. Es el espacio donde se despierta la conciencia del cuerpo, del entorno y de las raíces internas. Simboliza el arraigo, la nutrición, la seguridad y la presencia.",
     bg: "bg-teal-50 dark:bg-lime-900/40",
-    link: "/",
+    link: null,
   },
 ];
 
@@ -95,7 +95,11 @@ export default function EspaciosE() {
             ✨ Espacios_e
           </h2>
           <p className="mt-3 text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            Ofrece lugares donde el Eco que está resonando dentro la conciencia profunda, trae la memoria de ¿quiénes somos?, ¿qué venimos a hacer? y ¿cómo hacerlo? entre muchas más interrogantes, orientados a crear las bases para el cambio de la percepción, la satisfacción y la felicidad del Ser humano.
+            Ofrece lugares donde el Eco que está resonando dentro la conciencia
+            profunda, trae la memoria de ¿quiénes somos?, ¿qué venimos a hacer?
+            y ¿cómo hacerlo? entre muchas más interrogantes, orientados a crear
+            las bases para el cambio de la percepción, la satisfacción y la
+            felicidad del Ser humano.
           </p>
         </header>
 
