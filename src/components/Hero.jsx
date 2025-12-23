@@ -25,17 +25,21 @@ export default function Hero() {
               Tu camino hacia una vida más consciente y abundante comienza aquí
             </h2>
             <p className="text-slate-700 dark:text-slate-300 text-lg animate-slide-in">
-              Somos una Empresa de Desarrollo Humano y Conciencia Integral, que te guía a reconectar con tu esencia, sanar tus memorias y elevar tu vibración, a través de experiencias vivenciales, espiritualidad práctica y productos holísticos creados para tu bienestar.
+              Somos una Empresa de Desarrollo Humano y Conciencia Integral, que
+              te guía a reconectar con tu esencia, sanar tus memorias y elevar
+              tu vibración, a través de experiencias vivenciales, espiritualidad
+              práctica y productos holísticos creados para tu bienestar.
             </p>
             <p className="text-slate-700 dark:text-slate-300 text-lg animate-slide-in">
-              En nuestros talleres descubrirás cómo entender tu historia, transformar tus emociones y diseñar un futuro consciente y próspero, en armonía contigo mismo y con el Universo.             
-              
+              En nuestros talleres descubrirás cómo entender tu historia,
+              transformar tus emociones y diseñar un futuro consciente y
+              próspero, en armonía contigo mismo y con el Universo.
             </p>
             <p className="text-slate-700 dark:text-slate-300 text-lg animate-slide-in">
-              Vive la experiencia SilenceSide Ecos y siente cómo cada encuentro, aroma o palabra se convierte en un eco de evolución.
-              
+              Vive la experiencia SilenceSide Ecos y siente cómo cada encuentro,
+              aroma o palabra se convierte en un eco de evolución.
             </p>
-           
+
             <div className="mt-6">
               <Link
                 to="/contact"
@@ -50,7 +54,7 @@ export default function Hero() {
             <div className="glass rounded-3xl p-6 md:p-8 flex flex-col items-center shadow-lg">
               <div className="">
                 <img
-                  src="images/prioridad.webp"
+                  src="/images/prioridad.webp"
                   alt="Logo de SilenceSide Ecos, símbolo de crecimiento y equilibrio"
                   className="h-24 w-24 mx-auto drop-shadow-lg transition-transform duration-300 hover:rotate-6"
                   loading="lazy"
@@ -65,7 +69,7 @@ export default function Hero() {
                 <div className="mt-2 font-semibold text-xl text-slate-700 dark:text-slate-200">
                   Descubre tu potencial, sana y crece
                 </div>
-              </div>              
+              </div>
             </div>
           </div>
         </div>
