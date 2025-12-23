@@ -136,7 +136,7 @@ export default function TalleresEcosDelSer() {
           Su objetivo fundamental es aprender desde lo personal y lo grupal,
           aquellas lecciones básicas y silenciadas, que forman parte de nuestra
           sabiduría como seres humanos y que se entrelazan con los conocimientos
-          avanzados del día de hoy.{" "}
+          avanzados del día de hoy.
         </p>
       </div>
       {espacios.map((espacio) => (
