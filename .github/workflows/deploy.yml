@@ -33,14 +33,9 @@ jobs:
       - name: Determine BASE_PATH
         id: base
         run: |
-          REPO_NAME="${{ github.event.repository.name }}"
-          OWNER_NAME="${{ github.event.repository.owner.login }}"
-          # If repo is a user/organization site (owner.github.io), base="/"
-          if [[ "$REPO_NAME" == "${OWNER_NAME}.github.io" ]]; then
-            echo "BASE_PATH=/" >> $GITHUB_ENV
-          else
-            echo "BASE_PATH=/${REPO_NAME}/" >> $GITHUB_ENV
-          fi
+          # For silenceside-ecos.github.io deployment, use base="/"
+          # This is configured for organization/custom domain deployment
+          echo "BASE_PATH=/" >> $GITHUB_ENV
           echo "Base is: ${BASE_PATH}"
 
       - name: Build
