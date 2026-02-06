@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -21,8 +21,26 @@
       // the real directory in which the app resides, for example:
       // https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
       // https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
-      // Otherwise, leave pathSegmentsToKeep as 0.
-      var pathSegmentsToKeep = 1;
+      //
+      // If instead you deploy this repository as a *user* or *organization* page
+      // (e.g. https://username.github.io/ without a repo-name segment), or behind
+      // a custom domain that points at the root of the site, then pathSegmentsToKeep
+      // MUST be set to 0 for routing to work correctly:
+      //   var pathSegmentsToKeep = 0;
+      //
+      // Note: the deployment workflow may support both project pages and user/org
+      // pages. If you switch the deployment mode to a user/org page, you must
+      // also update pathSegmentsToKeep here accordingly.
+      // If instead you deploy this repository as a *user* or *organization* page
+      // (e.g. https://username.github.io/ without a repo-name segment), or behind
+      // a custom domain that points at the root of the site, then pathSegmentsToKeep
+      // MUST be set to 0 for routing to work correctly:
+      //   var pathSegmentsToKeep = 0;
+      //
+      // Note: the deployment workflow may support both project pages and user/org
+      // pages. If you switch the deployment mode to a user/org page, you must
+      // also update pathSegmentsToKeep here accordingly.
+      var pathSegmentsToKeep = 0;
 
       var l = window.location;
       l.replace(
@@ -42,7 +60,7 @@
             .join("/")
             .replace(/&/g, "~and~") +
           (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
-          l.hash
+          l.hash,
       );
     </script>
   </head>
