@@ -15,7 +15,7 @@ import EspaciosE from "./pages/EspaciosE.jsx";
 const basename = import.meta.env.BASE_URL.replace(/\/$/, "");
 export default function App() {
   return (
-    <Router basename={basename}>
+    <Router>
       <Layout>
         <Routes>
           <Route path="/" element={<Hero />} />
