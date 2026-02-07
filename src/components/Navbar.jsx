@@ -47,7 +47,7 @@ export default function Navbar() {
         >
           {/* Company Logo */}
           <img
-            src="./favicon.png"
+            src="./silenceside-ecos-logo-transparent.png"
             alt="Silenceside-Ecos Logo"
             className="h-10 w-10"
           />

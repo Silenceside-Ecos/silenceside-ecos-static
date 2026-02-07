@@ -54,7 +54,7 @@ export default function Hero() {
             <div className="glass rounded-3xl p-6 md:p-8 flex flex-col items-center shadow-lg">
               <div className="">
                 <img
-                  src="/images/prioridad.webp"
+                  src="./images/prioridad.webp"
                   alt="Logo de SilenceSide Ecos, símbolo de crecimiento y equilibrio"
                   className="h-24 w-24 mx-auto drop-shadow-lg transition-transform duration-300 hover:rotate-6"
                   loading="lazy"

@@ -106,8 +106,8 @@ export default function TalleresEcosDelSer() {
           }}
         >
           <img
-            src="/images/ecos-del-ser.webp"
-            alt="Silenceside Ecos Logo"
+            src="./images/ecos-del-ser.webp"
+            alt="Ecos del Ser Logo"
             style={{
               height: "150px",
               width: "50%",
