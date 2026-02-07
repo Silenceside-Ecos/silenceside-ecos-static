@@ -7,7 +7,7 @@ const BRAND = {
 
 const goals = [
   {
-    imagen: "/images/ecos-del-ser.webp",
+    imagen: "./images/ecos-del-ser.webp",
     title: "Ecos del Ser",
     text: "Es una propuesta de Espacios_e para el conocimiento y entendimiento de los Saberes Integrados que constituyen la base del sostenimiento del Bienestar del Ser.",
     bg: "bg-teal-50 dark:bg-teal-900/40",

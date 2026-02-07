@@ -8,7 +8,7 @@ import FAQ from "./components/FAQ.jsx";
 import CTA from "./components/CTA.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/common/Layout.jsx";
 import TalleresEcosDelSer from "./pages/TalleresEcosDelSer.jsx";
 import EspaciosE from "./pages/EspaciosE.jsx";
