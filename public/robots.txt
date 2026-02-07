@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://silenceside-ecos.github.io/silenceside-ecos-static/sitemap.xml
