@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { getStaticEspaciosE } from "../services/EspaciosEService";
+import { Helmet } from "react-helmet";
 
 function Accordion({ title, children, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
