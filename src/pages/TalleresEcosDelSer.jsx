@@ -4,29 +4,35 @@ import { getStaticEspaciosE } from "../services/EspaciosEService";
 function Accordion({ title, children, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
-    <div className="mb-6 rounded-xl border border-sky-200 dark:border-sky-900 bg-gradient-to-br from-white via-sky-50 to-cyan-50 dark:from-slate-950 dark:via-sky-950 dark:to-cyan-900 shadow-lg transition-all">
-      <button
-        className="w-full flex justify-between items-center px-6 py-4 font-semibold text-lg text-sky-900 dark:text-sky-200 bg-transparent hover:bg-sky-100 dark:hover:bg-sky-900 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-      >
-        <span>{title}</span>
-        <span className="ml-2 text-2xl transition-transform duration-300">
-          {open ? "−" : "+"}
-        </span>
-      </button>
-      <div
-        className={`overflow-hidden transition-all duration-300 ${
-          open ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        {open && (
-          <div className="px-6 pb-6 pt-2 text-slate-700 dark:text-slate-200">
-            {children}
-          </div>
-        )}
+    <>
+      <Helmet>
+        <link
+          rel="canonical"
+          href="https://silenceside-ecos.github.io/silenceside-ecos-static/"
+        />
+      </Helmet>
+      <div className="mb-6 rounded-xl border border-sky-200 dark:border-sky-900 bg-gradient-to-br from-white via-sky-50 to-cyan-50 dark:from-slate-950 dark:via-sky-950 dark:to-cyan-900 shadow-lg transition-all">
+        <button
+          className="w-full flex justify-between items-center px-6 py-4 font-semibold text-lg text-sky-900 dark:text-sky-200 bg-transparent hover:bg-sky-100 dark:hover:bg-sky-900 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+        >
+          <span>{title}</span>
+          <span className="ml-2 text-2xl transition-transform duration-300">
+            {open ? "−" : "+"}
+          </span>
+        </button>
+        <div
+          className={`overflow-hidden transition-all duration-300 ${open ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}`}
+        >
+          {open && (
+            <div className="px-6 pb-6 pt-2 text-slate-700 dark:text-slate-200">
+              {children}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
