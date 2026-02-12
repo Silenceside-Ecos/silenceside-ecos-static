@@ -7,10 +7,7 @@ function Accordion({ title, children, defaultOpen = false }) {
   return (
     <>
       <Helmet>
-        <link
-          rel="canonical"
-          href="https://silenceside-ecos.github.io/silenceside-ecos-static/"
-        />
+        <link rel="canonical" href="https://silencesideecos.com" />
       </Helmet>
       <div className="mb-6 rounded-xl border border-sky-200 dark:border-sky-900 bg-gradient-to-br from-white via-sky-50 to-cyan-50 dark:from-slate-950 dark:via-sky-950 dark:to-cyan-900 shadow-lg transition-all">
         <button

@@ -12,10 +12,7 @@ export default function Hero() {
   return (
     <>
       <Helmet>
-        <link
-          rel="canonical"
-          href="https://silenceside-ecos.github.io/silenceside-ecos-static/"
-        />
+        <link rel="canonical" href="https://silencesideecos.com" />
       </Helmet>
       <section
         className="relative overflow-hidden bg-gradient-to-br from-cyan-50 via-sky-100 to-blue-100 dark:from-cyan-900 dark:via-sky-950 dark:to-blue-950"
