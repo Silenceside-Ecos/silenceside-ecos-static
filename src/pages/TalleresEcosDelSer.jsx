@@ -6,9 +6,6 @@ function Accordion({ title, children, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
     <>
-      <Helmet>
-        <link rel="canonical" href="https://silencesideecos.com" />
-      </Helmet>
       <div className="mb-6 rounded-xl border border-sky-200 dark:border-sky-900 bg-gradient-to-br from-white via-sky-50 to-cyan-50 dark:from-slate-950 dark:via-sky-950 dark:to-cyan-900 shadow-lg transition-all">
         <button
           className="w-full flex justify-between items-center px-6 py-4 font-semibold text-lg text-sky-900 dark:text-sky-200 bg-transparent hover:bg-sky-100 dark:hover:bg-sky-900 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400"
@@ -99,7 +96,11 @@ export default function TalleresEcosDelSer() {
   }, []);
 
   return (
-    <main className="container mx-auto py-12 px-4 max-w-3xl">
+    <>
+      <Helmet>
+        <link rel="canonical" href="https://silencesideecos.com" />
+      </Helmet>
+      <main className="container mx-auto py-12 px-4 max-w-3xl">
       <div className="mb-10 text-center">
         <div
           style={{
@@ -149,5 +150,6 @@ export default function TalleresEcosDelSer() {
         </section>
       ))}
     </main>
+    </>
   );
 }
