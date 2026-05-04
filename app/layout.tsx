@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Cinzel, Cormorant_Garamond } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const cinzel = Cinzel({ 
@@ -47,7 +46,6 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${cinzel.variable} ${cormorant.variable} font-sans antialiased`}>
         {children}
-        <Analytics />
       </body>
     </html>
   )
