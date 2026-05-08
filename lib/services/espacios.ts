@@ -1,14 +1,8 @@
-import type {
-  Eco,
-  Program,
-  InformacionEcosSer,
-  FormacionEcosSer,
-  InformacionEcosAromas,
-  FormacionEcosAromas,
-} from "@/lib/types/espacios";
+import type { Eco, Program } from "@/lib/types/espacios";
 
 export const ecos: Eco[] = [
   {
+    kind: "ser",
     id: "ecos-del-ser",
     title: "Ecos del Ser",
     description:
@@ -29,8 +23,15 @@ export const ecos: Eco[] = [
       "kit-transformacion-2",
       "kit-reconexion-sublime",
     ],
+    get informacion() {
+      return informacionEcosDelSer;
+    },
+    get formacion() {
+      return formacionEcosSer;
+    },
   },
   {
+    kind: "aromas",
     id: "ecos-de-los-aromas",
     title: "Ecos de los Aromas",
     description:
@@ -48,8 +49,15 @@ export const ecos: Eco[] = [
       "kit-sanacion-emocional",
       "kit-claridad-elevacion",
     ],
+    get informacion() {
+      return informacionEcosAromas;
+    },
+    get formacion() {
+      return formacionEcosAromas;
+    },
   },
   {
+    kind: "sonido",
     id: "ecos-del-sonido",
     title: "Ecos del Sonido",
     description:
@@ -87,7 +95,7 @@ export const programs: Program[] = [
   },
 ];
 
-export const informacionEcosDelSer: InformacionEcosSer = {
+const informacionEcosDelSer = {
   queEs: {
     title: "¿Qué es Ecos del Ser?",
     intro: "Una propuesta de Silenceside Ecos",
@@ -209,7 +217,7 @@ export const informacionEcosDelSer: InformacionEcosSer = {
   },
 };
 
-export const formacionEcosSer: FormacionEcosSer = {
+const formacionEcosSer = {
   niveles: [
     {
       title: "Nivel 1: Lo que el cuerpo calla",
@@ -500,7 +508,7 @@ export const formacionEcosSer: FormacionEcosSer = {
   ],
 };
 
-export const informacionEcosAromas: InformacionEcosAromas = {
+const informacionEcosAromas = {
   queEs: {
     title: "¿Qué es Ecos de los Aromas?",
     descripcion:
@@ -520,8 +528,8 @@ export const informacionEcosAromas: InformacionEcosAromas = {
     "Ceras aromáticas derretibles (wax melts)",
     "Velas decorativas",
   ],
-  catalogoVelas: {
-    coleccionDespertar: {
+  catalogoVelas: [
+    {
       nombre: "Colección Despertar",
       descripcion:
         "Velas en contenedores de cristal, seguras y fáciles de transportar. Se conservan mejor y su aroma se mantiene intacto. Cada vez que son prendidas, su aroma resulta como la primera vez.",
@@ -662,7 +670,7 @@ export const informacionEcosAromas: InformacionEcosAromas = {
         },
       ],
     },
-    coleccionChispas: {
+    {
       nombre: "Colección Regalos Chispas de Luz",
       descripcion:
         "Ideal para aromaterapia y ambientación del hogar. Aportan fragancias agradables, sensación de calma y un toque decorativo único.",
@@ -716,7 +724,7 @@ export const informacionEcosAromas: InformacionEcosAromas = {
         },
       ],
     },
-    coleccionEnergia: {
+    {
       nombre: "Colección Energía Interior",
       descripcion:
         "Velas decorativas que sugieren con su forma y color la definición de una intención. Cada representación activa en tu memoria un mensaje silente que pulsa por salir a la luz.",
@@ -806,7 +814,7 @@ export const informacionEcosAromas: InformacionEcosAromas = {
         },
       ],
     },
-    coleccionEstadosDelAlma: {
+    {
       nombre: "Colección Estados del Alma",
       descripcion:
         "Una colección de velas inspirada en las emociones y procesos del ser. Cada pieza representa un estado del alma, invitándote a reconectar contigo y crear espacios llenos de intención.",
@@ -914,7 +922,7 @@ export const informacionEcosAromas: InformacionEcosAromas = {
         },
       ],
     },
-  },
+  ],
   infoInteresante: {
     sabias: [
       {
@@ -947,7 +955,7 @@ export const informacionEcosAromas: InformacionEcosAromas = {
   },
 };
 
-export const formacionEcosAromas: FormacionEcosAromas = {
+const formacionEcosAromas = {
   intro:
     "Los talleres Ecos de los aromas le guiarán por dos caminos: Crear aromas combinados (ambientales y corporales), cada uno inspirado en el cambio que estas puedan producir en el estado que produce una emoción silenciada. Diseñar velas con la base de los aromas creados alineados con la identidad de Silenceside Ecos. Estos talleres se impartirán en la modalidad online y se ofertarán los materiales para su estudio y experimentación creativa.",
   talleres: [
