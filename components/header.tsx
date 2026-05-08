@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 
@@ -70,16 +71,23 @@ export function Header() {
                       onMouseLeave={() => setOpenSubmenu(null)}
                     >
                       {item.submenu.map((subitem) => (
-                        <a
+                        <Link
                           key={subitem.label}
                           href={subitem.href}
                           className="block px-4 py-2 font-sans text-sm text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors"
                         >
                           {subitem.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </>
+                ) : item.href.startsWith("/") ? (
+                  <Link
+                    href={item.href}
+                    className="font-sans text-sm tracking-wide text-muted-foreground hover:text-primary transition-colors duration-300"
+                  >
+                    {item.label}
+                  </Link>
                 ) : (
                   <a
                     href={item.href}
@@ -121,17 +129,25 @@ export function Header() {
                       </span>
                       <div className="pl-4 space-y-2">
                         {item.submenu.map((subitem) => (
-                          <a
+                          <Link
                             key={subitem.label}
                             href={subitem.href}
                             onClick={() => setIsOpen(false)}
                             className="font-sans text-sm tracking-wide text-muted-foreground hover:text-primary transition-colors duration-300 py-1 block"
                           >
                             {subitem.label}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
+                  ) : item.href.startsWith("/") ? (
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="font-sans text-base tracking-wide text-muted-foreground hover:text-primary transition-colors duration-300 py-2 block"
+                    >
+                      {item.label}
+                    </Link>
                   ) : (
                     <a
                       href={item.href}
