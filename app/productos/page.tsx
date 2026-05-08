@@ -148,7 +148,7 @@ export default function ProductosPage() {
                     </p>
                     <div className="mt-6">
                       <span className="font-serif text-2xl text-primary">
-                        {`€${product.price.toFixed(2)}`}
+                        {`$${product.price.toFixed(2)}`}
                       </span>
                     </div>
                     <Link
@@ -223,7 +223,7 @@ export default function ProductosPage() {
                 </p>
                 <div className="mt-4 flex items-center justify-between">
                   <span className="font-serif text-lg text-primary">
-                    {`€${vela.price.toFixed(2)}`}
+                    {`$${vela.price.toFixed(2)}`}
                   </span>
                   <Link
                     href="/#contact"
@@ -286,7 +286,7 @@ export default function ProductosPage() {
                 </p>
                 <div className="mt-3 flex items-center justify-between">
                   <span className="font-serif text-base text-primary">
-                    {`€${vela.price.toFixed(2)}`}
+                    {`$${vela.price.toFixed(2)}`}
                   </span>
                   <Link
                     href="/#contact"
@@ -350,7 +350,7 @@ export default function ProductosPage() {
                 </p>
                 <div className="mt-3 flex items-center justify-between">
                   <span className="font-serif text-base text-primary">
-                    {`€${vela.price.toFixed(2)}`}
+                    {`$${vela.price.toFixed(2)}`}
                   </span>
                   <Link
                     href="/#contact"
@@ -415,7 +415,7 @@ export default function ProductosPage() {
                         className="text-primary/50 shrink-0 mt-0.5"
                       />
                       <span className="font-serif text-base text-primary">
-                        {`€${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
+                        {`$${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
                       </span>
                     </div>
                     <h3 className="font-serif text-sm tracking-[0.05em] text-foreground uppercase leading-tight">
@@ -464,7 +464,7 @@ export default function ProductosPage() {
                         className="text-primary/50 shrink-0 mt-0.5"
                       />
                       <span className="font-serif text-base text-primary">
-                        {`€${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
+                        {`$${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
                       </span>
                     </div>
                     <h3 className="font-serif text-sm tracking-[0.05em] text-foreground uppercase leading-tight">
@@ -552,7 +552,7 @@ export default function ProductosPage() {
                     </p>
                     <div className="mt-4 flex items-center justify-between">
                       <span className="font-serif text-xl text-primary">
-                        {`€${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
+                        {`$${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
                       </span>
                       <Link
                         href="/#contact"
@@ -624,7 +624,7 @@ export default function ProductosPage() {
                 </p>
                 <div className="mt-4 flex items-center justify-between">
                   <span className="font-serif text-lg text-primary">
-                    {`€${product.price.toFixed(2)}`}
+                    {`$${product.price.toFixed(2)}`}
                   </span>
                   <Link
                     href="/#contact"

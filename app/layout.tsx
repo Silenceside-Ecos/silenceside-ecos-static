@@ -18,23 +18,23 @@ export const metadata: Metadata = {
   title: "Silenceside Ecos | Bienestar Emocional y Crecimiento Personal",
   description:
     "El lado del silencio donde nacen los ecos del alma. Descubre el desarrollo de la conciencia integrada a través de servicios holísticos, espacios educativos y experiencias transformadoras.",
-  generator: "v0.app",
+  generator: "",
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
+        url: "/logo_black.png",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/icon-dark-32x32.png",
+        url: "/logo_black.png",
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/icon.svg",
+        url: "/logo_black.png",
         type: "image/svg+xml",
       },
     ],
-    apple: "/apple-icon.png",
+    apple: "/logo_black.png",
   },
 };
 

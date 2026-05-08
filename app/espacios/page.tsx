@@ -365,7 +365,7 @@ export default function EspaciosPage() {
                 {kit.title}
               </Link>
               <span className="text-xs text-primary font-medium">
-                {`€${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
+                {`$${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
               </span>
             </div>
             <ChevronDown
