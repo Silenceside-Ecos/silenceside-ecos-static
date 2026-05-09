@@ -510,7 +510,7 @@ export default function EspaciosPage() {
               >
                 <summary className="flex items-center justify-between p-3 cursor-pointer hover:bg-primary/5 transition-colors">
                   <span className="font-medium text-sm text-foreground">
-                    {vela.nombre}
+                    {vela.title}
                   </span>
                   <ChevronDown
                     size={12}
@@ -518,7 +518,7 @@ export default function EspaciosPage() {
                   />
                 </summary>
                 <div className="p-4 pt-2 space-y-3 text-sm text-foreground">
-                  <p>{vela.descripcion}</p>
+                  <p>{vela.description}</p>
 
                   {vela.aceites && (
                     <div className="bg-secondary/20 p-3">

@@ -216,7 +216,8 @@ export default function ProductosPage() {
                   {vela.description}
                 </p>
                 <p className="mt-2 font-sans text-xs text-primary/70">
-                  <strong>Aceites:</strong> {vela.aceites}
+                  <strong>Aceites:</strong>{" "}
+                  {vela.aceites.map((a) => a.nombre).join(", ")}
                 </p>
                 <p className="mt-1 font-sans text-xs text-muted-foreground italic">
                   {vela.intencion}

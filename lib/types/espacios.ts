@@ -45,10 +45,7 @@ export interface Program {
 
 // ─── Shared ───────────────────────────────────────────────────────────────────
 
-export interface Aceite {
-  nombre: string;
-  funcion: string;
-}
+export type { Aceite } from "@/lib/types/productos";
 
 // ─── Ecos del Ser ─────────────────────────────────────────────────────────────
 
@@ -131,19 +128,13 @@ export interface FormacionEcosSer {
 
 // ─── Ecos de los Aromas ───────────────────────────────────────────────────────
 
-export interface Vela {
-  nombre: string;
-  descripcion: string;
-  aceites?: Aceite[];
-  variantes?: string[];
-  intencion: string;
-  chakras?: string;
-}
+import type { VelaProduct, VelaCollection } from "@/lib/types/productos";
 
 export interface ColeccionVelas {
+  collection: VelaCollection;
   nombre: string;
   descripcion: string;
-  velas: Vela[];
+  velas: VelaProduct[];
 }
 
 export interface QueEsEcosAromas {
