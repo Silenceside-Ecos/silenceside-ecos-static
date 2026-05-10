@@ -5,6 +5,7 @@ export type ProductCategory = "libro" | "vela" | "guia" | "kit";
 export type VelaCollection = "despertar" | "chispas" | "energia";
 
 export interface Aceite {
+  id: string;
   nombre: string;
   funcion: string;
 }
@@ -26,7 +27,7 @@ export interface LibroProduct extends BaseProduct {
 export interface VelaProduct extends BaseProduct {
   collection: VelaCollection;
   format: string;
-  aceites: Aceite[];
+  aceites: string[];
   chakras: string;
   intencion: string;
   variantes?: string[];

@@ -1,5 +1,4 @@
 import type {
-  Aceite,
   LibroProduct,
   VelaProduct,
   GuiaProduct,
@@ -318,22 +317,10 @@ export const velasDespertar: VelaProduct[] = [
     description:
       "Una vela creada para invitarte a hacer una pausa y mirar hacia tu interior. Te recuerda la importancia de conectar con tu verdadera esencia, sin filtros ni máscaras.",
     aceites: [
-      {
-        nombre: "Magnolia + Peonía",
-        funcion:
-          "Representa el Corazón y la Autoestima. Activa C4 y C7. Trabajan el amor propio y la dulzura.",
-      },
-      {
-        nombre: "Algodón Limpio",
-        funcion:
-          "Representa el Entorno y El Reinicio. Activa C7. Limpieza emocional, paz y pureza.",
-      },
-      {
-        nombre: "Bergamota",
-        funcion:
-          "Representa el Impulso de Alegría. Activa C3 y C4. Eleva el ánimo de forma inmediata.",
-      },
-    ] satisfies Aceite[],
+      "aceite-magnolia-peonia",
+      "aceite-algodon-limpio",
+      "aceite-bergamota",
+    ],
     chakras: "C3, C4, C7",
     intencion:
       "Para momentos de frustración, culpa, vergüenza, desamor. Trabaja armonizando los sentimientos básicos, induciendo confianza, seguridad y alegría.",
@@ -349,22 +336,10 @@ export const velasDespertar: VelaProduct[] = [
     description:
       "Una vela que evoca poder, profundidad y magnetismo. Simboliza el paso hacia un nuevo nivel en tu vida, recordándote la seguridad y la fortaleza que habitan en ti.",
     aceites: [
-      {
-        nombre: "Ámbar Egipcio",
-        funcion:
-          "Base de seguridad. Activa C4, C2 y C1. Contención emocional, efecto abrazo.",
-      },
-      {
-        nombre: "Magnolia + Peonía",
-        funcion:
-          "Corazón y Autoestima. Activa C4. Sana heridas en las relaciones.",
-      },
-      {
-        nombre: "Whiskey",
-        funcion:
-          "Representa el impulso. Activa C3. Rompe lo tradicional, nota de Autenticidad.",
-      },
-    ] satisfies Aceite[],
+      "aceite-ambar-egipcio",
+      "aceite-magnolia-peonia",
+      "aceite-whiskey",
+    ],
     chakras: "C1, C2, C3, C4",
     intencion:
       "Se enfoca en la sanación profunda y el poder personal. Induce confianza, autenticidad, seguridad y fuerza.",
@@ -380,30 +355,12 @@ export const velasDespertar: VelaProduct[] = [
     description:
       "Trabaja con el amor propio, el amor de pareja, el duelo y el cambio. El Ámbar y el Sándalo te sostienen, la Rosa y el Lirio blanco te cuidan, el Eucalipto y el Azahar te liberan.",
     aceites: [
-      {
-        nombre: "Ámbar Egipcio",
-        funcion: "Base de seguridad. Activa C4, C2, C1. Contención emocional.",
-      },
-      {
-        nombre: "Rosa y Oud",
-        funcion:
-          "Corazón Sanador. Activa C4 y C7 (Rosa), C1 (Oud). Sanación emocional profunda.",
-      },
-      {
-        nombre: "Eucalipto Blanco",
-        funcion:
-          "Claridad Mental. Activa C7, C5, C1, C4. Libera lo no expresado.",
-      },
-      {
-        nombre: "Sándalo y Lirio Blanco",
-        funcion: "Estructura y lujo. Activa C7 y C1. Paz espiritual profunda.",
-      },
-      {
-        nombre: "Azahar",
-        funcion:
-          "Luz y Optimismo. Activa C4 y C2. Combate tristeza y ansiedad.",
-      },
-    ] satisfies Aceite[],
+      "aceite-ambar-egipcio",
+      "aceite-rosa-oud",
+      "aceite-eucalipto-blanco",
+      "aceite-sandalo-lirio-blanco",
+      "aceite-azahar",
+    ],
     chakras: "C1, C2, C4, C5, C7",
     intencion:
       "Para la soledad, la duda, la confusión, el desánimo y la incertidumbre. Su lema: Soy mi esencia interior.",
@@ -419,22 +376,10 @@ export const velasDespertar: VelaProduct[] = [
     description:
       "Una vela que transmite claridad, elevación y calma. Representa la versión más elevada del Ser, el Humano Celeste. Ilumina los espacios interiores con una energía suave y equilibrada.",
     aceites: [
-      {
-        nombre: "Lirio de Agua / Nenúfar",
-        funcion:
-          "Pureza y renovación. Activa C2, C7, C4. Limpia el ruido mental.",
-      },
-      {
-        nombre: "Madera Caribeña",
-        funcion:
-          "Tierra y calidez. Activa C1 y C4. Carácter acogedor y sólido.",
-      },
-      {
-        nombre: "Selenita Glow",
-        funcion:
-          "Intención espiritual. Activa C7 y C6. Claridad mental y limpieza energética.",
-      },
-    ] satisfies Aceite[],
+      "aceite-lirio-agua",
+      "aceite-madera-caribena",
+      "aceite-selenita-glow",
+    ],
     chakras: "C1, C4, C6, C7",
     intencion:
       "Para la soledad, inseguridad, desconcierto, impureza. Su lema: Soy claro. Calmo y elevado, soy humano Celeste.",
@@ -449,7 +394,7 @@ export const velasDespertar: VelaProduct[] = [
     price: 52,
     description:
       "Un dúo que representa el equilibrio entre lo terrenal y lo espiritual. Incluye Umbral de Ámbar (Humano Divino) y Lumen Serena (Humano Celeste).",
-    aceites: [] satisfies Aceite[],
+    aceites: [],
     chakras: "C1, C2, C3, C4, C6, C7",
     intencion:
       "Para reconocer quién eres en tu esencia: una luz interior que avanza hacia su mejor versión.",
@@ -464,7 +409,7 @@ export const velasDespertar: VelaProduct[] = [
     price: 56,
     description:
       "Conformado por Encuentra tu luz y Umbral de amor interno. Diseñado para activar la transformación profunda e inmediata, la conexión con tu fuerza interior y la Libertad sin límites.",
-    aceites: [] satisfies Aceite[],
+    aceites: [],
     chakras: "C1, C2, C3, C4, C5, C7",
     intencion:
       "Ideal para comprender el verdadero sentido de la soledad, la gratitud, la aceptación y la Paz.",
@@ -479,7 +424,7 @@ export const velasDespertar: VelaProduct[] = [
     price: 99,
     description:
       "Trabaja al unísono para activar los distintos niveles de conciencia: Nivel 1 (Encuentra tu Luz - Reset), Nivel 2 (Umbral de Ámbar - Empoderamiento), Nivel 3 (Amor Interno - Compasión), Nivel 4 (Lumen Serena - Paz Absoluta).",
-    aceites: [] satisfies Aceite[],
+    aceites: [],
     chakras: "Todos los chakras",
     intencion:
       "Guiarte por el camino del proceso interno: Limpio mi mente, Fortalezco mi voluntad, Abro mi corazón, Elevo mi espíritu.",
@@ -500,25 +445,12 @@ export const velasChispas: VelaProduct[] = [
     description:
       "Una fragancia diseñada para inspirar claridad, elegancia y confianza. Sin humo, sin llama—solo luz hecha aroma.",
     aceites: [
-      {
-        nombre: "Selenita Glow",
-        funcion: "Claridad mental y limpieza energética. Activa C7 y C6.",
-      },
-      {
-        nombre: "Lavanda",
-        funcion:
-          "Relajación profunda. Activa C6 y C7. Reduce estrés y ansiedad.",
-      },
-      { nombre: "Bergamota", funcion: "Impulso de Alegría. Activa C3 y C4." },
-      {
-        nombre: "Lirio de Agua",
-        funcion: "Pureza y renovación. Activa C2, C7, C4.",
-      },
-      {
-        nombre: "Magnolia + Peonía",
-        funcion: "Corazón y Autoestima. Activa C4 y C7.",
-      },
-    ] satisfies Aceite[],
+      "aceite-selenita-glow",
+      "aceite-lavanda",
+      "aceite-bergamota",
+      "aceite-lirio-agua",
+      "aceite-magnolia-peonia",
+    ],
     chakras: "C2, C3, C4, C6, C7",
     intencion: "Su lema: Salto, cambio, trasmuto.",
     featured: false,
@@ -532,7 +464,7 @@ export const velasChispas: VelaProduct[] = [
     price: 15,
     description:
       "Su forma trae a la conciencia el retorno al origen, favoreciendo el silencio interior, la calma y la gestación de algo nuevo.",
-    aceites: [] satisfies Aceite[],
+    aceites: [],
     chakras: "Varios",
     intencion:
       "Para mesas de centro, rincones de descanso, baños, dormitorios.",
@@ -547,12 +479,7 @@ export const velasChispas: VelaProduct[] = [
     price: 15,
     description:
       "Simboliza el amor en todas sus expresiones: amor propio, familiar, de pareja y universal. Ideal para regalos significativos.",
-    aceites: [
-      {
-        nombre: "Rosa + Oud suave",
-        funcion: "Profundidad y transformación con amor propio.",
-      },
-    ] satisfies Aceite[],
+    aceites: ["aceite-rosa-oud"],
     chakras: "C4",
     intencion:
       "Activar la energía del amor, fortalecer relaciones y abrir el corazón a nuevas experiencias.",
@@ -567,7 +494,7 @@ export const velasChispas: VelaProduct[] = [
     price: 15,
     description:
       "La Margarita simboliza luz, pureza y nuevos comienzos. Transmite renovación luminosa, resiliencia y confianza.",
-    aceites: [] satisfies Aceite[],
+    aceites: [],
     chakras: "C4, C7",
     intencion: "Siempre vuelve a salir el sol dentro de ti.",
     featured: false,
@@ -581,7 +508,7 @@ export const velasChispas: VelaProduct[] = [
     price: 15,
     description:
       "Recuerda que la vida humana acciona en forma de ciclos completos. Aportan plenitud, armonía y creatividad.",
-    aceites: [] satisfies Aceite[],
+    aceites: [],
     chakras: "C1, C2, C3, C5, C7",
     intencion: "La gratitud convierte lo simple en luz.",
     featured: false,
@@ -600,7 +527,7 @@ export const velasEnergia: VelaProduct[] = [
     price: 22,
     description:
       "Trae a tu memoria el mensaje del fin y el comienzo de algo nuevo. Implica movimiento, desapego, liberación y abundancia.",
-    aceites: [] satisfies Aceite[],
+    aceites: [],
     chakras: "C1, C3, C4, C7",
     intencion:
       "Propicia abundancia, éxito, movimiento, liberación y desapego. Ideal para entradas.",
@@ -615,7 +542,7 @@ export const velasEnergia: VelaProduct[] = [
     price: 22,
     description:
       "Trae a tu memoria las vueltas que da la vida, te ayuda a enfocarte a salir del laberinto.",
-    aceites: [] satisfies Aceite[],
+    aceites: [],
     chakras: "C4, C7",
     intencion:
       "Su lema: Soy calmo y me encuentro. Ideal para espacios de estudio.",
@@ -624,22 +551,13 @@ export const velasEnergia: VelaProduct[] = [
   {
     id: "vela-equilibrio",
     title: "Equilibrio (Yin Yang)",
-    category: "Vela Decorativa",
+    category: "Set de Velas",
     collection: "energia",
-    format: "Vela Decorativa",
+    format: "Set de Velas",
     price: 24,
     description:
       "Recuerda la ley del Tao, la necesidad de vivir en armonía con el todo. Enfatiza la introspección para el reencuentro con tu armonía interior.",
-    aceites: [
-      {
-        nombre: "Lado Yin: Rosa + Oud",
-        funcion: "Amor profundo y fuerte que yace en ti.",
-      },
-      {
-        nombre: "Lado Yang: Canela + Vainilla",
-        funcion: "Contención y fortaleza emocional.",
-      },
-    ] satisfies Aceite[],
+    aceites: [],
     chakras: "C1, C2, C4",
     intencion:
       "Su lema: Mantengo mi centro. Ideal para repisas, mesitas, escritorios.",
@@ -655,21 +573,11 @@ export const velasEnergia: VelaProduct[] = [
     description:
       "Te recuerda que la vida puede tener retos como los laberintos, pero también te enseña que se puede tener la fuerza y visión para liberarnos.",
     aceites: [
-      {
-        nombre: "Bamboo de Himalaya",
-        funcion:
-          "Crecimiento personal, amor propio, equilibrio. Activa C4 y C7.",
-      },
-      { nombre: "Bergamota", funcion: "Claridad y optimismo. Activa C3 y C4." },
-      {
-        nombre: "Lavanda",
-        funcion: "Serenidad mental, equilibrio emocional. Activa C6 y C7.",
-      },
-      {
-        nombre: "Eucalipto blanco",
-        funcion: "Claridad, expansión y liberación. Activa C5 y C4.",
-      },
-    ] satisfies Aceite[],
+      "aceite-bamboo-himalaya",
+      "aceite-bergamota",
+      "aceite-lavanda",
+      "aceite-eucalipto-blanco",
+    ],
     chakras: "C3, C4, C5, C6, C7",
     intencion:
       "Crecimiento personal, amor propio, equilibrio interior, claridad y liberación.",
@@ -684,10 +592,45 @@ export const velasEnergia: VelaProduct[] = [
     price: 22,
     description:
       "La forma hexagonal trae a la memoria uno de los sólidos platónicos. El centro hueco donde nace la llama es el espacio interior donde vive tu luz personal.",
-    aceites: [] satisfies Aceite[],
+    aceites: [],
     chakras: "C1, C4, C7",
     intencion:
       "La calma comienza cuando vuelves a tu centro. Ideal para mesitas de noche y sitios de trabajo.",
+    featured: false,
+  },
+];
+
+// ─── Velas: Componentes internos (no listados en tienda) ─────────────────────
+// Component candles that belong to a set product. Price: 0 is a sentinel.
+// Not included in allVelas or allProducts — importable separately for fulfillment.
+
+export const velasComponentes: VelaProduct[] = [
+  {
+    id: "vela-lado-yin",
+    title: "Lado Yin",
+    category: "Vela Decorativa",
+    collection: "energia",
+    format: "Vela Decorativa",
+    price: 0,
+    description:
+      "Mitad Yin del set Equilibrio. Evoca el amor profundo y la fuerza interior que yace en ti.",
+    aceites: ["aceite-rosa-oud"],
+    chakras: "C1, C4, C7",
+    intencion: "Amor profundo y fuerte que yace en ti.",
+    featured: false,
+  },
+  {
+    id: "vela-lado-yang",
+    title: "Lado Yang",
+    category: "Vela Decorativa",
+    collection: "energia",
+    format: "Vela Decorativa",
+    price: 0,
+    description:
+      "Mitad Yang del set Equilibrio. Aporta contención y fortaleza emocional.",
+    aceites: ["aceite-canela-vainilla"],
+    chakras: "C1, C2",
+    intencion: "Contención y fortaleza emocional.",
     featured: false,
   },
 ];

@@ -19,6 +19,7 @@ import {
   guias,
   allProducts,
 } from "@/lib/services/productos";
+import { allAceites } from "@/lib/services/aceites";
 import { ecos } from "@/lib/services/espacios";
 import type { KitProduct } from "@/lib/types/productos";
 
@@ -217,7 +218,11 @@ export default function ProductosPage() {
                 </p>
                 <p className="mt-2 font-sans text-xs text-primary/70">
                   <strong>Aceites:</strong>{" "}
-                  {vela.aceites.map((a) => a.nombre).join(", ")}
+                  {vela.aceites
+                    .map(
+                      (id) => allAceites.find((a) => a.id === id)?.nombre ?? id,
+                    )
+                    .join(", ")}
                 </p>
                 <p className="mt-1 font-sans text-xs text-muted-foreground italic">
                   {vela.intencion}
