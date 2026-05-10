@@ -14,6 +14,7 @@ import type {
   FormacionEcosAromas,
 } from "@/lib/types/espacios";
 import { allProducts } from "@/lib/services/productos";
+import { allAceites } from "@/lib/services/aceites";
 import type { KitProduct, VelaProduct } from "@/lib/types/productos";
 
 export default function EspaciosPage() {
@@ -526,14 +527,18 @@ export default function EspaciosPage() {
                         Aceites esenciales:
                       </p>
                       <div className="space-y-2">
-                        {vela.aceites.map((aceite, j) => (
-                          <div key={j} className="text-xs">
-                            <span className="font-medium text-primary">
-                              {aceite.nombre}:
-                            </span>{" "}
-                            <span>{aceite.funcion}</span>
-                          </div>
-                        ))}
+                        {vela.aceites.map((id, j) => {
+                          const aceite = allAceites.find((a) => a.id === id);
+                          if (!aceite) return null;
+                          return (
+                            <div key={j} className="text-xs">
+                              <span className="font-medium text-primary">
+                                {aceite.nombre}:
+                              </span>{" "}
+                              <span>{aceite.funcion}</span>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
                   )}
