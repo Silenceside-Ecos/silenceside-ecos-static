@@ -218,12 +218,14 @@ export default function ProductosPage() {
                 <p className="mt-2 font-sans text-xs text-muted-foreground line-clamp-3">
                   {vela.description}
                 </p>
-                <p className="mt-2 font-sans text-xs text-primary/70">
-                  <strong>Aceites:</strong>{" "}
-                  {vela.aceites
-                    .map((id) => aceitesMap.get(id) ?? id)
-                    .join(", ")}
-                </p>
+                {vela.aceites.length > 0 && (
+                  <p className="mt-2 font-sans text-xs text-primary/70">
+                    <strong>Aceites:</strong>{" "}
+                    {vela.aceites
+                      .map((id) => aceitesMap.get(id) ?? id)
+                      .join(", ")}
+                  </p>
+                )}
                 <p className="mt-1 font-sans text-xs text-muted-foreground italic">
                   {vela.intencion}
                 </p>
