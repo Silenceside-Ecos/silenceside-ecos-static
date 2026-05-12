@@ -17,6 +17,8 @@ import { allProducts } from "@/lib/services/productos";
 import { allAceites } from "@/lib/services/aceites";
 import type { KitProduct, VelaProduct } from "@/lib/types/productos";
 
+const aceitesMap = new Map(allAceites.map((a) => [a.id, a]));
+
 export default function EspaciosPage() {
   const [expandedFeature, setExpandedFeature] = useState<string | null>(null);
 
@@ -521,14 +523,14 @@ export default function EspaciosPage() {
                 <div className="p-4 pt-2 space-y-3 text-sm text-foreground">
                   <p>{vela.description}</p>
 
-                  {vela.aceites && (
+                  {vela.aceites.length > 0 && (
                     <div className="bg-secondary/20 p-3">
                       <p className="font-medium text-xs mb-2">
                         Aceites esenciales:
                       </p>
                       <div className="space-y-2">
                         {vela.aceites.map((id, j) => {
-                          const aceite = allAceites.find((a) => a.id === id);
+                          const aceite = aceitesMap.get(id);
                           if (!aceite) return null;
                           return (
                             <div key={j} className="text-xs">
