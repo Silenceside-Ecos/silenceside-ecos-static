@@ -1,4 +1,4 @@
-﻿import type { Eco, Program } from "@/lib/types/espacios";
+import type { Eco, Program } from "@/lib/types/espacios";
 import {
   velasDespertar,
   velasChispas,

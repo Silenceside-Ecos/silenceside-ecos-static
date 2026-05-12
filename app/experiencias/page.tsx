@@ -1,4 +1,4 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
 import { PageHeader } from "@/components/page-header";
 import { PageFooter } from "@/components/page-footer";
 import {

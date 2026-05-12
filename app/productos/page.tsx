@@ -29,6 +29,8 @@ export const metadata: Metadata = {
     "Libros, guías, cuadernos de trabajo, velas aromáticas y materiales didácticos elaborados con intención para tu viaje hacia la sabiduría interior.",
 };
 
+const aceitesMap = new Map(allAceites.map((a) => [a.id, a.nombre]));
+
 const categories = [
   {
     icon: BookOpen,
@@ -219,9 +221,7 @@ export default function ProductosPage() {
                 <p className="mt-2 font-sans text-xs text-primary/70">
                   <strong>Aceites:</strong>{" "}
                   {vela.aceites
-                    .map(
-                      (id) => allAceites.find((a) => a.id === id)?.nombre ?? id,
-                    )
+                    .map((id) => aceitesMap.get(id) ?? id)
                     .join(", ")}
                 </p>
                 <p className="mt-1 font-sans text-xs text-muted-foreground italic">
