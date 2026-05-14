@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { Mail, MapPin, MessageCircle } from "lucide-react";
 
 export function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -26,6 +27,11 @@ export function Contact() {
   };
 
   const whatsappHref = `https://wa.me/17865708990?text=${encodeURIComponent(`Hola, soy ${formData.firstName} ${formData.lastName}.\n\n${formData.message}`)}`;
+
+  const handleWhatsApp = () => {
+    if (!formRef.current?.reportValidity()) return;
+    window.open(whatsappHref, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <section id="contact" className="py-24 lg:py-32 relative overflow-hidden">
@@ -114,7 +120,7 @@ export function Contact() {
             <h3 className="font-serif text-xl tracking-[0.10em] text-foreground uppercase mb-8">
               Enviar un Mensaje
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label
@@ -190,15 +196,14 @@ export function Contact() {
                 />
               </div>
               <div className="grid sm:grid-cols-2 gap-3">
-                <a
-                  href={whatsappHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={handleWhatsApp}
                   className="px-4 py-2.5 bg-secondary text-secondary-foreground font-serif text-xs tracking-[0.12em] uppercase hover:bg-accent hover:text-accent-foreground transition-colors duration-300 flex items-center justify-center gap-2"
                 >
                   <MessageCircle size={14} strokeWidth={1.5} />
                   <span>WhatsApp</span>
-                </a>
+                </button>
                 <button
                   type="submit"
                   className="px-4 py-2.5 bg-primary text-primary-foreground font-serif text-xs tracking-[0.12em] uppercase hover:bg-accent transition-colors duration-300 flex items-center justify-center gap-2"

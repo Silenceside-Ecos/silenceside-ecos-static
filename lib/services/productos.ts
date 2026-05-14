@@ -557,7 +557,7 @@ export const velasEnergia: VelaProduct[] = [
     price: 24,
     description:
       "Recuerda la ley del Tao, la necesidad de vivir en armonía con el todo. Enfatiza la introspección para el reencuentro con tu armonía interior.",
-    aceites: [],
+    aceites: ["aceite-rosa-oud", "aceite-canela-vainilla"],
     chakras: "C1, C2, C4",
     intencion:
       "Su lema: Mantengo mi centro. Ideal para repisas, mesitas, escritorios.",
