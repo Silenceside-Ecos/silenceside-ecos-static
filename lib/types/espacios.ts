@@ -1,14 +1,39 @@
 // ─── Eco (Space) ─────────────────────────────────────────────────────────────
 
-export interface Eco {
+export type ExpandableFeature =
+  | "Información"
+  | "Formación"
+  | "Colección de apoyo";
+
+interface EcoBase {
   id: string;
   title: string;
   description: string;
   capacity: string;
-  features: string[];
   image: string;
   coleccionDeApoyo?: string[];
 }
+
+export interface EcoSer extends EcoBase {
+  kind: "ser";
+  features: ExpandableFeature[];
+  informacion: InformacionEcosSer;
+  formacion: FormacionEcosSer;
+}
+
+export interface EcoAromas extends EcoBase {
+  kind: "aromas";
+  features: ExpandableFeature[];
+  informacion: InformacionEcosAromas;
+  formacion: FormacionEcosAromas;
+}
+
+export interface EcoSonido extends EcoBase {
+  kind: "sonido";
+  features: string[];
+}
+
+export type Eco = EcoSer | EcoAromas | EcoSonido;
 
 export interface Program {
   title: string;
@@ -20,10 +45,7 @@ export interface Program {
 
 // ─── Shared ───────────────────────────────────────────────────────────────────
 
-export interface Aceite {
-  nombre: string;
-  funcion: string;
-}
+export type { Aceite } from "@/lib/types/productos";
 
 // ─── Ecos del Ser ─────────────────────────────────────────────────────────────
 
@@ -106,26 +128,13 @@ export interface FormacionEcosSer {
 
 // ─── Ecos de los Aromas ───────────────────────────────────────────────────────
 
-export interface Vela {
-  nombre: string;
-  descripcion: string;
-  aceites?: Aceite[];
-  variantes?: string[];
-  intencion: string;
-  chakras?: string;
-}
+import type { VelaProduct, VelaCollection } from "@/lib/types/productos";
 
 export interface ColeccionVelas {
+  collection: VelaCollection;
   nombre: string;
   descripcion: string;
-  velas: Vela[];
-}
-
-export interface CatalogoVelas {
-  coleccionDespertar: ColeccionVelas;
-  coleccionChispas: ColeccionVelas;
-  coleccionEnergia: ColeccionVelas;
-  coleccionEstadosDelAlma: ColeccionVelas;
+  velas: VelaProduct[];
 }
 
 export interface QueEsEcosAromas {
@@ -149,7 +158,7 @@ export interface InformacionEcosAromas {
   queEs: QueEsEcosAromas;
   beneficios: string[];
   formatosVelas: string[];
-  catalogoVelas: CatalogoVelas;
+  catalogoVelas: ColeccionVelas[];
   infoInteresante: InfoInteresanteAromas;
 }
 

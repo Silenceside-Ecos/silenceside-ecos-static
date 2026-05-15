@@ -1,22 +1,37 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { Send, Mail, MapPin, MessageCircle } from "lucide-react"
+import { useRef, useState } from "react";
+import Image from "next/image";
+import { Mail, MapPin, MessageCircle } from "lucide-react";
 
 export function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     message: "",
-  })
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
-  }
+    e.preventDefault();
+    const subject = encodeURIComponent(
+      `Mensaje de ${formData.firstName} ${formData.lastName}`,
+    );
+    const body = encodeURIComponent(
+      `${formData.message}\n\nCorreo de contacto: ${formData.email}`,
+    );
+    window.open(
+      `mailto:Silencesideecos@gmail.com?subject=${subject}&body=${body}`,
+    );
+  };
+
+  const whatsappHref = `https://wa.me/17865708990?text=${encodeURIComponent(`Hola, soy ${formData.firstName} ${formData.lastName}.\n\n${formData.message}`)}`;
+
+  const handleWhatsApp = () => {
+    if (!formRef.current?.reportValidity()) return;
+    window.open(whatsappHref, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <section id="contact" className="py-24 lg:py-32 relative overflow-hidden">
@@ -34,9 +49,9 @@ export function Contact() {
               Inicia Tu Viaje
             </h2>
             <p className="mt-8 font-sans text-lg text-muted-foreground leading-relaxed">
-              ¿Listo para experimentar nuestros servicios? Estamos aquí para guiarte en tu camino
-              hacia la conciencia integrada y el bienestar emocional. Contáctanos y
-              comencemos a planificar juntos.
+              ¿Listo para experimentar nuestros servicios? Estamos aquí para
+              guiarte en tu camino hacia la conciencia integrada y el bienestar
+              emocional. Contáctanos y comencemos a planificar juntos.
             </p>
 
             <div className="mt-12 space-y-6">
@@ -45,8 +60,15 @@ export function Contact() {
                   <Mail size={20} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <span className="block font-sans text-sm text-muted-foreground">Correo</span>
-                  <span className="font-sans text-foreground">Silencesideecos@gmail.com</span>
+                  <span className="block font-sans text-sm text-muted-foreground">
+                    Correo
+                  </span>
+                  <a
+                    href="mailto:Silencesideecos@gmail.com"
+                    className="font-sans text-foreground hover:text-primary transition-colors"
+                  >
+                    Silencesideecos@gmail.com
+                  </a>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -54,8 +76,17 @@ export function Contact() {
                   <MessageCircle size={20} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <span className="block font-sans text-sm text-muted-foreground">WhatsApp</span>
-                  <a href="https://wa.me/" className="font-sans text-foreground hover:text-primary transition-colors">Escríbenos por WhatsApp</a>
+                  <span className="block font-sans text-sm text-muted-foreground">
+                    WhatsApp
+                  </span>
+                  <a
+                    href="https://wa.me/17865708990"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans text-foreground hover:text-primary transition-colors"
+                  >
+                    Escríbenos por WhatsApp
+                  </a>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -63,14 +94,24 @@ export function Contact() {
                   <MapPin size={20} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <span className="block font-sans text-sm text-muted-foreground">Ubicación</span>
-                  <span className="font-sans text-foreground">Estados Unidos</span>
+                  <span className="block font-sans text-sm text-muted-foreground">
+                    Ubicación
+                  </span>
+                  <span className="font-sans text-foreground">
+                    Estados Unidos
+                  </span>
                 </div>
               </div>
             </div>
 
             <div className="mt-12 flex justify-start">
-              <Image src="/logo.png" alt="Silenceside Ecos" width={80} height={80} className="h-20 w-auto opacity-30" />
+              <Image
+                src="/logo.png"
+                alt="Silenceside Ecos"
+                width={80}
+                height={80}
+                className="h-20 w-auto opacity-30"
+              />
             </div>
           </div>
 
@@ -79,7 +120,7 @@ export function Contact() {
             <h3 className="font-serif text-xl tracking-[0.10em] text-foreground uppercase mb-8">
               Enviar un Mensaje
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label
@@ -154,17 +195,27 @@ export function Contact() {
                   required
                 />
               </div>
-              <button
-                type="submit"
-                className="w-full px-8 py-4 bg-primary text-primary-foreground font-serif text-sm tracking-[0.15em] uppercase hover:bg-accent transition-colors duration-300 flex items-center justify-center gap-3"
-              >
-                <span>Enviar Mensaje</span>
-                <Send size={16} />
-              </button>
+              <div className="grid sm:grid-cols-2 gap-3">
+                <button
+                  type="button"
+                  onClick={handleWhatsApp}
+                  className="px-4 py-2.5 bg-secondary text-secondary-foreground font-serif text-xs tracking-[0.12em] uppercase hover:bg-accent hover:text-accent-foreground transition-colors duration-300 flex items-center justify-center gap-2"
+                >
+                  <MessageCircle size={14} strokeWidth={1.5} />
+                  <span>WhatsApp</span>
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2.5 bg-primary text-primary-foreground font-serif text-xs tracking-[0.12em] uppercase hover:bg-accent transition-colors duration-300 flex items-center justify-center gap-2"
+                >
+                  <Mail size={14} strokeWidth={1.5} />
+                  <span>Enviar por Email</span>
+                </button>
+              </div>
             </form>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
