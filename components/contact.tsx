@@ -80,7 +80,7 @@ export function Contact() {
                     WhatsApp
                   </span>
                   <a
-                    href={whatsappHref}
+                    href="https://wa.me/17865708990"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-sans text-foreground hover:text-primary transition-colors"

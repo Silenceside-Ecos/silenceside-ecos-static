@@ -464,7 +464,7 @@ export const velasChispas: VelaProduct[] = [
     price: 15,
     description:
       "Su forma trae a la conciencia el retorno al origen, favoreciendo el silencio interior, la calma y la gestación de algo nuevo.",
-    aceites: [],
+    aceites: ["aceite-lirio-agua", "aceite-algodon-limpio"],
     chakras: "Varios",
     intencion:
       "Para mesas de centro, rincones de descanso, baños, dormitorios.",
@@ -494,7 +494,7 @@ export const velasChispas: VelaProduct[] = [
     price: 15,
     description:
       "La Margarita simboliza luz, pureza y nuevos comienzos. Transmite renovación luminosa, resiliencia y confianza.",
-    aceites: [],
+    aceites: ["aceite-magnolia-peonia", "aceite-azahar"],
     chakras: "C4, C7",
     intencion: "Siempre vuelve a salir el sol dentro de ti.",
     featured: false,
@@ -508,7 +508,7 @@ export const velasChispas: VelaProduct[] = [
     price: 15,
     description:
       "Recuerda que la vida humana acciona en forma de ciclos completos. Aportan plenitud, armonía y creatividad.",
-    aceites: [],
+    aceites: ["aceite-bergamota", "aceite-azahar", "aceite-eucalipto-blanco"],
     chakras: "C1, C2, C3, C5, C7",
     intencion: "La gratitud convierte lo simple en luz.",
     featured: false,
@@ -527,7 +527,7 @@ export const velasEnergia: VelaProduct[] = [
     price: 22,
     description:
       "Trae a tu memoria el mensaje del fin y el comienzo de algo nuevo. Implica movimiento, desapego, liberación y abundancia.",
-    aceites: [],
+    aceites: ["aceite-bergamota", "aceite-ambar-egipcio", "aceite-madera-caribena"],
     chakras: "C1, C3, C4, C7",
     intencion:
       "Propicia abundancia, éxito, movimiento, liberación y desapego. Ideal para entradas.",
@@ -542,7 +542,7 @@ export const velasEnergia: VelaProduct[] = [
     price: 22,
     description:
       "Trae a tu memoria las vueltas que da la vida, te ayuda a enfocarte a salir del laberinto.",
-    aceites: [],
+    aceites: ["aceite-bamboo-himalaya", "aceite-lavanda", "aceite-selenita-glow"],
     chakras: "C4, C7",
     intencion:
       "Su lema: Soy calmo y me encuentro. Ideal para espacios de estudio.",
@@ -592,7 +592,7 @@ export const velasEnergia: VelaProduct[] = [
     price: 22,
     description:
       "La forma hexagonal trae a la memoria uno de los sólidos platónicos. El centro hueco donde nace la llama es el espacio interior donde vive tu luz personal.",
-    aceites: [],
+    aceites: ["aceite-sandalo-lirio-blanco", "aceite-algodon-limpio", "aceite-madera-caribena"],
     chakras: "C1, C4, C7",
     intencion:
       "La calma comienza cuando vuelves a tu centro. Ideal para mesitas de noche y sitios de trabajo.",
