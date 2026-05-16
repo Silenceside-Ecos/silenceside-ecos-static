@@ -52,7 +52,7 @@ const experiences = [
     nextDate: "15 de Mayo, 2026",
     location: "Donde los Ecos comienzan a resonar",
     capacity: "12 plazas",
-    price: "€65",
+    price: "$65",
     featured: true,
   },
   {
@@ -63,7 +63,7 @@ const experiences = [
     nextDate: "Sábados de Mayo 2026",
     location: "Donde los Ecos comienzan a resonar",
     capacity: "15 plazas",
-    price: "€55",
+    price: "$55",
     featured: true,
   },
   {
@@ -74,7 +74,7 @@ const experiences = [
     nextDate: "5 de Junio, 2026",
     location: "Donde los Ecos comienzan a resonar",
     capacity: "15 plazas",
-    price: "€55",
+    price: "$55",
     featured: true,
   },
   {
@@ -85,7 +85,7 @@ const experiences = [
     nextDate: "12 de Junio, 2026",
     location: "Online",
     capacity: "Sin límite",
-    price: "€30",
+    price: "$30",
     featured: false,
   },
   {
@@ -96,7 +96,7 @@ const experiences = [
     nextDate: "19-21 de Junio, 2026",
     location: "Retiro especial",
     capacity: "8 plazas",
-    price: "€450",
+    price: "$450",
     featured: true,
   },
 ];
