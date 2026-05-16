@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { PageHeader } from "@/components/page-header";
@@ -6,16 +6,18 @@ import { PageFooter } from "@/components/page-footer";
 import { Users, Calendar, ArrowRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  ecos as spaces,
-  programs,
-  informacionEcosDelSer,
-  formacionEcosSer as formacionData,
-  informacionEcosAromas,
-  formacionEcosAromas,
-} from "@/lib/services/espacios";
+import { ecos as spaces, programs } from "@/lib/services/espacios";
+import type {
+  InformacionEcosSer,
+  FormacionEcosSer,
+  InformacionEcosAromas,
+  FormacionEcosAromas,
+} from "@/lib/types/espacios";
 import { allProducts } from "@/lib/services/productos";
+import { allAceites } from "@/lib/services/aceites";
 import type { KitProduct, VelaProduct } from "@/lib/types/productos";
+
+const aceitesMap = new Map(allAceites.map((a) => [a.id, a]));
 
 export default function EspaciosPage() {
   const [expandedFeature, setExpandedFeature] = useState<string | null>(null);
@@ -26,7 +28,7 @@ export default function EspaciosPage() {
   };
 
   // Renderizar contenido de Información para Ecos del Ser
-  const renderInformacionEcosSer = () => (
+  const renderInformacionEcosSer = (informacion: InformacionEcosSer) => (
     <div className="space-y-6 p-4 bg-background/50 border border-border mt-4">
       {/* ¿Qué es Ecos del Ser? */}
       <details className="group/detail">
@@ -40,25 +42,21 @@ export default function EspaciosPage() {
           />
         </summary>
         <div className="p-4 space-y-4 text-sm text-foreground">
-          <p className="italic text-primary">
-            {informacionEcosDelSer.queEs.intro}
-          </p>
-          <p>{informacionEcosDelSer.queEs.descripcion}</p>
+          <p className="italic text-primary">{informacion.queEs.intro}</p>
+          <p>{informacion.queEs.descripcion}</p>
           <div>
             <p className="font-medium mb-2">¿Qué ofrece Ecos del Ser?</p>
             <ul className="list-disc pl-5 space-y-1">
-              {informacionEcosDelSer.queEs.ofrece.map((item, i) => (
+              {informacion.queEs.ofrece.map((item, i) => (
                 <li key={i}>{item}</li>
               ))}
             </ul>
           </div>
           <div>
             <p className="font-medium mb-2">Nuestro eje de trabajo</p>
-            <p className="mb-2">
-              {informacionEcosDelSer.queEs.ejeTrabajoIntro}
-            </p>
+            <p className="mb-2">{informacion.queEs.ejeTrabajoIntro}</p>
             <ul className="list-disc pl-5 space-y-1">
-              {informacionEcosDelSer.queEs.ejeTrabajo.map((item, i) => (
+              {informacion.queEs.ejeTrabajo.map((item, i) => (
                 <li key={i}>{item}</li>
               ))}
             </ul>
@@ -66,7 +64,7 @@ export default function EspaciosPage() {
           <div>
             <p className="font-medium mb-2">Beneficios del proceso</p>
             <ul className="list-disc pl-5 space-y-1">
-              {informacionEcosDelSer.queEs.beneficios.map((item, i) => (
+              {informacion.queEs.beneficios.map((item, i) => (
                 <li key={i}>{item}</li>
               ))}
             </ul>
@@ -91,7 +89,7 @@ export default function EspaciosPage() {
             experiencia sobre el tema del desarrollo de la conciencia humana,
             algunos con más de 30 años de trabajo.
           </p>
-          {informacionEcosDelSer.profesores.map((prof, i) => (
+          {informacion.profesores.map((prof, i) => (
             <div key={i} className="border-l-2 border-primary/30 pl-4 py-2">
               <p className="font-medium text-foreground">{prof.nombre}</p>
               <p className="text-xs text-primary mb-1">{prof.cargo}</p>
@@ -113,9 +111,9 @@ export default function EspaciosPage() {
           />
         </summary>
         <div className="p-4 text-sm text-foreground space-y-3">
-          <p>{informacionEcosDelSer.dirigidoA.intro}</p>
+          <p>{informacion.dirigidoA.intro}</p>
           <ul className="list-disc pl-5 space-y-1">
-            {informacionEcosDelSer.dirigidoA.requisitos.map((item, i) => (
+            {informacion.dirigidoA.requisitos.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
           </ul>
@@ -123,7 +121,7 @@ export default function EspaciosPage() {
             Elementos básicos que favorecen el aprendizaje:
           </p>
           <ul className="list-disc pl-5 space-y-1">
-            {informacionEcosDelSer.dirigidoA.elementosBasicos.map((item, i) => (
+            {informacion.dirigidoA.elementosBasicos.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
           </ul>
@@ -148,7 +146,7 @@ export default function EspaciosPage() {
             conciencia humana.
           </p>
           <div className="flex flex-wrap gap-2">
-            {informacionEcosDelSer.valores.map((valor, i) => (
+            {informacion.valores.map((valor, i) => (
               <span
                 key={i}
                 className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full"
@@ -172,7 +170,7 @@ export default function EspaciosPage() {
           />
         </summary>
         <div className="p-4 space-y-3">
-          {informacionEcosDelSer.preguntasFrecuentes.map((faq, i) => (
+          {informacion.preguntasFrecuentes.map((faq, i) => (
             <details
               key={i}
               className="group/faq border-l-2 border-primary/20 pl-3"
@@ -201,7 +199,7 @@ export default function EspaciosPage() {
         </summary>
         <div className="p-4 space-y-4">
           <p className="text-sm font-medium text-foreground">Sabías que...</p>
-          {informacionEcosDelSer.infoInteresante.sabias.map((item, i) => (
+          {informacion.infoInteresante.sabias.map((item, i) => (
             <div key={i} className="border-l-2 border-primary/30 pl-4">
               <p className="font-medium text-sm text-foreground">
                 {item.titulo}
@@ -215,9 +213,9 @@ export default function EspaciosPage() {
   );
 
   // Renderizar contenido de Formación para Ecos del Ser
-  const renderFormacionEcosSer = () => (
+  const renderFormacionEcosSer = (formacion: FormacionEcosSer) => (
     <div className="space-y-4 p-4 bg-background/50 border border-border mt-4">
-      {formacionData.niveles.map((nivel) => (
+      {formacion.niveles.map((nivel) => (
         <details key={nivel.title} className="group/nivel border border-border">
           <summary className="flex items-center justify-between p-4 cursor-pointer hover:bg-primary/5 transition-colors">
             <span className="font-serif text-sm tracking-wide text-foreground uppercase">
@@ -288,7 +286,7 @@ export default function EspaciosPage() {
           Actividades Complementarias
         </p>
         <div className="grid grid-cols-2 gap-3">
-          {formacionData.actividadesComplementarias.map((act) => (
+          {formacion.actividadesComplementarias.map((act) => (
             <div key={act.title} className="p-3 bg-secondary/30">
               <p className="font-medium text-sm text-foreground">{act.title}</p>
               <p className="text-xs text-foreground mt-1">{act.descripcion}</p>
@@ -365,7 +363,7 @@ export default function EspaciosPage() {
                 {kit.title}
               </Link>
               <span className="text-xs text-primary font-medium">
-                {`€${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
+                {`$${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
               </span>
             </div>
             <ChevronDown
@@ -444,7 +442,7 @@ export default function EspaciosPage() {
   );
 
   // Renderizar contenido de Información para Ecos de los Aromas
-  const renderInformacionEcosAromas = () => (
+  const renderInformacionEcosAromas = (informacion: InformacionEcosAromas) => (
     <div className="space-y-6 p-4 bg-background/50 border border-border mt-4">
       {/* ¿Qué es Ecos de los Aromas? */}
       <details className="group/detail">
@@ -458,14 +456,14 @@ export default function EspaciosPage() {
           />
         </summary>
         <div className="p-4 text-sm text-foreground space-y-4">
-          <p>{informacionEcosAromas.queEs.descripcion}</p>
+          <p>{informacion.queEs.descripcion}</p>
           <div className="bg-primary/5 p-4 border-l-2 border-primary">
             <p className="font-medium mb-2">Línea de Velas Silenceside Ecos</p>
-            <p className="text-sm">{informacionEcosAromas.queEs.introVelas}</p>
+            <p className="text-sm">{informacion.queEs.introVelas}</p>
             <div className="mt-3">
               <p className="text-xs font-medium mb-1">Formatos disponibles:</p>
               <ul className="list-disc pl-5 text-xs space-y-1">
-                {informacionEcosAromas.formatosVelas.map((formato, i) => (
+                {informacion.formatosVelas.map((formato, i) => (
                   <li key={i}>{formato}</li>
                 ))}
               </ul>
@@ -487,38 +485,35 @@ export default function EspaciosPage() {
         </summary>
         <div className="p-4 text-sm text-foreground">
           <ul className="list-disc pl-5 space-y-1">
-            {informacionEcosAromas.beneficios.map((item, i) => (
+            {informacion.beneficios.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
           </ul>
         </div>
       </details>
 
-      {/* CATÁLOGO DE VELAS - Colección Despertar */}
-      <details className="group/detail">
-        <summary className="flex items-center justify-between cursor-pointer hover:bg-primary/5 p-3 transition-colors">
-          <span className="font-serif text-sm tracking-wide text-foreground">
-            {informacionEcosAromas.catalogoVelas.coleccionDespertar.nombre}
-          </span>
-          <ChevronDown
-            size={14}
-            className="text-primary transition-transform group-open/detail:rotate-180"
-          />
-        </summary>
-        <div className="p-4 space-y-4">
-          <p className="text-sm text-foreground">
-            {informacionEcosAromas.catalogoVelas.coleccionDespertar.descripcion}
-          </p>
-
-          {informacionEcosAromas.catalogoVelas.coleccionDespertar.velas.map(
-            (vela, i) => (
+      {/* CATÁLOGO DE VELAS */}
+      {informacion.catalogoVelas.map((coleccion) => (
+        <details key={coleccion.nombre} className="group/detail">
+          <summary className="flex items-center justify-between cursor-pointer hover:bg-primary/5 p-3 transition-colors">
+            <span className="font-serif text-sm tracking-wide text-foreground">
+              {coleccion.nombre}
+            </span>
+            <ChevronDown
+              size={14}
+              className="text-primary transition-transform group-open/detail:rotate-180"
+            />
+          </summary>
+          <div className="p-4 space-y-4">
+            <p className="text-sm text-foreground">{coleccion.descripcion}</p>
+            {coleccion.velas.map((vela, i) => (
               <details
                 key={i}
                 className="group/vela border border-border bg-card"
               >
                 <summary className="flex items-center justify-between p-3 cursor-pointer hover:bg-primary/5 transition-colors">
                   <span className="font-medium text-sm text-foreground">
-                    {vela.nombre}
+                    {vela.title}
                   </span>
                   <ChevronDown
                     size={12}
@@ -526,179 +521,26 @@ export default function EspaciosPage() {
                   />
                 </summary>
                 <div className="p-4 pt-2 space-y-3 text-sm text-foreground">
-                  <p>{vela.descripcion}</p>
+                  <p>{vela.description}</p>
 
-                  {vela.aceites && (
+                  {vela.aceites.length > 0 && (
                     <div className="bg-secondary/20 p-3">
                       <p className="font-medium text-xs mb-2">
                         Aceites esenciales:
                       </p>
                       <div className="space-y-2">
-                        {vela.aceites.map((aceite, j) => (
-                          <div key={j} className="text-xs">
-                            <span className="font-medium text-primary">
-                              {aceite.nombre}:
-                            </span>{" "}
-                            <span>{aceite.funcion}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="flex flex-wrap gap-4 text-xs">
-                    <span className="px-2 py-1 bg-primary/10 text-primary">
-                      Chakras: {vela.chakras}
-                    </span>
-                  </div>
-
-                  <p className="text-xs italic text-primary border-l-2 border-primary pl-3">
-                    {vela.intencion}
-                  </p>
-
-                  <Link
-                    href="/productos"
-                    className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-2"
-                  >
-                    Ver en tienda <ArrowRight size={12} />
-                  </Link>
-                </div>
-              </details>
-            ),
-          )}
-        </div>
-      </details>
-
-      {/* CATÁLOGO DE VELAS - Colección Regalos Chispas de Luz */}
-      <details className="group/detail">
-        <summary className="flex items-center justify-between cursor-pointer hover:bg-primary/5 p-3 transition-colors">
-          <span className="font-serif text-sm tracking-wide text-foreground">
-            {informacionEcosAromas.catalogoVelas.coleccionChispas.nombre}
-          </span>
-          <ChevronDown
-            size={14}
-            className="text-primary transition-transform group-open/detail:rotate-180"
-          />
-        </summary>
-        <div className="p-4 space-y-4">
-          <p className="text-sm text-foreground">
-            {informacionEcosAromas.catalogoVelas.coleccionChispas.descripcion}
-          </p>
-
-          {informacionEcosAromas.catalogoVelas.coleccionChispas.velas.map(
-            (vela, i) => (
-              <details
-                key={i}
-                className="group/vela border border-border bg-card"
-              >
-                <summary className="flex items-center justify-between p-3 cursor-pointer hover:bg-primary/5 transition-colors">
-                  <span className="font-medium text-sm text-foreground">
-                    {vela.nombre}
-                  </span>
-                  <ChevronDown
-                    size={12}
-                    className="text-primary transition-transform group-open/vela:rotate-180"
-                  />
-                </summary>
-                <div className="p-4 pt-2 space-y-3 text-sm text-foreground">
-                  <p>{vela.descripcion}</p>
-
-                  {vela.aceites && (
-                    <div className="bg-secondary/20 p-3">
-                      <p className="font-medium text-xs mb-2">
-                        Aceites esenciales:
-                      </p>
-                      <div className="space-y-2">
-                        {vela.aceites.map((aceite, j) => (
-                          <div key={j} className="text-xs">
-                            <span className="font-medium text-primary">
-                              {aceite.nombre}:
-                            </span>{" "}
-                            <span>{aceite.funcion}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {vela.variantes && (
-                    <div className="bg-secondary/20 p-3">
-                      <p className="font-medium text-xs mb-2">
-                        Variantes disponibles:
-                      </p>
-                      <ul className="list-disc pl-4 text-xs space-y-1">
-                        {vela.variantes.map((variante, j) => (
-                          <li key={j}>{variante}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  <p className="text-xs italic text-primary border-l-2 border-primary pl-3">
-                    {vela.intencion}
-                  </p>
-
-                  <Link
-                    href="/productos"
-                    className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-2"
-                  >
-                    Ver en tienda <ArrowRight size={12} />
-                  </Link>
-                </div>
-              </details>
-            ),
-          )}
-        </div>
-      </details>
-
-      {/* CATÁLOGO DE VELAS - Colección Energía Interior */}
-      <details className="group/detail">
-        <summary className="flex items-center justify-between cursor-pointer hover:bg-primary/5 p-3 transition-colors">
-          <span className="font-serif text-sm tracking-wide text-foreground">
-            {informacionEcosAromas.catalogoVelas.coleccionEnergia.nombre}
-          </span>
-          <ChevronDown
-            size={14}
-            className="text-primary transition-transform group-open/detail:rotate-180"
-          />
-        </summary>
-        <div className="p-4 space-y-4">
-          <p className="text-sm text-foreground">
-            {informacionEcosAromas.catalogoVelas.coleccionEnergia.descripcion}
-          </p>
-
-          {informacionEcosAromas.catalogoVelas.coleccionEnergia.velas.map(
-            (vela, i) => (
-              <details
-                key={i}
-                className="group/vela border border-border bg-card"
-              >
-                <summary className="flex items-center justify-between p-3 cursor-pointer hover:bg-primary/5 transition-colors">
-                  <span className="font-medium text-sm text-foreground">
-                    {vela.nombre}
-                  </span>
-                  <ChevronDown
-                    size={12}
-                    className="text-primary transition-transform group-open/vela:rotate-180"
-                  />
-                </summary>
-                <div className="p-4 pt-2 space-y-3 text-sm text-foreground">
-                  <p>{vela.descripcion}</p>
-
-                  {vela.aceites && (
-                    <div className="bg-secondary/20 p-3">
-                      <p className="font-medium text-xs mb-2">
-                        Aceites esenciales:
-                      </p>
-                      <div className="space-y-2">
-                        {vela.aceites.map((aceite, j) => (
-                          <div key={j} className="text-xs">
-                            <span className="font-medium text-primary">
-                              {aceite.nombre}:
-                            </span>{" "}
-                            <span>{aceite.funcion}</span>
-                          </div>
-                        ))}
+                        {vela.aceites.map((id, j) => {
+                          const aceite = aceitesMap.get(id);
+                          if (!aceite) return null;
+                          return (
+                            <div key={j} className="text-xs">
+                              <span className="font-medium text-primary">
+                                {aceite.nombre}:
+                              </span>{" "}
+                              <span>{aceite.funcion}</span>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
                   )}
@@ -736,103 +578,10 @@ export default function EspaciosPage() {
                   </Link>
                 </div>
               </details>
-            ),
-          )}
-        </div>
-      </details>
-
-      {/* CATÁLOGO DE VELAS - Colección Energía Interior */}
-      <details className="group/detail">
-        <summary className="flex items-center justify-between cursor-pointer hover:bg-primary/5 p-3 transition-colors">
-          <span className="font-serif text-sm tracking-wide text-foreground">
-            {informacionEcosAromas.catalogoVelas.coleccionEstadosDelAlma.nombre}
-          </span>
-          <ChevronDown
-            size={14}
-            className="text-primary transition-transform group-open/detail:rotate-180"
-          />
-        </summary>
-        <div className="p-4 space-y-4">
-          <p className="text-sm text-foreground">
-            {
-              informacionEcosAromas.catalogoVelas.coleccionEstadosDelAlma
-                .descripcion
-            }
-          </p>
-
-          {informacionEcosAromas.catalogoVelas.coleccionEstadosDelAlma.velas.map(
-            (vela, i) => (
-              <details
-                key={i}
-                className="group/vela border border-border bg-card"
-              >
-                <summary className="flex items-center justify-between p-3 cursor-pointer hover:bg-primary/5 transition-colors">
-                  <span className="font-medium text-sm text-foreground">
-                    {vela.nombre}
-                  </span>
-                  <ChevronDown
-                    size={12}
-                    className="text-primary transition-transform group-open/vela:rotate-180"
-                  />
-                </summary>
-                <div className="p-4 pt-2 space-y-3 text-sm text-foreground">
-                  <p>{vela.descripcion}</p>
-
-                  {vela.aceites && (
-                    <div className="bg-secondary/20 p-3">
-                      <p className="font-medium text-xs mb-2">
-                        Aceites esenciales:
-                      </p>
-                      <div className="space-y-2">
-                        {vela.aceites.map((aceite, j) => (
-                          <div key={j} className="text-xs">
-                            <span className="font-medium text-primary">
-                              {aceite.nombre}:
-                            </span>{" "}
-                            <span>{aceite.funcion}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {vela.variantes && (
-                    <div className="bg-secondary/20 p-3">
-                      <p className="font-medium text-xs mb-2">
-                        Variantes disponibles:
-                      </p>
-                      <ul className="list-disc pl-4 text-xs space-y-1">
-                        {vela.variantes.map((variante, j) => (
-                          <li key={j}>{variante}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {vela.chakras && (
-                    <div className="flex flex-wrap gap-4 text-xs">
-                      <span className="px-2 py-1 bg-primary/10 text-primary">
-                        Chakras: {vela.chakras}
-                      </span>
-                    </div>
-                  )}
-
-                  <p className="text-xs italic text-primary border-l-2 border-primary pl-3">
-                    {vela.intencion}
-                  </p>
-
-                  <Link
-                    href="/productos"
-                    className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-2"
-                  >
-                    Ver en tienda <ArrowRight size={12} />
-                  </Link>
-                </div>
-              </details>
-            ),
-          )}
-        </div>
-      </details>
+            ))}
+          </div>
+        </details>
+      ))}
 
       {/* Información interesante */}
       <details className="group/detail">
@@ -847,7 +596,7 @@ export default function EspaciosPage() {
         </summary>
         <div className="p-4 space-y-4">
           <p className="text-sm font-medium text-foreground">Sabías que...</p>
-          {informacionEcosAromas.infoInteresante.sabias.map((item, i) => (
+          {informacion.infoInteresante.sabias.map((item, i) => (
             <div key={i} className="border-l-2 border-primary/30 pl-4">
               <p className="font-medium text-sm text-foreground">
                 {item.titulo}
@@ -864,11 +613,11 @@ export default function EspaciosPage() {
   );
 
   // Renderizar contenido de Formación para Ecos de los Aromas
-  const renderFormacionEcosAromas = () => (
+  const renderFormacionEcosAromas = (formacion: FormacionEcosAromas) => (
     <div className="space-y-4 p-4 bg-background/50 border border-border mt-4">
-      <p className="text-sm text-foreground">{formacionEcosAromas.intro}</p>
+      <p className="text-sm text-foreground">{formacion.intro}</p>
 
-      {formacionEcosAromas.talleres.map((taller) => (
+      {formacion.talleres.map((taller) => (
         <details
           key={taller.nombre}
           className="group/taller border border-border"
@@ -1010,12 +759,7 @@ export default function EspaciosPage() {
 
                   <div className="mt-6 flex flex-wrap gap-2">
                     {space.features.map((feature) => {
-                      const isExpandable =
-                        (space.id === "ecos-del-ser" ||
-                          space.id === "ecos-de-los-aromas") &&
-                        (feature === "Información" ||
-                          feature === "Formación" ||
-                          feature === "Colección de apoyo");
+                      const isExpandable = space.kind !== "sonido";
                       const isExpanded =
                         expandedFeature === `${space.id}-${feature}`;
 
@@ -1045,15 +789,15 @@ export default function EspaciosPage() {
                     })}
                   </div>
 
-                  {/* Contenido expandible para Ecos del Ser */}
-                  {space.id === "ecos-del-ser" &&
-                    expandedFeature === "ecos-del-ser-Información" &&
-                    renderInformacionEcosSer()}
-                  {space.id === "ecos-del-ser" &&
-                    expandedFeature === "ecos-del-ser-Formación" &&
-                    renderFormacionEcosSer()}
-                  {space.id === "ecos-del-ser" &&
-                    expandedFeature === "ecos-del-ser-Colección de apoyo" &&
+                  {/* Contenido expandible */}
+                  {space.kind === "ser" &&
+                    expandedFeature === `${space.id}-Información` &&
+                    renderInformacionEcosSer(space.informacion)}
+                  {space.kind === "ser" &&
+                    expandedFeature === `${space.id}-Formación` &&
+                    renderFormacionEcosSer(space.formacion)}
+                  {space.kind === "ser" &&
+                    expandedFeature === `${space.id}-Colección de apoyo` &&
                     renderColeccionEcosSer(
                       (space.coleccionDeApoyo ?? [])
                         .map(
@@ -1062,17 +806,14 @@ export default function EspaciosPage() {
                         )
                         .filter(Boolean),
                     )}
-
-                  {/* Contenido expandible para Ecos de los Aromas */}
-                  {space.id === "ecos-de-los-aromas" &&
-                    expandedFeature === "ecos-de-los-aromas-Información" &&
-                    renderInformacionEcosAromas()}
-                  {space.id === "ecos-de-los-aromas" &&
-                    expandedFeature === "ecos-de-los-aromas-Formación" &&
-                    renderFormacionEcosAromas()}
-                  {space.id === "ecos-de-los-aromas" &&
-                    expandedFeature ===
-                      "ecos-de-los-aromas-Colección de apoyo" &&
+                  {space.kind === "aromas" &&
+                    expandedFeature === `${space.id}-Información` &&
+                    renderInformacionEcosAromas(space.informacion)}
+                  {space.kind === "aromas" &&
+                    expandedFeature === `${space.id}-Formación` &&
+                    renderFormacionEcosAromas(space.formacion)}
+                  {space.kind === "aromas" &&
+                    expandedFeature === `${space.id}-Colección de apoyo` &&
                     renderColeccionEcosAromas(
                       (space.coleccionDeApoyo ?? [])
                         .map(

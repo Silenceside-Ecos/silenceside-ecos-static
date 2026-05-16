@@ -19,6 +19,7 @@ import {
   guias,
   allProducts,
 } from "@/lib/services/productos";
+import { allAceites } from "@/lib/services/aceites";
 import { ecos } from "@/lib/services/espacios";
 import type { KitProduct } from "@/lib/types/productos";
 
@@ -27,6 +28,8 @@ export const metadata: Metadata = {
   description:
     "Libros, guías, cuadernos de trabajo, velas aromáticas y materiales didácticos elaborados con intención para tu viaje hacia la sabiduría interior.",
 };
+
+const aceitesMap = new Map(allAceites.map((a) => [a.id, a.nombre]));
 
 const categories = [
   {
@@ -148,7 +151,7 @@ export default function ProductosPage() {
                     </p>
                     <div className="mt-6">
                       <span className="font-serif text-2xl text-primary">
-                        {`€${product.price.toFixed(2)}`}
+                        {`$${product.price.toFixed(2)}`}
                       </span>
                     </div>
                     <Link
@@ -215,15 +218,20 @@ export default function ProductosPage() {
                 <p className="mt-2 font-sans text-xs text-muted-foreground line-clamp-3">
                   {vela.description}
                 </p>
-                <p className="mt-2 font-sans text-xs text-primary/70">
-                  <strong>Aceites:</strong> {vela.aceites}
-                </p>
+                {vela.aceites.length > 0 && (
+                  <p className="mt-2 font-sans text-xs text-primary/70">
+                    <strong>Aceites:</strong>{" "}
+                    {vela.aceites
+                      .map((id) => aceitesMap.get(id) ?? id)
+                      .join(", ")}
+                  </p>
+                )}
                 <p className="mt-1 font-sans text-xs text-muted-foreground italic">
                   {vela.intencion}
                 </p>
                 <div className="mt-4 flex items-center justify-between">
                   <span className="font-serif text-lg text-primary">
-                    {`€${vela.price.toFixed(2)}`}
+                    {`$${vela.price.toFixed(2)}`}
                   </span>
                   <Link
                     href="/#contact"
@@ -286,7 +294,7 @@ export default function ProductosPage() {
                 </p>
                 <div className="mt-3 flex items-center justify-between">
                   <span className="font-serif text-base text-primary">
-                    {`€${vela.price.toFixed(2)}`}
+                    {`$${vela.price.toFixed(2)}`}
                   </span>
                   <Link
                     href="/#contact"
@@ -350,7 +358,7 @@ export default function ProductosPage() {
                 </p>
                 <div className="mt-3 flex items-center justify-between">
                   <span className="font-serif text-base text-primary">
-                    {`€${vela.price.toFixed(2)}`}
+                    {`$${vela.price.toFixed(2)}`}
                   </span>
                   <Link
                     href="/#contact"
@@ -415,7 +423,7 @@ export default function ProductosPage() {
                         className="text-primary/50 shrink-0 mt-0.5"
                       />
                       <span className="font-serif text-base text-primary">
-                        {`€${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
+                        {`$${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
                       </span>
                     </div>
                     <h3 className="font-serif text-sm tracking-[0.05em] text-foreground uppercase leading-tight">
@@ -464,7 +472,7 @@ export default function ProductosPage() {
                         className="text-primary/50 shrink-0 mt-0.5"
                       />
                       <span className="font-serif text-base text-primary">
-                        {`€${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
+                        {`$${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
                       </span>
                     </div>
                     <h3 className="font-serif text-sm tracking-[0.05em] text-foreground uppercase leading-tight">
@@ -552,7 +560,7 @@ export default function ProductosPage() {
                     </p>
                     <div className="mt-4 flex items-center justify-between">
                       <span className="font-serif text-xl text-primary">
-                        {`€${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
+                        {`$${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
                       </span>
                       <Link
                         href="/#contact"
@@ -624,7 +632,7 @@ export default function ProductosPage() {
                 </p>
                 <div className="mt-4 flex items-center justify-between">
                   <span className="font-serif text-lg text-primary">
-                    {`€${product.price.toFixed(2)}`}
+                    {`$${product.price.toFixed(2)}`}
                   </span>
                   <Link
                     href="/#contact"
