@@ -195,13 +195,22 @@ export default function ProductosPage() {
               >
                 <div className="aspect-square bg-muted relative overflow-hidden mb-4">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/10" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Flame
-                      size={40}
-                      strokeWidth={0.5}
-                      className="text-primary/40"
+                  {vela.image ? (
+                    <Image
+                      src={vela.image}
+                      alt={vela.title}
+                      fill
+                      className="object-cover"
                     />
-                  </div>
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Flame
+                        size={40}
+                        strokeWidth={0.5}
+                        className="text-primary/40"
+                      />
+                    </div>
+                  )}
                   {vela.featured && (
                     <span className="absolute top-2 left-2 px-2 py-1 bg-primary text-primary-foreground text-xs font-sans uppercase tracking-wide">
                       Destacado
@@ -265,7 +274,7 @@ export default function ProductosPage() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {velasChispas.map((vela) => (
               <div
                 key={vela.id}
@@ -274,13 +283,22 @@ export default function ProductosPage() {
               >
                 <div className="aspect-square bg-muted relative overflow-hidden mb-3">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/10" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Sparkles
-                      size={28}
-                      strokeWidth={0.5}
-                      className="text-primary/40"
+                  {vela.image ? (
+                    <Image
+                      src={vela.image}
+                      alt={vela.title}
+                      fill
+                      className="object-cover"
                     />
-                  </div>
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Sparkles
+                        size={28}
+                        strokeWidth={0.5}
+                        className="text-primary/40"
+                      />
+                    </div>
+                  )}
                 </div>
 
                 <span className="font-sans text-xs text-primary tracking-wide uppercase">
@@ -326,7 +344,7 @@ export default function ProductosPage() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {velasEnergia.map((vela) => (
               <div
                 key={vela.id}
@@ -335,13 +353,22 @@ export default function ProductosPage() {
               >
                 <div className="aspect-square bg-muted relative overflow-hidden mb-3">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/10" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Flame
-                      size={28}
-                      strokeWidth={0.5}
-                      className="text-primary/40"
+                  {vela.image ? (
+                    <Image
+                      src={vela.image}
+                      alt={vela.title}
+                      fill
+                      className="object-cover"
                     />
-                  </div>
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Flame
+                        size={28}
+                        strokeWidth={0.5}
+                        className="text-primary/40"
+                      />
+                    </div>
+                  )}
                 </div>
 
                 <span className="font-sans text-xs text-primary tracking-wide uppercase">

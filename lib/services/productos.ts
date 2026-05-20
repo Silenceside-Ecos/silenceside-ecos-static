@@ -313,7 +313,7 @@ export const velasDespertar: VelaProduct[] = [
     category: "Vela en Cristal",
     collection: "despertar",
     format: "Vela en Cristal",
-    price: 28,
+    price: 12,
     description:
       "Una vela creada para invitarte a hacer una pausa y mirar hacia tu interior. Te recuerda la importancia de conectar con tu verdadera esencia, sin filtros ni máscaras.",
     aceites: [
@@ -332,7 +332,7 @@ export const velasDespertar: VelaProduct[] = [
     category: "Vela en Cristal",
     collection: "despertar",
     format: "Vela en Cristal",
-    price: 28,
+    price: 12,
     description:
       "Una vela que evoca poder, profundidad y magnetismo. Simboliza el paso hacia un nuevo nivel en tu vida, recordándote la seguridad y la fortaleza que habitan en ti.",
     aceites: [
@@ -351,7 +351,7 @@ export const velasDespertar: VelaProduct[] = [
     category: "Vela en Cristal",
     collection: "despertar",
     format: "Vela en Cristal",
-    price: 32,
+    price: 12,
     description:
       "Trabaja con el amor propio, el amor de pareja, el duelo y el cambio. El Ámbar y el Sándalo te sostienen, la Rosa y el Lirio blanco te cuidan, el Eucalipto y el Azahar te liberan.",
     aceites: [
@@ -372,7 +372,7 @@ export const velasDespertar: VelaProduct[] = [
     category: "Vela en Cristal",
     collection: "despertar",
     format: "Vela en Cristal",
-    price: 28,
+    price: 12,
     description:
       "Una vela que transmite claridad, elevación y calma. Representa la versión más elevada del Ser, el Humano Celeste. Ilumina los espacios interiores con una energía suave y equilibrada.",
     aceites: [
@@ -391,7 +391,7 @@ export const velasDespertar: VelaProduct[] = [
     category: "Set de Velas",
     collection: "despertar",
     format: "Set de Velas",
-    price: 52,
+    price: 22,
     description:
       "Un dúo que representa el equilibrio entre lo terrenal y lo espiritual. Incluye Umbral de Ámbar (Humano Divino) y Lumen Serena (Humano Celeste).",
     aceites: [],
@@ -406,7 +406,7 @@ export const velasDespertar: VelaProduct[] = [
     category: "Set de Velas",
     collection: "despertar",
     format: "Set de Velas",
-    price: 56,
+    price: 22,
     description:
       "Conformado por Encuentra tu luz y Umbral de amor interno. Diseñado para activar la transformación profunda e inmediata, la conexión con tu fuerza interior y la Libertad sin límites.",
     aceites: [],
@@ -421,7 +421,7 @@ export const velasDespertar: VelaProduct[] = [
     category: "Set de Velas",
     collection: "despertar",
     format: "Set de Velas",
-    price: 99,
+    price: 44,
     description:
       "Trabaja al unísono para activar los distintos niveles de conciencia: Nivel 1 (Encuentra tu Luz - Reset), Nivel 2 (Umbral de Ámbar - Empoderamiento), Nivel 3 (Amor Interno - Compasión), Nivel 4 (Lumen Serena - Paz Absoluta).",
     aceites: [],
@@ -441,7 +441,7 @@ export const velasChispas: VelaProduct[] = [
     category: "Cera Derretida",
     collection: "chispas",
     format: "Cera Derretida",
-    price: 18,
+    price: 10,
     description:
       "Una fragancia diseñada para inspirar claridad, elegancia y confianza. Sin humo, sin llama—solo luz hecha aroma.",
     aceites: [
@@ -505,12 +505,54 @@ export const velasChispas: VelaProduct[] = [
     category: "Vela Decorativa",
     collection: "chispas",
     format: "Vela Decorativa",
-    price: 15,
+    price: 2.5,
     description:
       "Recuerda que la vida humana acciona en forma de ciclos completos. Aportan plenitud, armonía y creatividad.",
     aceites: ["aceite-bergamota", "aceite-azahar", "aceite-eucalipto-blanco"],
     chakras: "C1, C2, C3, C5, C7",
     intencion: "La gratitud convierte lo simple en luz.",
+    featured: false,
+  },
+  {
+    id: "vela-agapelis",
+    title: "Agapelis",
+    category: "Cera Derretida",
+    collection: "chispas",
+    format: "Cera Derretida",
+    price: 10,
+    description:
+      "Calidez floral que despierta la sensibilidad y el afecto. Expande el amor universal desde el interior.",
+    aceites: ["aceite-rosa-oud", "aceite-magnolia-peonia"],
+    chakras: "C1, C4, C5, C7",
+    intencion: "Ama sin medida, ama sin final.",
+    featured: false,
+  },
+  {
+    id: "vela-aluzia",
+    title: "Aluzia",
+    category: "Cera Derretida",
+    collection: "chispas",
+    format: "Cera Derretida",
+    price: 10,
+    description:
+      "Fragancia radiante y fresca que eleva el ánimo de inmediato. Permite que la alegría fluya sin esfuerzo.",
+    aceites: ["aceite-azahar", "aceite-bergamota", "aceite-lavanda"],
+    chakras: "C2, C3, C4, C6, C7",
+    intencion: "Permite que la luz de la alegría te expanda.",
+    featured: false,
+  },
+  {
+    id: "vela-aralis",
+    title: "Aralis",
+    category: "Cera Derretida",
+    collection: "chispas",
+    format: "Cera Derretida",
+    price: 10,
+    description:
+      "Aire puro y frescura que detiene el tiempo. Reconecta con el silencio y restaura el equilibrio.",
+    aceites: ["aceite-algodon-limpio", "aceite-eucalipto-blanco"],
+    chakras: "C4, C5, C7",
+    intencion: "Paz en la quietud de tu esencia.",
     featured: false,
   },
 ];
@@ -520,14 +562,14 @@ export const velasChispas: VelaProduct[] = [
 export const velasEnergia: VelaProduct[] = [
   {
     id: "vela-renacer",
-    title: "Renacer (Cubo con burbujas)",
+    title: "Renacer (Cubo con burbujas) — Algodón & Lavanda",
     category: "Vela Decorativa",
     collection: "energia",
     format: "Vela Decorativa",
-    price: 22,
+    price: 10,
     description:
       "Trae a tu memoria el mensaje del fin y el comienzo de algo nuevo. Implica movimiento, desapego, liberación y abundancia.",
-    aceites: ["aceite-bergamota", "aceite-ambar-egipcio", "aceite-madera-caribena"],
+    aceites: ["aceite-algodon-limpio", "aceite-lavanda"],
     chakras: "C1, C3, C4, C7",
     intencion:
       "Propicia abundancia, éxito, movimiento, liberación y desapego. Ideal para entradas.",
@@ -535,14 +577,14 @@ export const velasEnergia: VelaProduct[] = [
   },
   {
     id: "vela-evolucion",
-    title: "Evolución (Espiralada)",
+    title: "Evolución (Espiralada) — Bambú & Algodón Limpio",
     category: "Vela Decorativa",
     collection: "energia",
     format: "Vela Decorativa",
-    price: 22,
+    price: 8,
     description:
       "Trae a tu memoria las vueltas que da la vida, te ayuda a enfocarte a salir del laberinto.",
-    aceites: ["aceite-bamboo-himalaya", "aceite-lavanda", "aceite-selenita-glow"],
+    aceites: ["aceite-bamboo-himalaya", "aceite-algodon-limpio"],
     chakras: "C4, C7",
     intencion:
       "Su lema: Soy calmo y me encuentro. Ideal para espacios de estudio.",
@@ -569,7 +611,7 @@ export const velasEnergia: VelaProduct[] = [
     category: "Vela Decorativa",
     collection: "energia",
     format: "Vela Decorativa",
-    price: 22,
+    price: 6,
     description:
       "Te recuerda que la vida puede tener retos como los laberintos, pero también te enseña que se puede tener la fuerza y visión para liberarnos.",
     aceites: [
@@ -589,13 +631,88 @@ export const velasEnergia: VelaProduct[] = [
     category: "Vela Decorativa",
     collection: "energia",
     format: "Vela Decorativa",
-    price: 22,
+    price: 7,
     description:
       "La forma hexagonal trae a la memoria uno de los sólidos platónicos. El centro hueco donde nace la llama es el espacio interior donde vive tu luz personal.",
     aceites: ["aceite-sandalo-lirio-blanco", "aceite-algodon-limpio", "aceite-madera-caribena"],
     chakras: "C1, C4, C7",
     intencion:
       "La calma comienza cuando vuelves a tu centro. Ideal para mesitas de noche y sitios de trabajo.",
+    featured: false,
+  },
+  {
+    id: "vela-evolucion-rosa",
+    title: "Evolución (Espiralada) — Canela & Vainilla",
+    category: "Vela Decorativa",
+    collection: "energia",
+    format: "Vela Decorativa",
+    price: 8,
+    description:
+      "Trae a tu memoria las vueltas que da la vida, te ayuda a enfocarte a salir del laberinto. Variante con aroma cálido y especiado.",
+    aceites: ["aceite-canela-vainilla"],
+    chakras: "C2, C3",
+    intencion:
+      "Su lema: Soy calmo y me encuentro. Ideal para espacios de estudio.",
+    featured: false,
+  },
+  {
+    id: "vela-renacer-bergamota",
+    title: "Renacer (Cubo con burbujas) — Algodón, Bergamota & Whisky",
+    category: "Vela Decorativa",
+    collection: "energia",
+    format: "Vela Decorativa",
+    price: 10,
+    description:
+      "Trae a tu memoria el mensaje del fin y el comienzo de algo nuevo. Variante cítrica con bergamota y notas cálidas de whisky.",
+    aceites: ["aceite-algodon-limpio", "aceite-bergamota", "aceite-whiskey"],
+    chakras: "C1, C3, C4, C7",
+    intencion:
+      "Propicia abundancia, éxito, movimiento, liberación y desapego. Ideal para entradas.",
+    featured: false,
+  },
+  {
+    id: "vela-petalos-de-luz",
+    title: "Pétalos de Luz",
+    category: "Vela Decorativa",
+    collection: "energia",
+    format: "Vela Decorativa",
+    price: 25,
+    description:
+      "Inspirada en un espejo romboidal rodeado de flores. La combinación de magnolia, peonía y sándalo crea una energía de amor propio, calma y conexión interior.",
+    aceites: ["aceite-magnolia-peonia", "aceite-sandalo-lirio-blanco"],
+    chakras: "C1, C4, C7",
+    intencion:
+      "Amor propio, feminidad y armonía. Estabilidad y seguridad emocional.",
+    featured: false,
+  },
+  {
+    id: "vela-petalos-de-luz-bloom",
+    title: "Pétalos de Luz — Bloom",
+    category: "Vela Decorativa",
+    collection: "energia",
+    format: "Vela Decorativa",
+    price: 35,
+    description:
+      "Versión Bloom de Pétalos de Luz. Florece desde adentro con una intensidad aromática mayor y presencia visual ampliada.",
+    aceites: ["aceite-magnolia-peonia", "aceite-sandalo-lirio-blanco"],
+    chakras: "C1, C4, C7",
+    intencion:
+      "Amor propio, feminidad y armonía. Estabilidad y seguridad emocional.",
+    featured: false,
+  },
+  {
+    id: "vela-petalos-de-luz-novem",
+    title: "Pétalos de Luz — Novem",
+    category: "Vela Decorativa",
+    collection: "energia",
+    format: "Vela Decorativa",
+    price: 45,
+    description:
+      "Versión Novem de Pétalos de Luz. La presentación más completa y generosa, perfecta para regalar.",
+    aceites: ["aceite-magnolia-peonia", "aceite-sandalo-lirio-blanco"],
+    chakras: "C1, C4, C7",
+    intencion:
+      "Amor propio, feminidad y armonía. Estabilidad y seguridad emocional.",
     featured: false,
   },
 ];
