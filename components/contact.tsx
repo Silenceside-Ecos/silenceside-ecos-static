@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { Mail, MapPin, MessageCircle } from "lucide-react";
+import { SOCIAL_LINKS } from "../lib/social-links";
 
 export function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -26,7 +27,7 @@ export function Contact() {
     );
   };
 
-  const whatsappHref = `https://wa.me/17865708990?text=${encodeURIComponent(`Hola, soy ${formData.firstName} ${formData.lastName}.\n\n${formData.message}`)}`;
+  const whatsappHref = `${SOCIAL_LINKS.whatsapp}?text=${encodeURIComponent(`Hola, soy ${formData.firstName} ${formData.lastName}.\n\n${formData.message}`)}`;
 
   const handleWhatsApp = () => {
     if (!formRef.current?.reportValidity()) return;
@@ -80,7 +81,7 @@ export function Contact() {
                     WhatsApp
                   </span>
                   <a
-                    href="https://wa.me/17865708990"
+                    href={SOCIAL_LINKS.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-sans text-foreground hover:text-primary transition-colors"
