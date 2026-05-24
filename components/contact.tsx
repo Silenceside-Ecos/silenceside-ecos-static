@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { Mail, MapPin, MessageCircle } from "lucide-react";
-import { SOCIAL_LINKS } from "../lib/social-links";
+import { SOCIAL_LINKS } from "@/lib/social-links";
 
 export function Contact() {
   const formRef = useRef<HTMLFormElement>(null);

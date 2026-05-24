@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MessageCircle, Instagram, Facebook } from "lucide-react";
-import { SOCIAL_LINKS } from "../lib/social-links";
+import { SOCIAL_LINKS } from "@/lib/social-links";
 
 const footerLinks = [
   {
