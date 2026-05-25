@@ -200,6 +200,7 @@ export default function ProductosPage() {
                       src={vela.image}
                       alt={vela.title}
                       fill
+                      sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
                       className="object-cover"
                     />
                   ) : (
@@ -288,6 +289,7 @@ export default function ProductosPage() {
                       src={vela.image}
                       alt={vela.title}
                       fill
+                      sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
                       className="object-cover"
                     />
                   ) : (
@@ -358,6 +360,7 @@ export default function ProductosPage() {
                       src={vela.image}
                       alt={vela.title}
                       fill
+                      sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
                       className="object-cover"
                     />
                   ) : (
