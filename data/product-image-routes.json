@@ -1,181 +1,330 @@
 {
-  "kit-renacer": [],
-  "kit-armonia-interior": [],
-  "kit-renovacion": [],
-  "kit-lenguaje-silenciado": [],
-  "kit-identidad-azul": [],
-  "kit-identidad-rosa": [],
-  "kit-origen-1": [],
-  "kit-origen-2": [],
-  "kit-transformacion-1": [],
-  "kit-transformacion-2": [],
-  "kit-reconexion-sublime": [],
-  "kit-aromaterapia-esencial": [],
-  "kit-regalo-chispas": [],
-  "kit-energia-hogar": [],
-  "kit-equilibrio-armonia": [],
-  "kit-despertar-completo": [],
-  "kit-transformacion-integral": [],
-  "kit-sanacion-emocional": [],
-  "kit-claridad-elevacion": [],
-  "kit-despertar-ser": [
-    "/ecos-del-ser-brand.jpg",
-    "/eco-del-ser.png",
-    "/logo.png"
-  ],
-  "libro-s1-v1": ["/logo_primary_2000.png", "/logo.png", "/placeholder.jpg"],
-  "libro-s1-v2": ["/logo_primary_1000.png", "/logo.png", "/placeholder.jpg"],
-  "libro-s1-v3": [],
-  "libro-s1-v4": [],
-  "libro-s2-v1": [],
-  "libro-s2-v2": [],
-  "vela-encuentra-tu-luz": [
-    "/ecos-aromas-brand.jpg",
-    "/ecos-aromas.png",
-    "/logo.png"
-  ],
-  "vela-umbral-ambar": [
-    "/ecos-aromas-brand.jpg",
-    "/Ecos_De_Los_Aromas_Logo.jpeg"
-  ],
-  "vela-umbral-amor-interno": [
-    "/ecos-aromas-brand.jpg",
-    "/ecos-aromas.png",
-    "/placeholder.jpg"
-  ],
-  "vela-lumen-serena": [],
-  "vela-entre-tierra-luz": [],
-  "vela-quantum-luz": [],
-  "vela-trascender": [
-    "/ecos-aromas-brand.jpg",
-    "/Ecos_De_Los_Aromas_Logo.jpeg"
-  ],
-  "vela-elan-luz": [],
-  "vela-conchas": [
-    "/productos/vela-conchas/vela-conchas-bolsitas-regalo.png",
-    "/productos/vela-conchas/vela-conchas-01.jpeg",
-    "/productos/vela-conchas/vela-conchas-02.jpeg"
-  ],
-  "vela-corazones": [],
-  "vela-flores-margarita": [
-    "/productos/vela-flores-margarita/vela-flores-margarita-01.jpeg",
-    "/productos/vela-flores-margarita/vela-flores-margarita-02.jpeg",
-    "/productos/vela-flores-margarita/vela-flores-margarita-03.jpeg",
-    "/productos/vela-flores-margarita/vela-flores-margarita-04.jpeg",
-    "/productos/vela-flores-margarita/vela-flores-margarita-05.jpeg"
-  ],
-  "vela-mandalas": [
-    "/productos/vela-mandalas/vela-mandalas-01.png",
-    "/productos/vela-mandalas/vela-mandalas-02.jpeg",
-    "/productos/vela-mandalas/vela-mandalas-03.jpeg",
-    "/productos/vela-mandalas/vela-mandalas-04.jpeg",
-    "/productos/vela-mandalas/vela-mandalas-05.jpg",
-    "/productos/vela-mandalas/vela-mandalas-06.jpeg",
-    "/productos/vela-mandalas/vela-mandalas-07.jpeg",
-    "/productos/vela-mandalas/vela-mandalas-08.jpeg",
-    "/productos/vela-mandalas/vela-mandalas-09.jpeg",
-    "/productos/vela-mandalas/vela-mandalas-10.jpeg",
-    "/productos/vela-mandalas/vela-mandalas-11.jpeg"
-  ],
-  "vela-agapelis": [],
-  "vela-aluzia": [],
-  "vela-aralis": [],
-  "vela-renacer": [
-    "/productos/vela-renacer/vela-renacer-01.jpeg",
-    "/productos/vela-renacer/vela-renacer-02.jpg",
-    "/productos/vela-renacer/vela-renacer-03.png",
-    "/productos/vela-renacer/vela-renacer-04.jpeg",
-    "/productos/vela-renacer/vela-renacer-05.jpg",
-    "/productos/vela-renacer/vela-renacer-06.png",
-    "/productos/vela-renacer/vela-renacer-07.jpeg",
-    "/productos/vela-renacer/vela-renacer-08.jpg",
-    "/productos/vela-renacer/vela-renacer-09.png",
-    "/productos/vela-renacer/vela-renacer-10.jpeg",
-    "/productos/vela-renacer/vela-renacer-11.png",
-    "/productos/vela-renacer/vela-renacer-12.jpeg",
-    "/productos/vela-renacer/vela-renacer-13.jpeg",
-    "/productos/vela-renacer/vela-renacer-14.jpeg",
-    "/productos/vela-renacer/vela-renacer-15.jpeg",
-    "/productos/vela-renacer/vela-renacer-16.jpeg",
-    "/productos/vela-renacer/vela-renacer-17.jpg",
-    "/productos/vela-renacer/vela-renacer-18.png",
-    "/productos/vela-renacer/vela-renacer-19.jpg",
-    "/productos/vela-renacer/vela-renacer-20.jpeg",
-    "/productos/vela-renacer/vela-renacer-21.jpeg",
-    "/productos/vela-renacer/vela-renacer-22.jpeg",
-    "/productos/vela-renacer/vela-renacer-23.jpeg"
-  ],
-  "vela-evolucion": [
-    "/productos/vela-evolucion/vela-evolucion-01.jpeg",
-    "/productos/vela-evolucion/vela-evolucion-02.jpeg",
-    "/productos/vela-evolucion/vela-evolucion-03.jpg",
-    "/productos/vela-evolucion/vela-evolucion-04.jpg"
-  ],
-  "vela-equilibrio": [
-    "/productos/vela-equilibrio/vela-equilibrio-01.jpeg",
-    "/productos/vela-equilibrio/vela-equilibrio-02.png",
-    "/productos/vela-equilibrio/vela-equilibrio-03.jpeg",
-    "/productos/vela-equilibrio/vela-equilibrio-04.jpeg",
-    "/productos/vela-equilibrio/vela-equilibrio-05.jpeg",
-    "/productos/vela-equilibrio/vela-equilibrio-06.jpeg",
-    "/productos/vela-equilibrio/vela-equilibrio-07.jpeg",
-    "/productos/vela-equilibrio/vela-equilibrio-08.jpeg",
-    "/productos/vela-equilibrio/vela-equilibrio-09.jpg",
-    "/productos/vela-equilibrio/vela-equilibrio-10.png",
-    "/productos/vela-equilibrio/vela-equilibrio-11.jpeg",
-    "/productos/vela-equilibrio/vela-equilibrio-12.jpeg",
-    "/productos/vela-equilibrio/vela-equilibrio-13.jpeg"
-  ],
-  "vela-nudo": [
-    "/productos/vela-nudo/vela-nudo-01.jpeg",
-    "/productos/vela-nudo/vela-nudo-02.jpeg",
-    "/productos/vela-nudo/vela-nudo-03.jpeg",
-    "/productos/vela-nudo/vela-nudo-04.jpg",
-    "/productos/vela-nudo/vela-nudo-05.jpeg",
-    "/productos/vela-nudo/vela-nudo-06.jpeg",
-    "/productos/vela-nudo/vela-nudo-07.jpeg",
-    "/productos/vela-nudo/vela-nudo-08.jpeg",
-    "/productos/vela-nudo/vela-nudo-09.jpeg",
-    "/productos/vela-nudo/vela-nudo-10.jpeg",
-    "/productos/vela-nudo/vela-nudo-11.jpeg"
-  ],
-  "vela-hexagonal": [
-    "/productos/vela-hexagonal/vela-hexagonal-01.jpeg",
-    "/productos/vela-hexagonal/vela-hexagonal-02.jpeg",
-    "/productos/vela-hexagonal/vela-hexagonal-03.jpg",
-    "/productos/vela-hexagonal/vela-hexagonal-04.jpeg",
-    "/productos/vela-hexagonal/vela-hexagonal-05.jpg",
-    "/productos/vela-hexagonal/vela-hexagonal-06.jpeg",
-    "/productos/vela-hexagonal/vela-hexagonal-07.jpeg",
-    "/productos/vela-hexagonal/vela-hexagonal-08.jpeg",
-    "/productos/vela-hexagonal/vela-hexagonal-09.jpeg",
-    "/productos/vela-hexagonal/vela-hexagonal-10.jpg",
-    "/productos/vela-hexagonal/vela-hexagonal-11.jpeg"
-  ],
-  "vela-evolucion-rosa": [],
-  "vela-renacer-bergamota": [],
-  "vela-petalos-de-luz": [],
-  "vela-petalos-de-luz-bloom": [],
-  "vela-petalos-de-luz-novem": [],
-  "vela-lado-yin": [],
-  "vela-lado-yang": [],
-  "guia-cuaderno-practica": [],
-  "guia-eco-aroma": [],
-  "guia-meditacion-velas": [],
-  "poster-renacer": [],
-  "poster-herramientas-reconexion": [],
-  "poster-renovacion": [],
-  "poster-conflictos": [],
-  "poster-reflejos-1": [],
-  "poster-reflejos-2": [],
-  "poster-ciclos": [],
-  "poster-arbol": [],
-  "poster-transformacion-interior": [],
-  "poster-principios-armonicos": [],
-  "tarjeta-aceites": [],
-  "tarjeta-afirmaciones-amor": [],
-  "frasco-esencia": [],
-  "frasco-esencias-renovadoras": [],
-  "quemador-aromas": [],
-  "bolsita-regalo": []
+    "kit-renacer":  [
+
+                    ],
+    "kit-armonia-interior":  [
+
+                             ],
+    "kit-renovacion":  [
+
+                       ],
+    "kit-lenguaje-silenciado":  [
+
+                                ],
+    "kit-identidad-azul":  [
+
+                           ],
+    "kit-identidad-rosa":  [
+
+                           ],
+    "kit-origen-1":  [
+
+                     ],
+    "kit-origen-2":  [
+
+                     ],
+    "kit-transformacion-1":  [
+
+                             ],
+    "kit-transformacion-2":  [
+
+                             ],
+    "kit-reconexion-sublime":  [
+
+                               ],
+    "kit-aromaterapia-esencial":  [
+
+                                  ],
+    "kit-regalo-chispas":  [
+
+                           ],
+    "kit-energia-hogar":  [
+
+                          ],
+    "kit-equilibrio-armonia":  [
+
+                               ],
+    "kit-despertar-completo":  [
+
+                               ],
+    "kit-transformacion-integral":  [
+
+                                    ],
+    "kit-sanacion-emocional":  [
+
+                               ],
+    "kit-claridad-elevacion":  [
+
+                               ],
+    "kit-despertar-ser":  [
+                              "/ecos-del-ser-brand.jpg",
+                              "/eco-del-ser.png",
+                              "/logo.png"
+                          ],
+    "libro-s1-v1":  [
+                        "/logo_primary_2000.png",
+                        "/logo.png",
+                        "/placeholder.jpg"
+                    ],
+    "libro-s1-v2":  [
+                        "/logo_primary_1000.png",
+                        "/logo.png",
+                        "/placeholder.jpg"
+                    ],
+    "libro-s1-v3":  [
+
+                    ],
+    "libro-s1-v4":  [
+
+                    ],
+    "libro-s2-v1":  [
+
+                    ],
+    "libro-s2-v2":  [
+
+                    ],
+    "vela-encuentra-tu-luz":  [
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-01.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-02.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-03.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-04.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-05.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-06.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-07.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-08.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-09.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-10.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-11.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-12.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-13.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-14.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-15.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-16.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-17.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-18.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-19.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-20.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-21.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-22.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-23.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-24.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-25.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-26.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-27.jpeg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-28.jpg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-29.jpg",
+                                  "/productos/vela-encuentra-tu-luz/vela-encuentra-tu-luz-30.jpeg"
+                              ],
+    "vela-umbral-ambar":  [
+                              "/ecos-aromas-brand.jpg",
+                              "/Ecos_De_Los_Aromas_Logo.jpeg"
+                          ],
+    "vela-umbral-amor-interno":  [
+                                     "/ecos-aromas-brand.jpg",
+                                     "/ecos-aromas.png",
+                                     "/placeholder.jpg"
+                                 ],
+    "vela-lumen-serena":  [
+
+                          ],
+    "vela-entre-tierra-luz":  [
+
+                              ],
+    "vela-quantum-luz":  [
+
+                         ],
+    "vela-trascender":  [
+                            "/ecos-aromas-brand.jpg",
+                            "/Ecos_De_Los_Aromas_Logo.jpeg"
+                        ],
+    "vela-elan-luz":  [
+
+                      ],
+    "vela-conchas":  [
+                         "/productos/vela-conchas/vela-conchas-bolsitas-regalo.png",
+                         "/productos/vela-conchas/vela-conchas-01.jpeg",
+                         "/productos/vela-conchas/vela-conchas-02.jpeg"
+                     ],
+    "vela-corazones":  [
+
+                       ],
+    "vela-flores-margarita":  [
+                                  "/productos/vela-flores-margarita/vela-flores-margarita-01.jpeg",
+                                  "/productos/vela-flores-margarita/vela-flores-margarita-02.jpeg",
+                                  "/productos/vela-flores-margarita/vela-flores-margarita-03.jpeg",
+                                  "/productos/vela-flores-margarita/vela-flores-margarita-04.jpeg",
+                                  "/productos/vela-flores-margarita/vela-flores-margarita-05.jpeg"
+                              ],
+    "vela-mandalas":  [
+                          "/productos/vela-mandalas/vela-mandalas-01.png",
+                          "/productos/vela-mandalas/vela-mandalas-02.jpeg",
+                          "/productos/vela-mandalas/vela-mandalas-03.jpeg",
+                          "/productos/vela-mandalas/vela-mandalas-04.jpeg",
+                          "/productos/vela-mandalas/vela-mandalas-05.jpg",
+                          "/productos/vela-mandalas/vela-mandalas-06.jpeg",
+                          "/productos/vela-mandalas/vela-mandalas-07.jpeg",
+                          "/productos/vela-mandalas/vela-mandalas-08.jpeg",
+                          "/productos/vela-mandalas/vela-mandalas-09.jpeg",
+                          "/productos/vela-mandalas/vela-mandalas-10.jpeg",
+                          "/productos/vela-mandalas/vela-mandalas-11.jpeg"
+                      ],
+    "vela-agapelis":  [
+
+                      ],
+    "vela-aluzia":  [
+
+                    ],
+    "vela-aralis":  [
+
+                    ],
+    "vela-renacer":  [
+                         "/productos/vela-renacer/vela-renacer-01.jpeg",
+                         "/productos/vela-renacer/vela-renacer-02.jpg",
+                         "/productos/vela-renacer/vela-renacer-03.png",
+                         "/productos/vela-renacer/vela-renacer-04.jpeg",
+                         "/productos/vela-renacer/vela-renacer-05.jpg",
+                         "/productos/vela-renacer/vela-renacer-06.png",
+                         "/productos/vela-renacer/vela-renacer-07.jpeg",
+                         "/productos/vela-renacer/vela-renacer-08.jpg",
+                         "/productos/vela-renacer/vela-renacer-09.png",
+                         "/productos/vela-renacer/vela-renacer-10.jpeg",
+                         "/productos/vela-renacer/vela-renacer-11.png",
+                         "/productos/vela-renacer/vela-renacer-12.jpeg",
+                         "/productos/vela-renacer/vela-renacer-13.jpeg",
+                         "/productos/vela-renacer/vela-renacer-14.jpeg",
+                         "/productos/vela-renacer/vela-renacer-15.jpeg",
+                         "/productos/vela-renacer/vela-renacer-16.jpeg",
+                         "/productos/vela-renacer/vela-renacer-17.jpg",
+                         "/productos/vela-renacer/vela-renacer-18.png",
+                         "/productos/vela-renacer/vela-renacer-19.jpg",
+                         "/productos/vela-renacer/vela-renacer-20.jpeg",
+                         "/productos/vela-renacer/vela-renacer-21.jpeg",
+                         "/productos/vela-renacer/vela-renacer-22.jpeg",
+                         "/productos/vela-renacer/vela-renacer-23.jpeg"
+                     ],
+    "vela-evolucion":  [
+                           "/productos/vela-evolucion/vela-evolucion-01.jpeg",
+                           "/productos/vela-evolucion/vela-evolucion-02.jpeg",
+                           "/productos/vela-evolucion/vela-evolucion-03.jpg",
+                           "/productos/vela-evolucion/vela-evolucion-04.jpg"
+                       ],
+    "vela-equilibrio":  [
+                            "/productos/vela-equilibrio/vela-equilibrio-01.jpeg",
+                            "/productos/vela-equilibrio/vela-equilibrio-02.png",
+                            "/productos/vela-equilibrio/vela-equilibrio-03.jpeg",
+                            "/productos/vela-equilibrio/vela-equilibrio-04.jpeg",
+                            "/productos/vela-equilibrio/vela-equilibrio-05.jpeg",
+                            "/productos/vela-equilibrio/vela-equilibrio-06.jpeg",
+                            "/productos/vela-equilibrio/vela-equilibrio-07.jpeg",
+                            "/productos/vela-equilibrio/vela-equilibrio-08.jpeg",
+                            "/productos/vela-equilibrio/vela-equilibrio-09.jpg",
+                            "/productos/vela-equilibrio/vela-equilibrio-10.png",
+                            "/productos/vela-equilibrio/vela-equilibrio-11.jpeg",
+                            "/productos/vela-equilibrio/vela-equilibrio-12.jpeg",
+                            "/productos/vela-equilibrio/vela-equilibrio-13.jpeg"
+                        ],
+    "vela-nudo":  [
+                      "/productos/vela-nudo/vela-nudo-01.jpeg",
+                      "/productos/vela-nudo/vela-nudo-02.jpeg",
+                      "/productos/vela-nudo/vela-nudo-03.jpeg",
+                      "/productos/vela-nudo/vela-nudo-04.jpg",
+                      "/productos/vela-nudo/vela-nudo-05.jpeg",
+                      "/productos/vela-nudo/vela-nudo-06.jpeg",
+                      "/productos/vela-nudo/vela-nudo-07.jpeg",
+                      "/productos/vela-nudo/vela-nudo-08.jpeg",
+                      "/productos/vela-nudo/vela-nudo-09.jpeg",
+                      "/productos/vela-nudo/vela-nudo-10.jpeg",
+                      "/productos/vela-nudo/vela-nudo-11.jpeg"
+                  ],
+    "vela-hexagonal":  [
+                           "/productos/vela-hexagonal/vela-hexagonal-01.jpeg",
+                           "/productos/vela-hexagonal/vela-hexagonal-02.jpeg",
+                           "/productos/vela-hexagonal/vela-hexagonal-03.jpg",
+                           "/productos/vela-hexagonal/vela-hexagonal-04.jpeg",
+                           "/productos/vela-hexagonal/vela-hexagonal-05.jpg",
+                           "/productos/vela-hexagonal/vela-hexagonal-06.jpeg",
+                           "/productos/vela-hexagonal/vela-hexagonal-07.jpeg",
+                           "/productos/vela-hexagonal/vela-hexagonal-08.jpeg",
+                           "/productos/vela-hexagonal/vela-hexagonal-09.jpeg",
+                           "/productos/vela-hexagonal/vela-hexagonal-10.jpg",
+                           "/productos/vela-hexagonal/vela-hexagonal-11.jpeg"
+                       ],
+    "vela-evolucion-rosa":  [
+
+                            ],
+    "vela-renacer-bergamota":  [
+
+                               ],
+    "vela-petalos-de-luz":  [
+
+                            ],
+    "vela-petalos-de-luz-bloom":  [
+
+                                  ],
+    "vela-petalos-de-luz-novem":  [
+
+                                  ],
+    "vela-lado-yin":  [
+
+                      ],
+    "vela-lado-yang":  [
+
+                       ],
+    "guia-cuaderno-practica":  [
+
+                               ],
+    "guia-eco-aroma":  [
+
+                       ],
+    "guia-meditacion-velas":  [
+
+                              ],
+    "poster-renacer":  [
+
+                       ],
+    "poster-herramientas-reconexion":  [
+
+                                       ],
+    "poster-renovacion":  [
+
+                          ],
+    "poster-conflictos":  [
+
+                          ],
+    "poster-reflejos-1":  [
+
+                          ],
+    "poster-reflejos-2":  [
+
+                          ],
+    "poster-ciclos":  [
+
+                      ],
+    "poster-arbol":  [
+
+                     ],
+    "poster-transformacion-interior":  [
+
+                                       ],
+    "poster-principios-armonicos":  [
+
+                                    ],
+    "tarjeta-aceites":  [
+
+                        ],
+    "tarjeta-afirmaciones-amor":  [
+
+                                  ],
+    "frasco-esencia":  [
+
+                       ],
+    "frasco-esencias-renovadoras":  [
+
+                                    ],
+    "quemador-aromas":  [
+
+                        ],
+    "bolsita-regalo":  [
+
+                       ]
 }
