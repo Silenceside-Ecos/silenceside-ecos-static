@@ -63,7 +63,12 @@
   "vela-aluzia": [],
   "vela-aralis": [],
   "vela-renacer": [],
-  "vela-evolucion": [],
+  "vela-evolucion": [
+    "/productos/vela-evolucion/vela-evolucion-01.jpeg",
+    "/productos/vela-evolucion/vela-evolucion-02.jpeg",
+    "/productos/vela-evolucion/vela-evolucion-03.jpg",
+    "/productos/vela-evolucion/vela-evolucion-04.jpg"
+  ],
   "vela-equilibrio": [
     "/productos/vela-equilibrio/vela-equilibrio-01.jpeg",
     "/productos/vela-equilibrio/vela-equilibrio-02.png",
@@ -80,7 +85,19 @@
     "/productos/vela-equilibrio/vela-equilibrio-13.jpeg"
   ],
   "vela-nudo": [],
-  "vela-hexagonal": [],
+  "vela-hexagonal": [
+    "/productos/vela-hexagonal/vela-hexagonal-01.jpeg",
+    "/productos/vela-hexagonal/vela-hexagonal-02.jpeg",
+    "/productos/vela-hexagonal/vela-hexagonal-03.jpg",
+    "/productos/vela-hexagonal/vela-hexagonal-04.jpeg",
+    "/productos/vela-hexagonal/vela-hexagonal-05.jpg",
+    "/productos/vela-hexagonal/vela-hexagonal-06.jpeg",
+    "/productos/vela-hexagonal/vela-hexagonal-07.jpeg",
+    "/productos/vela-hexagonal/vela-hexagonal-08.jpeg",
+    "/productos/vela-hexagonal/vela-hexagonal-09.jpeg",
+    "/productos/vela-hexagonal/vela-hexagonal-10.jpg",
+    "/productos/vela-hexagonal/vela-hexagonal-11.jpeg"
+  ],
   "vela-evolucion-rosa": [],
   "vela-renacer-bergamota": [],
   "vela-petalos-de-luz": [],
