@@ -19,17 +19,21 @@ import {
   guias,
   allProducts,
 } from "@/lib/services/productos";
-import { allAceites } from "@/lib/services/aceites";
 import { ecos } from "@/lib/services/espacios";
 import type { KitProduct } from "@/lib/types/productos";
+import {
+  computeKitPrice,
+  getAceiteById,
+  getPrimaryProductImage,
+  getProductById,
+  selectKitsByIds,
+} from "@/lib/services/registry";
 
 export const metadata: Metadata = {
   title: "Tienda | Silenceside Ecos",
   description:
     "Libros, guías, cuadernos de trabajo, velas aromáticas y materiales didácticos elaborados con intención para tu viaje hacia la sabiduría interior.",
 };
-
-const aceitesMap = new Map(allAceites.map((a) => [a.id, a.nombre]));
 
 const categories = [
   {
@@ -60,13 +64,13 @@ export default function ProductosPage() {
 
       {/* Hero Section */}
       <section className="pt-32 pb-24 lg:pt-40 lg:pb-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-b from-secondary/20 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="font-serif text-sm tracking-[0.28em] text-primary uppercase">
               Artículos para tu Bienestar
             </span>
-            <h1 className="mt-4 font-serif text-4xl md:text-5xl lg:text-6xl tracking-[0.10em] text-foreground uppercase leading-tight">
+            <h1 className="mt-4 font-serif text-4xl md:text-5xl lg:text-6xl tracking-widest text-foreground uppercase leading-tight">
               Tienda
             </h1>
             <p className="mt-8 font-sans text-xl text-muted-foreground leading-relaxed">
@@ -90,7 +94,7 @@ export default function ProductosPage() {
                 <div className="w-16 h-16 mx-auto flex items-center justify-center border border-primary/30 text-primary group-hover:bg-primary/5 transition-colors duration-300">
                   <category.icon size={28} strokeWidth={1.5} />
                 </div>
-                <h3 className="mt-4 font-serif text-lg tracking-[0.10em] text-foreground uppercase">
+                <h3 className="mt-4 font-serif text-lg tracking-widest text-foreground uppercase">
                   {category.title}
                 </h3>
                 <p className="mt-2 font-sans text-sm text-muted-foreground">
@@ -109,7 +113,7 @@ export default function ProductosPage() {
             <span className="font-serif text-sm tracking-[0.28em] text-primary uppercase">
               Destacados
             </span>
-            <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl tracking-[0.10em] text-foreground uppercase">
+            <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl tracking-widest text-foreground uppercase">
               Serie Editorial Despertar
             </h2>
             <p className="mt-6 max-w-2xl mx-auto font-sans text-lg text-muted-foreground leading-relaxed">
@@ -127,23 +131,33 @@ export default function ProductosPage() {
                   id={product.id}
                   className="group grid md:grid-cols-2 gap-8 p-8 bg-card border border-border hover:border-primary/30 transition-all duration-500"
                 >
-                  <div className="aspect-[3/4] bg-muted relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/20" />
-                    <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="aspect-3/4 bg-muted relative overflow-hidden">
+                    <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-secondary/20" />
+                    {getPrimaryProductImage(product) ? (
                       <Image
-                        src="/logo.png"
+                        src={getPrimaryProductImage(product) as string}
                         alt={product.title}
-                        width={80}
-                        height={80}
-                        className="opacity-50"
+                        fill
+                        sizes="(max-width: 767px) 100vw, 50vw"
+                        className="object-cover"
                       />
-                    </div>
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Image
+                          src="/logo.png"
+                          alt={product.title}
+                          width={80}
+                          height={80}
+                          className="opacity-50"
+                        />
+                      </div>
+                    )}
                   </div>
                   <div className="flex flex-col justify-center">
                     <span className="font-sans text-sm text-primary tracking-wide">
                       {product.category}
                     </span>
-                    <h3 className="mt-2 font-serif text-lg tracking-[0.05em] text-foreground uppercase leading-tight">
+                    <h3 className="mt-2 font-serif text-lg tracking-wider text-foreground uppercase leading-tight">
                       {product.title}
                     </h3>
                     <p className="mt-4 font-sans text-muted-foreground leading-relaxed text-sm">
@@ -155,10 +169,10 @@ export default function ProductosPage() {
                       </span>
                     </div>
                     <Link
-                      href="/#contact"
+                      href={`/productos/${product.id}`}
                       className="mt-6 inline-flex items-center gap-2 font-serif text-sm tracking-[0.15em] text-primary uppercase hover:text-accent transition-colors duration-300"
                     >
-                      <span>Comprar</span>
+                      <span>Ver detalles</span>
                       <ArrowRight size={14} />
                     </Link>
                   </div>
@@ -175,7 +189,7 @@ export default function ProductosPage() {
             <span className="font-serif text-sm tracking-[0.28em] text-primary uppercase">
               Velas Aromáticas
             </span>
-            <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl tracking-[0.10em] text-foreground uppercase">
+            <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl tracking-widest text-foreground uppercase">
               Colección Despertar
             </h2>
             <p className="mt-6 max-w-3xl mx-auto font-sans text-lg text-muted-foreground leading-relaxed">
@@ -194,10 +208,10 @@ export default function ProductosPage() {
                 className="group relative p-6 bg-background border border-border hover:border-primary/30 transition-all duration-500"
               >
                 <div className="aspect-square bg-muted relative overflow-hidden mb-4">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/10" />
-                  {vela.image ? (
+                  <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-secondary/10" />
+                  {getPrimaryProductImage(vela) ? (
                     <Image
-                      src={vela.image}
+                      src={getPrimaryProductImage(vela) as string}
                       alt={vela.title}
                       fill
                       sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
@@ -222,7 +236,7 @@ export default function ProductosPage() {
                 <span className="font-sans text-xs text-primary tracking-wide uppercase">
                   {vela.category}
                 </span>
-                <h3 className="mt-1 font-serif text-base tracking-[0.05em] text-foreground uppercase leading-tight">
+                <h3 className="mt-1 font-serif text-base tracking-wider text-foreground uppercase leading-tight">
                   {vela.title}
                 </h3>
                 <p className="mt-2 font-sans text-xs text-muted-foreground line-clamp-3">
@@ -232,7 +246,7 @@ export default function ProductosPage() {
                   <p className="mt-2 font-sans text-xs text-primary/70">
                     <strong>Aceites:</strong>{" "}
                     {vela.aceites
-                      .map((id) => aceitesMap.get(id) ?? id)
+                      .map((id) => getAceiteById(id)?.nombre ?? id)
                       .join(", ")}
                   </p>
                 )}
@@ -244,10 +258,10 @@ export default function ProductosPage() {
                     {`$${vela.price.toFixed(2)}`}
                   </span>
                   <Link
-                    href="/#contact"
+                    href={`/productos/${vela.id}`}
                     className="font-sans text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
-                    Comprar
+                    Ver más
                   </Link>
                 </div>
 
@@ -265,7 +279,7 @@ export default function ProductosPage() {
             <span className="font-serif text-sm tracking-[0.28em] text-primary uppercase">
               Ceras y Decorativas
             </span>
-            <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl tracking-[0.10em] text-foreground uppercase">
+            <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl tracking-widest text-foreground uppercase">
               Colección Regalos Chispas de Luz
             </h2>
             <p className="mt-6 max-w-3xl mx-auto font-sans text-lg text-muted-foreground leading-relaxed">
@@ -283,10 +297,10 @@ export default function ProductosPage() {
                 className="group relative p-4 bg-card border border-border hover:border-primary/30 transition-all duration-500"
               >
                 <div className="aspect-square bg-muted relative overflow-hidden mb-3">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/10" />
-                  {vela.image ? (
+                  <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-secondary/10" />
+                  {getPrimaryProductImage(vela) ? (
                     <Image
-                      src={vela.image}
+                      src={getPrimaryProductImage(vela) as string}
                       alt={vela.title}
                       fill
                       sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
@@ -306,7 +320,7 @@ export default function ProductosPage() {
                 <span className="font-sans text-xs text-primary tracking-wide uppercase">
                   {vela.category}
                 </span>
-                <h3 className="mt-1 font-serif text-sm tracking-[0.05em] text-foreground uppercase leading-tight line-clamp-2">
+                <h3 className="mt-1 font-serif text-sm tracking-wider text-foreground uppercase leading-tight line-clamp-2">
                   {vela.title}
                 </h3>
                 <p className="mt-2 font-sans text-xs text-muted-foreground line-clamp-2">
@@ -317,7 +331,7 @@ export default function ProductosPage() {
                     {`$${vela.price.toFixed(2)}`}
                   </span>
                   <Link
-                    href="/#contact"
+                    href={`/productos/${vela.id}`}
                     className="font-sans text-xs text-muted-foreground hover:text-primary transition-colors"
                   >
                     Ver más
@@ -336,7 +350,7 @@ export default function ProductosPage() {
             <span className="font-serif text-sm tracking-[0.28em] text-primary uppercase">
               Velas Decorativas
             </span>
-            <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl tracking-[0.10em] text-foreground uppercase">
+            <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl tracking-widest text-foreground uppercase">
               Colección Energía Interior
             </h2>
             <p className="mt-6 max-w-3xl mx-auto font-sans text-lg text-muted-foreground leading-relaxed">
@@ -354,10 +368,10 @@ export default function ProductosPage() {
                 className="group relative p-4 bg-background border border-border hover:border-primary/30 transition-all duration-500"
               >
                 <div className="aspect-square bg-muted relative overflow-hidden mb-3">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/10" />
-                  {vela.image ? (
+                  <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-secondary/10" />
+                  {getPrimaryProductImage(vela) ? (
                     <Image
-                      src={vela.image}
+                      src={getPrimaryProductImage(vela) as string}
                       alt={vela.title}
                       fill
                       sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
@@ -377,7 +391,7 @@ export default function ProductosPage() {
                 <span className="font-sans text-xs text-primary tracking-wide uppercase">
                   {vela.category}
                 </span>
-                <h3 className="mt-1 font-serif text-sm tracking-[0.05em] text-foreground uppercase leading-tight line-clamp-2">
+                <h3 className="mt-1 font-serif text-sm tracking-wider text-foreground uppercase leading-tight line-clamp-2">
                   {vela.title}
                 </h3>
                 <p className="mt-2 font-sans text-xs text-muted-foreground line-clamp-2">
@@ -391,7 +405,7 @@ export default function ProductosPage() {
                     {`$${vela.price.toFixed(2)}`}
                   </span>
                   <Link
-                    href="/#contact"
+                    href={`/productos/${vela.id}`}
                     className="font-sans text-xs text-muted-foreground hover:text-primary transition-colors"
                   >
                     Ver más
@@ -410,7 +424,7 @@ export default function ProductosPage() {
             <span className="font-serif text-sm tracking-[0.28em] text-primary uppercase">
               Paquetes Completos
             </span>
-            <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl tracking-[0.10em] text-foreground uppercase">
+            <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl tracking-widest text-foreground uppercase">
               Colecciones de Apoyo
             </h2>
             <p className="mt-6 max-w-2xl mx-auto font-sans text-lg text-muted-foreground leading-relaxed">
@@ -422,7 +436,7 @@ export default function ProductosPage() {
           {/* Ecos del Ser kits */}
           <div className="mb-20">
             <div className="flex items-center justify-between mb-8 border-b border-border pb-4">
-              <h3 className="font-serif text-xl md:text-2xl tracking-[0.10em] text-foreground uppercase">
+              <h3 className="font-serif text-xl md:text-2xl tracking-widest text-foreground uppercase">
                 Ecos del Ser
               </h3>
               <Link
@@ -434,44 +448,50 @@ export default function ProductosPage() {
               </Link>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {(
+              {selectKitsByIds(
                 ecos.find((e) => e.id === "ecos-del-ser")?.coleccionDeApoyo ??
-                []
-              )
-                .map((id) => allProducts.find((p) => p.id === id) as KitProduct)
-                .filter(Boolean)
-                .map((kit) => (
-                  <div
-                    key={kit.id}
-                    id={kit.id}
-                    className="group relative p-6 bg-card border border-border hover:border-primary/30 transition-all duration-500"
-                  >
-                    <div className="flex items-start justify-between mb-3">
-                      <Heart
-                        size={20}
-                        strokeWidth={1}
-                        className="text-primary/50 shrink-0 mt-0.5"
-                      />
-                      <span className="font-serif text-base text-primary">
-                        {`$${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
-                      </span>
-                    </div>
-                    <h3 className="font-serif text-sm tracking-[0.05em] text-foreground uppercase leading-tight">
-                      {kit.title}
-                    </h3>
-                    <p className="mt-2 font-sans text-xs text-muted-foreground">
-                      {kit.description}
-                    </p>
-                    <div className="absolute bottom-0 left-0 h-0.5 bg-primary/20 w-0 group-hover:w-full transition-all duration-700" />
+                  [],
+              ).map((kit) => (
+                <div
+                  key={kit.id}
+                  id={kit.id}
+                  className="group relative p-6 bg-card border border-border hover:border-primary/30 transition-all duration-500"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <Heart
+                      size={20}
+                      strokeWidth={1}
+                      className="text-primary/50 shrink-0 mt-0.5"
+                    />
+                    <span className="font-serif text-base text-primary">
+                      {`$${computeKitPrice(kit).toFixed(2)}`}
+                    </span>
                   </div>
-                ))}
+                  <h3 className="font-serif text-sm tracking-wider text-foreground uppercase leading-tight">
+                    {kit.title}
+                  </h3>
+                  <p className="mt-2 font-sans text-xs text-muted-foreground">
+                    {kit.description}
+                  </p>
+                  <div className="mt-4">
+                    <Link
+                      href={`/productos/${kit.id}`}
+                      className="inline-flex items-center gap-1.5 font-sans text-xs text-primary uppercase tracking-wide hover:text-accent transition-colors"
+                    >
+                      <span>Ver detalles</span>
+                      <ArrowRight size={12} />
+                    </Link>
+                  </div>
+                  <div className="absolute bottom-0 left-0 h-0.5 bg-primary/20 w-0 group-hover:w-full transition-all duration-700" />
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Ecos de los Aromas kits */}
           <div className="mb-20">
             <div className="flex items-center justify-between mb-8 border-b border-border pb-4">
-              <h3 className="font-serif text-xl md:text-2xl tracking-[0.10em] text-foreground uppercase">
+              <h3 className="font-serif text-xl md:text-2xl tracking-widest text-foreground uppercase">
                 Ecos de los Aromas
               </h3>
               <Link
@@ -483,72 +503,65 @@ export default function ProductosPage() {
               </Link>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {(
+              {selectKitsByIds(
                 ecos.find((e) => e.id === "ecos-de-los-aromas")
-                  ?.coleccionDeApoyo ?? []
-              )
-                .map((id) => allProducts.find((p) => p.id === id) as KitProduct)
-                .filter(Boolean)
-                .map((kit) => (
-                  <div
-                    key={kit.id}
-                    id={kit.id}
-                    className="group relative p-6 bg-background border border-border hover:border-primary/30 transition-all duration-500"
-                  >
-                    <div className="flex items-start justify-between mb-3">
-                      <Sparkles
-                        size={20}
-                        strokeWidth={1}
-                        className="text-primary/50 shrink-0 mt-0.5"
-                      />
-                      <span className="font-serif text-base text-primary">
-                        {`$${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
-                      </span>
-                    </div>
-                    <h3 className="font-serif text-sm tracking-[0.05em] text-foreground uppercase leading-tight">
-                      {kit.title}
-                    </h3>
-                    <p className="mt-2 font-sans text-xs text-muted-foreground">
-                      {kit.description}
-                    </p>
-                    <ul className="mt-3 space-y-1">
-                      {kit.contenido.map((id, i) => {
-                        const label =
-                          allProducts.find((p) => p.id === id)?.title ?? id;
-                        return (
-                          <li
-                            key={id ?? i}
-                            className="flex items-start gap-1.5"
-                          >
-                            <span className="text-primary/50 mt-0.5 shrink-0">
-                              ·
-                            </span>
-                            <span className="font-sans text-xs text-foreground/80">
-                              {label}
-                            </span>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                    <div className="mt-4">
-                      <Link
-                        href="/espacios#ecos-de-los-aromas"
-                        className="inline-flex items-center gap-1.5 font-sans text-xs text-primary uppercase tracking-wide hover:text-accent transition-colors"
-                      >
-                        <span>Más info</span>
-                        <ArrowRight size={12} />
-                      </Link>
-                    </div>
-                    <div className="absolute bottom-0 left-0 h-0.5 bg-primary/20 w-0 group-hover:w-full transition-all duration-700" />
+                  ?.coleccionDeApoyo ?? [],
+              ).map((kit) => (
+                <div
+                  key={kit.id}
+                  id={kit.id}
+                  className="group relative p-6 bg-background border border-border hover:border-primary/30 transition-all duration-500"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <Sparkles
+                      size={20}
+                      strokeWidth={1}
+                      className="text-primary/50 shrink-0 mt-0.5"
+                    />
+                    <span className="font-serif text-base text-primary">
+                      {`$${computeKitPrice(kit).toFixed(2)}`}
+                    </span>
                   </div>
-                ))}
+                  <h3 className="font-serif text-sm tracking-wider text-foreground uppercase leading-tight">
+                    {kit.title}
+                  </h3>
+                  <p className="mt-2 font-sans text-xs text-muted-foreground">
+                    {kit.description}
+                  </p>
+                  <ul className="mt-3 space-y-1">
+                    {kit.contenido.map((id, i) => {
+                      const label = getProductById(id)?.title ?? id;
+                      return (
+                        <li key={id ?? i} className="flex items-start gap-1.5">
+                          <span className="text-primary/50 mt-0.5 shrink-0">
+                            ·
+                          </span>
+                          <span className="font-sans text-xs text-foreground/80">
+                            {label}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <div className="mt-4">
+                    <Link
+                      href={`/productos/${kit.id}`}
+                      className="inline-flex items-center gap-1.5 font-sans text-xs text-primary uppercase tracking-wide hover:text-accent transition-colors"
+                    >
+                      <span>Ver detalles</span>
+                      <ArrowRight size={12} />
+                    </Link>
+                  </div>
+                  <div className="absolute bottom-0 left-0 h-0.5 bg-primary/20 w-0 group-hover:w-full transition-all duration-700" />
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Store kits */}
           <div>
             <div className="mb-8 border-b border-border pb-4">
-              <h3 className="font-serif text-xl md:text-2xl tracking-[0.10em] text-foreground uppercase">
+              <h3 className="font-serif text-xl md:text-2xl tracking-widest text-foreground uppercase">
                 Kits de Tienda
               </h3>
             </div>
@@ -565,7 +578,7 @@ export default function ProductosPage() {
                     className="group relative p-6 bg-card border border-border hover:border-primary/30 transition-all duration-500"
                   >
                     <div className="aspect-square bg-muted relative overflow-hidden mb-4">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/20" />
+                      <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-secondary/20" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <Heart
                           size={32}
@@ -582,7 +595,7 @@ export default function ProductosPage() {
                     <span className="font-sans text-xs text-primary tracking-wide uppercase">
                       {kit.category}
                     </span>
-                    <h3 className="mt-1 font-serif text-base tracking-[0.05em] text-foreground uppercase leading-tight">
+                    <h3 className="mt-1 font-serif text-base tracking-wider text-foreground uppercase leading-tight">
                       {kit.title}
                     </h3>
                     <p className="mt-2 font-sans text-sm text-muted-foreground">
@@ -590,13 +603,13 @@ export default function ProductosPage() {
                     </p>
                     <div className="mt-4 flex items-center justify-between">
                       <span className="font-serif text-xl text-primary">
-                        {`$${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
+                        {`$${computeKitPrice(kit).toFixed(2)}`}
                       </span>
                       <Link
-                        href="/#contact"
+                        href={`/productos/${kit.id}`}
                         className="font-sans text-sm text-muted-foreground hover:text-primary transition-colors"
                       >
-                        Comprar
+                        Ver más
                       </Link>
                     </div>
                     <div className="absolute bottom-0 left-0 h-0.5 bg-primary/20 w-0 group-hover:w-full transition-all duration-700" />
@@ -614,7 +627,7 @@ export default function ProductosPage() {
             <span className="font-serif text-sm tracking-[0.28em] text-primary uppercase">
               Materiales de Estudio
             </span>
-            <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl tracking-[0.10em] text-foreground uppercase">
+            <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl tracking-widest text-foreground uppercase">
               Libros y Guías
             </h2>
           </div>
@@ -627,7 +640,7 @@ export default function ProductosPage() {
                 className="group relative p-6 bg-background border border-border hover:border-primary/30 transition-all duration-500"
               >
                 <div className="aspect-square bg-muted relative overflow-hidden mb-4">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/10" />
+                  <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-secondary/10" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     {product.category === "Libro" && (
                       <BookOpen
@@ -654,7 +667,7 @@ export default function ProductosPage() {
                 <span className="font-sans text-xs text-primary tracking-wide uppercase">
                   {product.category}
                 </span>
-                <h3 className="mt-1 font-serif text-sm tracking-[0.05em] text-foreground uppercase line-clamp-3 leading-tight">
+                <h3 className="mt-1 font-serif text-sm tracking-wider text-foreground uppercase line-clamp-3 leading-tight">
                   {product.title}
                 </h3>
                 <p className="mt-2 font-sans text-xs text-muted-foreground line-clamp-2">
@@ -665,7 +678,7 @@ export default function ProductosPage() {
                     {`$${product.price.toFixed(2)}`}
                   </span>
                   <Link
-                    href="/#contact"
+                    href={`/productos/${product.id}`}
                     className="font-sans text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     Ver más
@@ -696,7 +709,7 @@ export default function ProductosPage() {
                   <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                 </svg>
               </div>
-              <h3 className="font-serif text-lg tracking-[0.10em] text-foreground uppercase mb-2">
+              <h3 className="font-serif text-lg tracking-widest text-foreground uppercase mb-2">
                 Envío Cuidadoso
               </h3>
               <p className="font-sans text-muted-foreground">
@@ -717,7 +730,7 @@ export default function ProductosPage() {
                   <path d="M12 6v6l4 2" />
                 </svg>
               </div>
-              <h3 className="font-serif text-lg tracking-[0.10em] text-foreground uppercase mb-2">
+              <h3 className="font-serif text-lg tracking-widest text-foreground uppercase mb-2">
                 Artesanal y Ecológico
               </h3>
               <p className="font-sans text-muted-foreground">
@@ -737,7 +750,7 @@ export default function ProductosPage() {
                   <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
                 </svg>
               </div>
-              <h3 className="font-serif text-lg tracking-[0.10em] text-foreground uppercase mb-2">
+              <h3 className="font-serif text-lg tracking-widest text-foreground uppercase mb-2">
                 Hecho con Intención
               </h3>
               <p className="font-sans text-muted-foreground">
@@ -752,7 +765,7 @@ export default function ProductosPage() {
       {/* CTA */}
       <section className="py-24 lg:py-32 bg-foreground text-background">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl tracking-[0.10em] uppercase leading-tight">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl tracking-widest uppercase leading-tight">
             ¿Necesitas Orientación?
           </h2>
           <p className="mt-6 font-sans text-lg text-background/70 leading-relaxed max-w-2xl mx-auto">

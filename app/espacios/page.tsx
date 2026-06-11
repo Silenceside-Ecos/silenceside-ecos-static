@@ -13,11 +13,14 @@ import type {
   InformacionEcosAromas,
   FormacionEcosAromas,
 } from "@/lib/types/espacios";
-import { allProducts } from "@/lib/services/productos";
-import { allAceites } from "@/lib/services/aceites";
 import type { KitProduct, VelaProduct } from "@/lib/types/productos";
-
-const aceitesMap = new Map(allAceites.map((a) => [a.id, a]));
+import {
+  computeKitPrice,
+  getAceiteById,
+  getProductById,
+  selectKitsByIds,
+  selectVelasByIds,
+} from "@/lib/services/registry";
 
 export default function EspaciosPage() {
   const [expandedFeature, setExpandedFeature] = useState<string | null>(null);
@@ -304,7 +307,7 @@ export default function EspaciosPage() {
         <details key={kit.id} className="group/kit border border-border">
           <summary className="flex items-center justify-between p-3 cursor-pointer hover:bg-primary/5 transition-colors">
             <Link
-              href={`/productos#${kit.id}`}
+              href={`/productos/${kit.id}`}
               className="font-sans text-sm text-foreground hover:text-primary transition-colors"
               onClick={(e) => e.stopPropagation()}
             >
@@ -319,12 +322,12 @@ export default function EspaciosPage() {
             <p className="italic text-foreground mb-2">{kit.description}</p>
             <ul className="list-disc pl-5 space-y-1">
               {kit.contenido.map((id, i) => {
-                const product = allProducts.find((p) => p.id === id);
+                const product = getProductById(id);
                 const label = product?.title ?? id;
                 return (
                   <li key={id ?? i}>
                     <Link
-                      href={`/productos#${id}`}
+                      href={`/productos/${id}`}
                       className="hover:text-primary transition-colors"
                     >
                       {label}
@@ -356,14 +359,14 @@ export default function EspaciosPage() {
           <summary className="flex items-center justify-between p-3 cursor-pointer hover:bg-primary/5 transition-colors">
             <div className="flex items-center gap-3">
               <Link
-                href={`/productos#${kit.id}`}
+                href={`/productos/${kit.id}`}
                 className="font-medium text-sm text-foreground hover:text-primary transition-colors"
                 onClick={(e) => e.stopPropagation()}
               >
                 {kit.title}
               </Link>
               <span className="text-xs text-primary font-medium">
-                {`$${kit.contenido.reduce((sum, id) => sum + (allProducts.find((p) => p.id === id)?.price ?? 0), 0).toFixed(2)}`}
+                {`$${computeKitPrice(kit).toFixed(2)}`}
               </span>
             </div>
             <ChevronDown
@@ -378,12 +381,11 @@ export default function EspaciosPage() {
               <p className="font-medium text-xs mb-2">Contenido del kit:</p>
               <ul className="list-disc pl-5 space-y-1 text-sm">
                 {kit.contenido.map((id, i) => {
-                  const label =
-                    allProducts.find((p) => p.id === id)?.title ?? id;
+                  const label = getProductById(id)?.title ?? id;
                   return (
                     <li key={id ?? i}>
                       <Link
-                        href={`/productos#${id}`}
+                        href={`/productos/${id}`}
                         className="hover:text-primary transition-colors"
                       >
                         {label}
@@ -399,25 +401,20 @@ export default function EspaciosPage() {
                 Velas incluidas relacionadas:
               </p>
               <div className="flex flex-wrap gap-2">
-                {kit.contenido
-                  .map((id) => allProducts.find((p) => p.id === id))
-                  .filter(
-                    (p): p is VelaProduct => p != null && "collection" in p,
-                  )
-                  .map((vela, i) => (
-                    <Link
-                      key={i}
-                      href={`/productos#${vela.id}`}
-                      className="px-2 py-1 bg-primary/10 text-primary text-xs hover:bg-primary/20 transition-colors"
-                    >
-                      {vela.title}
-                    </Link>
-                  ))}
+                {selectVelasByIds(kit.contenido).map((vela, i) => (
+                  <Link
+                    key={i}
+                    href={`/productos/${vela.id}`}
+                    className="px-2 py-1 bg-primary/10 text-primary text-xs hover:bg-primary/20 transition-colors"
+                  >
+                    {vela.title}
+                  </Link>
+                ))}
               </div>
             </div>
 
             <Link
-              href={`/productos#${kit.id}`}
+              href={`/productos/${kit.id}`}
               className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-2"
             >
               Ver en tienda <ArrowRight size={12} />
@@ -530,7 +527,7 @@ export default function EspaciosPage() {
                       </p>
                       <div className="space-y-2">
                         {vela.aceites.map((id, j) => {
-                          const aceite = aceitesMap.get(id);
+                          const aceite = getAceiteById(id);
                           if (!aceite) return null;
                           return (
                             <div key={j} className="text-xs">
@@ -671,13 +668,13 @@ export default function EspaciosPage() {
 
       {/* Hero Section */}
       <section className="pt-32 pb-24 lg:pt-40 lg:pb-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-b from-secondary/20 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="font-serif text-sm tracking-[0.28em] text-primary uppercase">
               Espacios Educativos
             </span>
-            <h1 className="mt-4 font-serif text-4xl md:text-5xl lg:text-6xl tracking-[0.10em] text-foreground uppercase leading-tight">
+            <h1 className="mt-4 font-serif text-4xl md:text-5xl lg:text-6xl tracking-widest text-foreground uppercase leading-tight">
               Ecos
             </h1>
             <p className="mt-8 font-sans text-xl text-foreground leading-relaxed">
@@ -718,7 +715,7 @@ export default function EspaciosPage() {
             <span className="font-serif text-sm tracking-[0.28em] text-primary uppercase">
               Nuestros Espacios
             </span>
-            <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl tracking-[0.10em] text-foreground uppercase">
+            <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl tracking-widest text-foreground uppercase">
               Ecos
             </h2>
           </div>
@@ -733,7 +730,7 @@ export default function EspaciosPage() {
                 }`}
               >
                 <div className={`${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                  <div className="relative aspect-[4/3] bg-secondary/20 flex items-center justify-center overflow-hidden">
+                  <div className="relative aspect-4/3 bg-secondary/20 flex items-center justify-center overflow-hidden">
                     <Image
                       src={space.image}
                       alt={space.title}
@@ -745,7 +742,7 @@ export default function EspaciosPage() {
                 </div>
 
                 <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <h3 className="font-serif text-2xl md:text-3xl tracking-[0.10em] text-foreground uppercase">
+                  <h3 className="font-serif text-2xl md:text-3xl tracking-widest text-foreground uppercase">
                     {space.title}
                   </h3>
                   <p className="mt-6 font-sans text-foreground leading-relaxed">
@@ -799,12 +796,7 @@ export default function EspaciosPage() {
                   {space.kind === "ser" &&
                     expandedFeature === `${space.id}-Colección de apoyo` &&
                     renderColeccionEcosSer(
-                      (space.coleccionDeApoyo ?? [])
-                        .map(
-                          (id) =>
-                            allProducts.find((p) => p.id === id) as KitProduct,
-                        )
-                        .filter(Boolean),
+                      selectKitsByIds(space.coleccionDeApoyo ?? []),
                     )}
                   {space.kind === "aromas" &&
                     expandedFeature === `${space.id}-Información` &&
@@ -815,12 +807,7 @@ export default function EspaciosPage() {
                   {space.kind === "aromas" &&
                     expandedFeature === `${space.id}-Colección de apoyo` &&
                     renderColeccionEcosAromas(
-                      (space.coleccionDeApoyo ?? [])
-                        .map(
-                          (id) =>
-                            allProducts.find((p) => p.id === id) as KitProduct,
-                        )
-                        .filter(Boolean),
+                      selectKitsByIds(space.coleccionDeApoyo ?? []),
                     )}
 
                   {/* Links */}
@@ -852,7 +839,7 @@ export default function EspaciosPage() {
             <span className="font-serif text-sm tracking-[0.28em] text-primary uppercase">
               Enseñanza
             </span>
-            <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl tracking-[0.10em] text-foreground uppercase">
+            <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl tracking-widest text-foreground uppercase">
               Enfoques Integrados del Ser
             </h2>
           </div>
