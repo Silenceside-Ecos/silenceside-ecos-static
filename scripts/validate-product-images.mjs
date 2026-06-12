@@ -94,7 +94,11 @@ for (const [productId, routes] of Object.entries(manifest)) {
       continue;
     }
 
-    const filePath = path.join(publicDir, route.replace(/^\//, ""));
+    const filePath = path.resolve(publicDir, route.replace(/^\//, ""));
+    if (!filePath.startsWith(publicDir + path.sep) && filePath !== publicDir) {
+      invalidRoutes.push({ productId, route });
+      continue;
+    }
     if (!fs.existsSync(filePath)) {
       missingFiles.push({ productId, route, filePath });
     }

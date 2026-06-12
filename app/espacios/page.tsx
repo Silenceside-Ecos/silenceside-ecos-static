@@ -13,7 +13,7 @@ import type {
   InformacionEcosAromas,
   FormacionEcosAromas,
 } from "@/lib/types/espacios";
-import type { KitProduct, VelaProduct } from "@/lib/types/productos";
+import type { KitProduct } from "@/lib/types/productos";
 import {
   computeKitPrice,
   getAceiteById,

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -55,6 +55,10 @@ export function ProductDetail({ product }: { product: Product }) {
     product.category === "Colección de apoyo"
       ? computeKitPrice(product)
       : product.price;
+
+  useEffect(() => {
+    setSelectedImage(getPrimaryProductImage(product));
+  }, [product.id]);
 
   return (
     <section className="py-20 lg:py-28">
