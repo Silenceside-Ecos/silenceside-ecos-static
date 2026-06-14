@@ -44,9 +44,6 @@ for (const id of productIds) {
 const unknownManifestIds = Object.keys(manifest).filter(
   (id) => !productIds.includes(id),
 );
-for (const id of unknownManifestIds) {
-  nextManifest[id] = manifest[id];
-}
 
 fs.writeFileSync(
   manifestPath,
@@ -59,6 +56,6 @@ console.log(`Folders ensured: public/productos/<id> for all products`);
 console.log(`Manifest synced: ${manifestPath}`);
 if (unknownManifestIds.length > 0) {
   console.log(
-    `Preserved unknown manifest entries: ${unknownManifestIds.join(", ")}`,
+    `Dropped unknown manifest entries: ${unknownManifestIds.join(", ")}`,
   );
 }

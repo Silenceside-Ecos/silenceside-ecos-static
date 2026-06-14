@@ -125,59 +125,63 @@ export default function ProductosPage() {
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {libros
               .filter((p) => p.featured)
-              .map((product) => (
-                <div
-                  key={product.id}
-                  id={product.id}
-                  className="group grid md:grid-cols-2 gap-8 p-8 bg-card border border-border hover:border-primary/30 transition-all duration-500"
-                >
-                  <div className="aspect-3/4 bg-muted relative overflow-hidden">
-                    <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-secondary/20" />
-                    {getPrimaryProductImage(product) ? (
-                      <Image
-                        src={getPrimaryProductImage(product) as string}
-                        alt={product.title}
-                        fill
-                        sizes="(max-width: 767px) 100vw, 50vw"
-                        className="object-cover"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 flex items-center justify-center">
+              .map((product) => {
+                const primaryImage = getPrimaryProductImage(product);
+
+                return (
+                  <div
+                    key={product.id}
+                    id={product.id}
+                    className="group grid md:grid-cols-2 gap-8 p-8 bg-card border border-border hover:border-primary/30 transition-all duration-500"
+                  >
+                    <div className="aspect-3/4 bg-muted relative overflow-hidden">
+                      <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-secondary/20" />
+                      {primaryImage ? (
                         <Image
-                          src="/logo.png"
+                          src={primaryImage}
                           alt={product.title}
-                          width={80}
-                          height={80}
-                          className="opacity-50"
+                          fill
+                          sizes="(max-width: 767px) 100vw, 50vw"
+                          className="object-cover"
                         />
-                      </div>
-                    )}
-                  </div>
-                  <div className="flex flex-col justify-center">
-                    <span className="font-sans text-sm text-primary tracking-wide">
-                      {product.category}
-                    </span>
-                    <h3 className="mt-2 font-serif text-lg tracking-wider text-foreground uppercase leading-tight">
-                      {product.title}
-                    </h3>
-                    <p className="mt-4 font-sans text-muted-foreground leading-relaxed text-sm">
-                      {product.description}
-                    </p>
-                    <div className="mt-6">
-                      <span className="font-serif text-2xl text-primary">
-                        {`$${product.price.toFixed(2)}`}
-                      </span>
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <Image
+                            src="/logo.png"
+                            alt={product.title}
+                            width={80}
+                            height={80}
+                            className="opacity-50"
+                          />
+                        </div>
+                      )}
                     </div>
-                    <Link
-                      href={`/productos/${product.id}`}
-                      className="mt-6 inline-flex items-center gap-2 font-serif text-sm tracking-[0.15em] text-primary uppercase hover:text-accent transition-colors duration-300"
-                    >
-                      <span>Ver detalles</span>
-                      <ArrowRight size={14} />
-                    </Link>
+                    <div className="flex flex-col justify-center">
+                      <span className="font-sans text-sm text-primary tracking-wide">
+                        {product.category}
+                      </span>
+                      <h3 className="mt-2 font-serif text-lg tracking-wider text-foreground uppercase leading-tight">
+                        {product.title}
+                      </h3>
+                      <p className="mt-4 font-sans text-muted-foreground leading-relaxed text-sm">
+                        {product.description}
+                      </p>
+                      <div className="mt-6">
+                        <span className="font-serif text-2xl text-primary">
+                          {`$${product.price.toFixed(2)}`}
+                        </span>
+                      </div>
+                      <Link
+                        href={`/productos/${product.id}`}
+                        className="mt-6 inline-flex items-center gap-2 font-serif text-sm tracking-[0.15em] text-primary uppercase hover:text-accent transition-colors duration-300"
+                      >
+                        <span>Ver detalles</span>
+                        <ArrowRight size={14} />
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
           </div>
         </div>
       </section>
@@ -201,37 +205,40 @@ export default function ProductosPage() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {velasDespertar.map((vela) => (
-              <div
-                key={vela.id}
-                id={vela.id}
-                className="group relative p-6 bg-background border border-border hover:border-primary/30 transition-all duration-500"
-              >
-                <div className="aspect-square bg-muted relative overflow-hidden mb-4">
-                  <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-secondary/10" />
-                  {getPrimaryProductImage(vela) ? (
-                    <Image
-                      src={getPrimaryProductImage(vela) as string}
-                      alt={vela.title}
-                      fill
-                      sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-                      className="object-cover"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Flame
-                        size={40}
-                        strokeWidth={0.5}
-                        className="text-primary/40"
+            {velasDespertar.map((vela) => {
+              const primaryImage = getPrimaryProductImage(vela);
+
+              return (
+                <div
+                  key={vela.id}
+                  id={vela.id}
+                  className="group relative p-6 bg-background border border-border hover:border-primary/30 transition-all duration-500"
+                >
+                  <div className="aspect-square bg-muted relative overflow-hidden mb-4">
+                    <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-secondary/10" />
+                    {primaryImage ? (
+                      <Image
+                        src={primaryImage}
+                        alt={vela.title}
+                        fill
+                        sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                        className="object-cover"
                       />
-                    </div>
-                  )}
-                  {vela.featured && (
-                    <span className="absolute top-2 left-2 px-2 py-1 bg-primary text-primary-foreground text-xs font-sans uppercase tracking-wide">
-                      Destacado
-                    </span>
-                  )}
-                </div>
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Flame
+                          size={40}
+                          strokeWidth={0.5}
+                          className="text-primary/40"
+                        />
+                      </div>
+                    )}
+                    {vela.featured && (
+                      <span className="absolute top-2 left-2 px-2 py-1 bg-primary text-primary-foreground text-xs font-sans uppercase tracking-wide">
+                        Destacado
+                      </span>
+                    )}
+                  </div>
 
                 <span className="font-sans text-xs text-primary tracking-wide uppercase">
                   {vela.category}
@@ -266,8 +273,9 @@ export default function ProductosPage() {
                 </div>
 
                 <div className="absolute bottom-0 left-0 h-0.5 bg-primary/20 w-0 group-hover:w-full transition-all duration-700" />
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -290,32 +298,35 @@ export default function ProductosPage() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {velasChispas.map((vela) => (
-              <div
-                key={vela.id}
-                id={vela.id}
-                className="group relative p-4 bg-card border border-border hover:border-primary/30 transition-all duration-500"
-              >
-                <div className="aspect-square bg-muted relative overflow-hidden mb-3">
-                  <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-secondary/10" />
-                  {getPrimaryProductImage(vela) ? (
-                    <Image
-                      src={getPrimaryProductImage(vela) as string}
-                      alt={vela.title}
-                      fill
-                      sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                      className="object-cover"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Sparkles
-                        size={28}
-                        strokeWidth={0.5}
-                        className="text-primary/40"
+            {velasChispas.map((vela) => {
+              const primaryImage = getPrimaryProductImage(vela);
+
+              return (
+                <div
+                  key={vela.id}
+                  id={vela.id}
+                  className="group relative p-4 bg-card border border-border hover:border-primary/30 transition-all duration-500"
+                >
+                  <div className="aspect-square bg-muted relative overflow-hidden mb-3">
+                    <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-secondary/10" />
+                    {primaryImage ? (
+                      <Image
+                        src={primaryImage}
+                        alt={vela.title}
+                        fill
+                        sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
+                        className="object-cover"
                       />
-                    </div>
-                  )}
-                </div>
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Sparkles
+                          size={28}
+                          strokeWidth={0.5}
+                          className="text-primary/40"
+                        />
+                      </div>
+                    )}
+                  </div>
 
                 <span className="font-sans text-xs text-primary tracking-wide uppercase">
                   {vela.category}
@@ -337,8 +348,9 @@ export default function ProductosPage() {
                     Ver más
                   </Link>
                 </div>
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -361,32 +373,35 @@ export default function ProductosPage() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {velasEnergia.map((vela) => (
-              <div
-                key={vela.id}
-                id={vela.id}
-                className="group relative p-4 bg-background border border-border hover:border-primary/30 transition-all duration-500"
-              >
-                <div className="aspect-square bg-muted relative overflow-hidden mb-3">
-                  <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-secondary/10" />
-                  {getPrimaryProductImage(vela) ? (
-                    <Image
-                      src={getPrimaryProductImage(vela) as string}
-                      alt={vela.title}
-                      fill
-                      sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                      className="object-cover"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Flame
-                        size={28}
-                        strokeWidth={0.5}
-                        className="text-primary/40"
+            {velasEnergia.map((vela) => {
+              const primaryImage = getPrimaryProductImage(vela);
+
+              return (
+                <div
+                  key={vela.id}
+                  id={vela.id}
+                  className="group relative p-4 bg-background border border-border hover:border-primary/30 transition-all duration-500"
+                >
+                  <div className="aspect-square bg-muted relative overflow-hidden mb-3">
+                    <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-secondary/10" />
+                    {primaryImage ? (
+                      <Image
+                        src={primaryImage}
+                        alt={vela.title}
+                        fill
+                        sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
+                        className="object-cover"
                       />
-                    </div>
-                  )}
-                </div>
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Flame
+                          size={28}
+                          strokeWidth={0.5}
+                          className="text-primary/40"
+                        />
+                      </div>
+                    )}
+                  </div>
 
                 <span className="font-sans text-xs text-primary tracking-wide uppercase">
                   {vela.category}
@@ -411,8 +426,9 @@ export default function ProductosPage() {
                     Ver más
                   </Link>
                 </div>
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

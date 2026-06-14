@@ -80,12 +80,9 @@ for (const [productId, routes] of Object.entries(manifest)) {
       continue;
     }
 
-    if (!route.startsWith("/")) {
-      invalidRoutes.push({ productId, route });
-      continue;
-    }
-
     if (
+      !route.startsWith("/") ||
+      route === "/" ||
       route.startsWith("//") ||
       route.startsWith("http://") ||
       route.startsWith("https://")
@@ -99,8 +96,19 @@ for (const [productId, routes] of Object.entries(manifest)) {
       invalidRoutes.push({ productId, route });
       continue;
     }
+
+    if (filePath === publicDir) {
+      invalidRoutes.push({ productId, route });
+      continue;
+    }
+
     if (!fs.existsSync(filePath)) {
       missingFiles.push({ productId, route, filePath });
+      continue;
+    }
+
+    if (!fs.statSync(filePath).isFile()) {
+      invalidRoutes.push({ productId, route });
     }
   }
 }

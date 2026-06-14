@@ -5,7 +5,11 @@ import { PageHeader } from "@/components/page-header";
 import { ProductDetail } from "@/components/product-detail";
 import { allProducts } from "@/lib/services/productos";
 import {
+  computeKitPrice,
+  getProductImages,
   getPrimaryProductImage,
+  resolveAceiteLabel,
+  resolveProductTitle,
   getProductById,
 } from "@/lib/services/registry";
 
@@ -57,10 +61,33 @@ export default async function ProductDetailPage({
     notFound();
   }
 
+  const images = getProductImages(product);
+  const primaryImage = images[0];
+  const price =
+    product.category === "Colección de apoyo"
+      ? computeKitPrice(product)
+      : product.price;
+  const aceiteLabels =
+    "aceites" in product ? product.aceites.map(resolveAceiteLabel) : [];
+  const relatedProducts =
+    product.category === "Colección de apoyo"
+      ? product.contenido.map((relatedId) => ({
+          id: relatedId,
+          title: resolveProductTitle(relatedId),
+        }))
+      : [];
+
   return (
     <main className="min-h-screen">
       <PageHeader />
-      <ProductDetail product={product} />
+      <ProductDetail
+        product={product}
+        images={images}
+        primaryImage={primaryImage}
+        price={price}
+        aceiteLabels={aceiteLabels}
+        relatedProducts={relatedProducts}
+      />
       <PageFooter />
     </main>
   );

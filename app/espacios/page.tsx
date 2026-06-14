@@ -401,9 +401,9 @@ export default function EspaciosPage() {
                 Velas incluidas relacionadas:
               </p>
               <div className="flex flex-wrap gap-2">
-                {selectVelasByIds(kit.contenido).map((vela, i) => (
+                {selectVelasByIds(kit.contenido).map((vela) => (
                   <Link
-                    key={i}
+                    key={vela.id}
                     href={`/productos/${vela.id}`}
                     className="px-2 py-1 bg-primary/10 text-primary text-xs hover:bg-primary/20 transition-colors"
                   >

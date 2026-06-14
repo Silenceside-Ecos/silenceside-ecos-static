@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -13,13 +13,20 @@ import {
   Sparkles,
 } from "lucide-react";
 import type { Product } from "@/lib/types/productos";
-import {
-  computeKitPrice,
-  getAceiteById,
-  getProductById,
-  getProductImages,
-  getPrimaryProductImage,
-} from "@/lib/services/registry";
+
+type RelatedProduct = {
+  id: string;
+  title: string;
+};
+
+type ProductDetailProps = {
+  product: Product;
+  images: string[];
+  primaryImage?: string;
+  price: number;
+  aceiteLabels: string[];
+  relatedProducts: RelatedProduct[];
+};
 
 function ProductFallbackIcon({ category }: { category: Product["category"] }) {
   if (category === "Libro") {
@@ -45,20 +52,21 @@ function ProductFallbackIcon({ category }: { category: Product["category"] }) {
   return <Flame size={64} strokeWidth={0.75} className="text-primary/35" />;
 }
 
-export function ProductDetail({ product }: { product: Product }) {
-  const images = useMemo(() => getProductImages(product), [product]);
+export function ProductDetail({
+  product,
+  images,
+  primaryImage,
+  price,
+  aceiteLabels,
+  relatedProducts,
+}: ProductDetailProps) {
   const [selectedImage, setSelectedImage] = useState<string | undefined>(
-    getPrimaryProductImage(product),
+    primaryImage,
   );
 
-  const price =
-    product.category === "Colección de apoyo"
-      ? computeKitPrice(product)
-      : product.price;
-
   useEffect(() => {
-    setSelectedImage(getPrimaryProductImage(product));
-  }, [product.id]);
+    setSelectedImage(primaryImage);
+  }, [primaryImage, product.id]);
 
   return (
     <section className="py-20 lg:py-28">
@@ -156,12 +164,9 @@ export function ProductDetail({ product }: { product: Product }) {
                 <p className="font-sans text-sm text-foreground/90 italic">
                   <strong>Intención:</strong> {product.intencion}
                 </p>
-                {product.aceites.length > 0 && (
+                {aceiteLabels.length > 0 && (
                   <p className="font-sans text-sm text-foreground/90">
-                    <strong>Aceites:</strong>{" "}
-                    {product.aceites
-                      .map((id) => getAceiteById(id)?.nombre ?? id)
-                      .join(", ")}
+                    <strong>Aceites:</strong> {aceiteLabels.join(", ")}
                   </p>
                 )}
               </div>
@@ -173,22 +178,19 @@ export function ProductDetail({ product }: { product: Product }) {
                   Contenido del kit
                 </p>
                 <ul className="mt-3 space-y-2">
-                  {product.contenido.map((id, i) => {
-                    const relatedProduct = getProductById(id);
-                    return (
-                      <li
-                        key={id ?? i}
-                        className="font-sans text-sm text-muted-foreground"
+                  {relatedProducts.map((relatedProduct) => (
+                    <li
+                      key={relatedProduct.id}
+                      className="font-sans text-sm text-muted-foreground"
+                    >
+                      <Link
+                        href={`/productos/${relatedProduct.id}`}
+                        className="hover:text-primary transition-colors"
                       >
-                        <Link
-                          href={`/productos/${id}`}
-                          className="hover:text-primary transition-colors"
-                        >
-                          {relatedProduct?.title ?? id}
-                        </Link>
-                      </li>
-                    );
-                  })}
+                        {relatedProduct.title}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             )}
