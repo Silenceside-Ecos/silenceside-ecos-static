@@ -41,8 +41,9 @@ for (const id of productIds) {
   fs.mkdirSync(folderPath, { recursive: true });
 }
 
+const productIdSet = new Set(productIds);
 const unknownManifestIds = Object.keys(manifest).filter(
-  (id) => !productIds.includes(id),
+  (id) => !productIdSet.has(id),
 );
 
 fs.writeFileSync(
