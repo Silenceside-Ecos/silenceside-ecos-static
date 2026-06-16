@@ -83,9 +83,7 @@ for (const [productId, routes] of Object.entries(manifest)) {
     if (
       !route.startsWith("/") ||
       route === "/" ||
-      route.startsWith("//") ||
-      route.startsWith("http://") ||
-      route.startsWith("https://")
+      route.startsWith("//")
     ) {
       invalidRoutes.push({ productId, route });
       continue;
