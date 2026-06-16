@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "sync:product-images": "node scripts/sync-product-image-manifest.mjs",
+    "validate:product-images": "node scripts/validate-product-images.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

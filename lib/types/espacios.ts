@@ -11,7 +11,7 @@ interface EcoBase {
   description: string;
   capacity: string;
   image: string;
-  coleccionDeApoyo?: string[];
+  coleccionDeApoyo?: KitProduct["id"][];
 }
 
 export interface EcoSer extends EcoBase {
@@ -128,7 +128,11 @@ export interface FormacionEcosSer {
 
 // ─── Ecos de los Aromas ───────────────────────────────────────────────────────
 
-import type { VelaProduct, VelaCollection } from "@/lib/types/productos";
+import type {
+  KitProduct,
+  VelaProduct,
+  VelaCollection,
+} from "@/lib/types/productos";
 
 export interface ColeccionVelas {
   collection: VelaCollection;

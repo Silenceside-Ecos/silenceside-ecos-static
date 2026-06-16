@@ -634,7 +634,11 @@ export const velasEnergia: VelaProduct[] = [
     price: 7,
     description:
       "La forma hexagonal trae a la memoria uno de los sólidos platónicos. El centro hueco donde nace la llama es el espacio interior donde vive tu luz personal.",
-    aceites: ["aceite-sandalo-lirio-blanco", "aceite-algodon-limpio", "aceite-madera-caribena"],
+    aceites: [
+      "aceite-sandalo-lirio-blanco",
+      "aceite-algodon-limpio",
+      "aceite-madera-caribena",
+    ],
     chakras: "C1, C4, C7",
     intencion:
       "La calma comienza cuando vuelves a tu centro. Ideal para mesitas de noche y sitios de trabajo.",
