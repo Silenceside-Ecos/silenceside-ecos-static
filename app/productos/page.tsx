@@ -240,39 +240,39 @@ export default function ProductosPage() {
                     )}
                   </div>
 
-                <span className="font-sans text-xs text-primary tracking-wide uppercase">
-                  {vela.category}
-                </span>
-                <h3 className="mt-1 font-serif text-base tracking-wider text-foreground uppercase leading-tight">
-                  {vela.title}
-                </h3>
-                <p className="mt-2 font-sans text-xs text-muted-foreground line-clamp-3">
-                  {vela.description}
-                </p>
-                {vela.aceites.length > 0 && (
-                  <p className="mt-2 font-sans text-xs text-primary/70">
-                    <strong>Aceites:</strong>{" "}
-                    {vela.aceites
-                      .map((id) => getAceiteById(id)?.nombre ?? id)
-                      .join(", ")}
-                  </p>
-                )}
-                <p className="mt-1 font-sans text-xs text-muted-foreground italic">
-                  {vela.intencion}
-                </p>
-                <div className="mt-4 flex items-center justify-between">
-                  <span className="font-serif text-lg text-primary">
-                    {`$${vela.price.toFixed(2)}`}
+                  <span className="font-sans text-xs text-primary tracking-wide uppercase">
+                    {vela.category}
                   </span>
-                  <Link
-                    href={`/productos/${vela.id}`}
-                    className="font-sans text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Ver más
-                  </Link>
-                </div>
+                  <h3 className="mt-1 font-serif text-base tracking-wider text-foreground uppercase leading-tight">
+                    {vela.title}
+                  </h3>
+                  <p className="mt-2 font-sans text-xs text-muted-foreground line-clamp-3">
+                    {vela.description}
+                  </p>
+                  {vela.aceites.length > 0 && (
+                    <p className="mt-2 font-sans text-xs text-primary/70">
+                      <strong>Aceites:</strong>{" "}
+                      {vela.aceites
+                        .map((id) => getAceiteById(id)?.nombre ?? id)
+                        .join(", ")}
+                    </p>
+                  )}
+                  <p className="mt-1 font-sans text-xs text-muted-foreground italic">
+                    {vela.intencion}
+                  </p>
+                  <div className="mt-4 flex items-center justify-between">
+                    <span className="font-serif text-lg text-primary">
+                      {`$${vela.price.toFixed(2)}`}
+                    </span>
+                    <Link
+                      href={`/productos/${vela.id}`}
+                      className="font-sans text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      Ver más
+                    </Link>
+                  </div>
 
-                <div className="absolute bottom-0 left-0 h-0.5 bg-primary/20 w-0 group-hover:w-full transition-all duration-700" />
+                  <div className="absolute bottom-0 left-0 h-0.5 bg-primary/20 w-0 group-hover:w-full transition-all duration-700" />
                 </div>
               );
             })}
@@ -328,26 +328,26 @@ export default function ProductosPage() {
                     )}
                   </div>
 
-                <span className="font-sans text-xs text-primary tracking-wide uppercase">
-                  {vela.category}
-                </span>
-                <h3 className="mt-1 font-serif text-sm tracking-wider text-foreground uppercase leading-tight line-clamp-2">
-                  {vela.title}
-                </h3>
-                <p className="mt-2 font-sans text-xs text-muted-foreground line-clamp-2">
-                  {vela.description}
-                </p>
-                <div className="mt-3 flex items-center justify-between">
-                  <span className="font-serif text-base text-primary">
-                    {`$${vela.price.toFixed(2)}`}
+                  <span className="font-sans text-xs text-primary tracking-wide uppercase">
+                    {vela.category}
                   </span>
-                  <Link
-                    href={`/productos/${vela.id}`}
-                    className="font-sans text-xs text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Ver más
-                  </Link>
-                </div>
+                  <h3 className="mt-1 font-serif text-sm tracking-wider text-foreground uppercase leading-tight line-clamp-2">
+                    {vela.title}
+                  </h3>
+                  <p className="mt-2 font-sans text-xs text-muted-foreground line-clamp-2">
+                    {vela.description}
+                  </p>
+                  <div className="mt-3 flex items-center justify-between">
+                    <span className="font-serif text-base text-primary">
+                      {`$${vela.price.toFixed(2)}`}
+                    </span>
+                    <Link
+                      href={`/productos/${vela.id}`}
+                      className="font-sans text-xs text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      Ver más
+                    </Link>
+                  </div>
                 </div>
               );
             })}
@@ -403,29 +403,29 @@ export default function ProductosPage() {
                     )}
                   </div>
 
-                <span className="font-sans text-xs text-primary tracking-wide uppercase">
-                  {vela.category}
-                </span>
-                <h3 className="mt-1 font-serif text-sm tracking-wider text-foreground uppercase leading-tight line-clamp-2">
-                  {vela.title}
-                </h3>
-                <p className="mt-2 font-sans text-xs text-muted-foreground line-clamp-2">
-                  {vela.description}
-                </p>
-                <p className="mt-1 font-sans text-xs italic text-primary/60 line-clamp-1">
-                  {vela.intencion}
-                </p>
-                <div className="mt-3 flex items-center justify-between">
-                  <span className="font-serif text-base text-primary">
-                    {`$${vela.price.toFixed(2)}`}
+                  <span className="font-sans text-xs text-primary tracking-wide uppercase">
+                    {vela.category}
                   </span>
-                  <Link
-                    href={`/productos/${vela.id}`}
-                    className="font-sans text-xs text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Ver más
-                  </Link>
-                </div>
+                  <h3 className="mt-1 font-serif text-sm tracking-wider text-foreground uppercase leading-tight line-clamp-2">
+                    {vela.title}
+                  </h3>
+                  <p className="mt-2 font-sans text-xs text-muted-foreground line-clamp-2">
+                    {vela.description}
+                  </p>
+                  <p className="mt-1 font-sans text-xs italic text-primary/60 line-clamp-1">
+                    {vela.intencion}
+                  </p>
+                  <div className="mt-3 flex items-center justify-between">
+                    <span className="font-serif text-base text-primary">
+                      {`$${vela.price.toFixed(2)}`}
+                    </span>
+                    <Link
+                      href={`/productos/${vela.id}`}
+                      className="font-sans text-xs text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      Ver más
+                    </Link>
+                  </div>
                 </div>
               );
             })}
