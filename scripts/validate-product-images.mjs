@@ -80,33 +80,35 @@ for (const [productId, routes] of Object.entries(manifest)) {
       continue;
     }
 
+    const normalizedRoute = route.trim();
+
     if (
-      !route.startsWith("/") ||
-      route === "/" ||
-      route.startsWith("//")
+      !normalizedRoute.startsWith("/") ||
+      normalizedRoute === "/" ||
+      normalizedRoute.startsWith("//")
     ) {
-      invalidRoutes.push({ productId, route });
+      invalidRoutes.push({ productId, route: normalizedRoute });
       continue;
     }
 
-    const filePath = path.resolve(publicDir, route.replace(/^\//, ""));
+    const filePath = path.resolve(publicDir, normalizedRoute.replace(/^\//, ""));
     if (!filePath.startsWith(publicDir + path.sep) && filePath !== publicDir) {
-      invalidRoutes.push({ productId, route });
+      invalidRoutes.push({ productId, route: normalizedRoute });
       continue;
     }
 
     if (filePath === publicDir) {
-      invalidRoutes.push({ productId, route });
+      invalidRoutes.push({ productId, route: normalizedRoute });
       continue;
     }
 
     if (!fs.existsSync(filePath)) {
-      missingFiles.push({ productId, route, filePath });
+      missingFiles.push({ productId, route: normalizedRoute, filePath });
       continue;
     }
 
     if (!fs.statSync(filePath).isFile()) {
-      invalidRoutes.push({ productId, route });
+      invalidRoutes.push({ productId, route: normalizedRoute });
     }
   }
 }

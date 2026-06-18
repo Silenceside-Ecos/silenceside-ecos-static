@@ -6,12 +6,14 @@ import { ProductDetail } from "@/components/product-detail";
 import { allProducts } from "@/lib/services/productos";
 import {
   computeKitPrice,
-  getProductImages,
-  getPrimaryProductImage,
   resolveAceiteLabel,
   resolveProductTitle,
   getProductById,
 } from "@/lib/services/registry";
+import {
+  getProductImages,
+  getPrimaryProductImage,
+} from "@/lib/services/product-images";
 
 type PageParams = {
   id: string;

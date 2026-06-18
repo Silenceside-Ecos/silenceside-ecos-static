@@ -17,7 +17,13 @@ if (productIds.length === 0) {
 
 let manifest = {};
 if (fs.existsSync(manifestPath)) {
-  manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+  try {
+    manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+  } catch {
+    throw new Error(
+      `Failed to parse JSON manifest at ${manifestPath}. Ensure it contains valid JSON.`,
+    );
+  }
 }
 
 if (
