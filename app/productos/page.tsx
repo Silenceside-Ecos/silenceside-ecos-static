@@ -24,10 +24,10 @@ import type { KitProduct } from "@/lib/types/productos";
 import {
   computeKitPrice,
   getAceiteById,
-  getPrimaryProductImage,
   getProductById,
   selectKitsByIds,
 } from "@/lib/services/registry";
+import { getPrimaryProductImage } from "@/lib/services/product-images";
 
 export const metadata: Metadata = {
   title: "Tienda | Silenceside Ecos",
