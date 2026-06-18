@@ -1,6 +1,16 @@
 // ─── Store Products ───────────────────────────────────────────────────────────
 
-export type ProductCategory = "libro" | "vela" | "guia" | "kit";
+export type ProductCategory = "libro" | "vela" | "guia" | "kit" | "material";
+
+export type ProductDisplayCategory =
+  | "Libro"
+  | "Vela en Cristal"
+  | "Set de Velas"
+  | "Cera Derretida"
+  | "Vela Decorativa"
+  | "Guía"
+  | "Colección de apoyo"
+  | "Material";
 
 export type VelaCollection = "despertar" | "chispas" | "energia";
 
@@ -13,10 +23,11 @@ export interface Aceite {
 interface BaseProduct {
   id: string;
   title: string;
-  category: string;
+  category: ProductDisplayCategory;
   price: number;
   description: string;
   image?: string;
+  images?: string[];
   featured?: boolean;
 }
 
@@ -26,6 +37,11 @@ export interface LibroProduct extends BaseProduct {
 }
 
 export interface VelaProduct extends BaseProduct {
+  category:
+    | "Vela en Cristal"
+    | "Set de Velas"
+    | "Cera Derretida"
+    | "Vela Decorativa";
   collection: VelaCollection;
   format: string;
   aceites: string[];
