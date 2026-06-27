@@ -14,6 +14,7 @@ import {
   getProductImages,
   getPrimaryProductImage,
 } from "@/lib/services/product-images";
+import { absoluteUrl, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 type PageParams = {
   id: string;
@@ -35,15 +36,31 @@ export async function generateMetadata({
     return {
       title: "Producto no encontrado | Silenceside Ecos",
       description: "El producto solicitado no existe en nuestro catálogo.",
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
   const primaryImage = getPrimaryProductImage(product);
+  const canonicalPath = `/productos/${product.id}/`;
 
   return {
     title: `${product.title} | Silenceside Ecos`,
     description: product.description,
+    alternates: {
+      canonical: canonicalPath,
+    },
     openGraph: {
+      type: "website",
+      url: canonicalPath,
+      title: `${product.title} | Silenceside Ecos`,
+      description: product.description,
+      images: primaryImage ? [primaryImage] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
       title: `${product.title} | Silenceside Ecos`,
       description: product.description,
       images: primaryImage ? [primaryImage] : undefined,
@@ -78,9 +95,65 @@ export default async function ProductDetailPage({
           title: resolveProductTitle(relatedId),
         }))
       : [];
+  const productUrl = absoluteUrl(`/productos/${product.id}/`);
+  const imageUrls = images.map(absoluteUrl);
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${productUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Inicio",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Tienda",
+            item: `${SITE_URL}/productos/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: product.title,
+            item: productUrl,
+          },
+        ],
+      },
+      {
+        "@type": "Product",
+        "@id": `${productUrl}#product`,
+        name: product.title,
+        description: product.description,
+        category: product.category,
+        sku: product.id,
+        image: imageUrls.length > 0 ? imageUrls : undefined,
+        brand: {
+          "@type": "Brand",
+          name: SITE_NAME,
+        },
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "USD",
+          price: price.toFixed(2),
+          availability: "https://schema.org/InStock",
+          itemCondition: "https://schema.org/NewCondition",
+          url: productUrl,
+        },
+      },
+    ],
+  };
 
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <PageHeader />
       <ProductDetail
         product={product}

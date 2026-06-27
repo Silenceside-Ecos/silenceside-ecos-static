@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cinzel, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -18,6 +19,38 @@ export const metadata: Metadata = {
   title: "Silenceside Ecos | Bienestar Emocional y Crecimiento Personal",
   description:
     "El lado del silencio donde nacen los ecos del alma. Descubre el desarrollo de la conciencia integrada a través de servicios holísticos, espacios educativos y experiencias transformadoras.",
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_US",
+    url: "/",
+    siteName: SITE_NAME,
+    title: "Silenceside Ecos | Bienestar Emocional y Crecimiento Personal",
+    description:
+      "El lado del silencio donde nacen los ecos del alma. Descubre el desarrollo de la conciencia integrada a través de servicios holísticos, espacios educativos y experiencias transformadoras.",
+    images: ["/logo_black.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Silenceside Ecos | Bienestar Emocional y Crecimiento Personal",
+    description:
+      "El lado del silencio donde nacen los ecos del alma. Descubre el desarrollo de la conciencia integrada a través de servicios holísticos, espacios educativos y experiencias transformadoras.",
+    images: ["/logo_black.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: [
       {
@@ -35,6 +68,7 @@ export const metadata: Metadata = {
     ],
     apple: "/logo_black.png",
   },
+  category: "wellness",
 };
 
 export default function RootLayout({
