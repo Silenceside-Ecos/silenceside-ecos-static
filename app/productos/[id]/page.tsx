@@ -27,9 +27,9 @@ export function generateStaticParams(): PageParams[] {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<PageParams>;
+  params: PageParams;
 }): Promise<Metadata> {
-  const { id } = await params;
+  const { id } = params;
   const product = getProductById(id);
 
   if (!product) {
@@ -44,7 +44,7 @@ export async function generateMetadata({
   }
 
   const primaryImage = getPrimaryProductImage(product);
-  const canonicalPath = `/productos/${product.id}`;
+  const canonicalPath = `/productos/${product.id}/`;
 
   return {
     title: `${product.title} | Silenceside Ecos`,
@@ -71,9 +71,9 @@ export async function generateMetadata({
 export default async function ProductDetailPage({
   params,
 }: {
-  params: Promise<PageParams>;
+  params: PageParams;
 }) {
-  const { id } = await params;
+  const { id } = params;
   const product = getProductById(id);
 
   if (!product) {
@@ -95,7 +95,7 @@ export default async function ProductDetailPage({
           title: resolveProductTitle(relatedId),
         }))
       : [];
-  const productUrl = absoluteUrl(`/productos/${product.id}`);
+  const productUrl = absoluteUrl(`/productos/${product.id}/`);
   const imageUrls = images.map(absoluteUrl);
   const productJsonLd = {
     "@context": "https://schema.org",
@@ -114,7 +114,7 @@ export default async function ProductDetailPage({
             "@type": "ListItem",
             position: 2,
             name: "Tienda",
-            item: `${SITE_URL}/productos`,
+            item: `${SITE_URL}/productos/`,
           },
           {
             "@type": "ListItem",

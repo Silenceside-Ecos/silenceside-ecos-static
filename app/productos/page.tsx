@@ -35,13 +35,13 @@ export const metadata: Metadata = {
   description:
     "Libros, guías, cuadernos de trabajo, velas aromáticas y materiales didácticos elaborados con intención para tu viaje hacia la sabiduría interior.",
   alternates: {
-    canonical: "/productos",
+    canonical: "/productos/",
   },
   openGraph: {
     title: "Tienda | Silenceside Ecos",
     description:
       "Libros, guías, cuadernos de trabajo, velas aromáticas y materiales didácticos elaborados con intención para tu viaje hacia la sabiduría interior.",
-    url: "/productos",
+    url: "/productos/",
     images: ["/logo_black.png"],
   },
   twitter: {
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 const productosJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "@id": `${SITE_URL}/productos#breadcrumb`,
+  "@id": `${SITE_URL}/productos/#breadcrumb`,
   itemListElement: [
     {
       "@type": "ListItem",
@@ -68,7 +68,7 @@ const productosJsonLd = {
       "@type": "ListItem",
       position: 2,
       name: `Tienda ${SITE_NAME}`,
-      item: `${SITE_URL}/productos`,
+      item: `${SITE_URL}/productos/`,
     },
   ],
 };

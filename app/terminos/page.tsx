@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   description:
     "Términos y condiciones de uso de los servicios de Silenceside Ecos.",
   alternates: {
-    canonical: "/terminos",
+    canonical: "/terminos/",
   },
   openGraph: {
     title: "Términos de Servicio | Silenceside Ecos",
     description:
       "Términos y condiciones de uso de los servicios de Silenceside Ecos.",
-    url: "/terminos",
+    url: "/terminos/",
     images: ["/logo_black.png"],
   },
   twitter: {

@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   description:
     "Política de privacidad de Silenceside Ecos. Cómo recopilamos, usamos y protegemos tu información personal.",
   alternates: {
-    canonical: "/privacidad",
+    canonical: "/privacidad/",
   },
   openGraph: {
     title: "Política de Privacidad | Silenceside Ecos",
     description:
       "Política de privacidad de Silenceside Ecos. Cómo recopilamos, usamos y protegemos tu información personal.",
-    url: "/privacidad",
+    url: "/privacidad/",
     images: ["/logo_black.png"],
   },
   twitter: {

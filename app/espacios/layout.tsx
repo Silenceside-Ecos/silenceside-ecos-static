@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Programas de acompañamiento, formación y crecimiento personal para fortalecer tu proceso de conciencia integrada.",
   alternates: {
-    canonical: "/espacios",
+    canonical: "/espacios/",
   },
   openGraph: {
     title: "Espacios | Silenceside Ecos",
     description:
       "Programas de acompañamiento, formación y crecimiento personal para fortalecer tu proceso de conciencia integrada.",
-    url: "/espacios",
+    url: "/espacios/",
     images: ["/logo_black.png"],
   },
   twitter: {
