@@ -11,6 +11,7 @@ import {
   Users,
 } from "lucide-react";
 import Link from "next/link";
+import { buildBreadcrumbListJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Experiencias | Silenceside Ecos",
@@ -139,9 +140,21 @@ const testimonials = [
   },
 ];
 
+const experienciasJsonLd = buildBreadcrumbListJsonLd(
+  [
+    { name: "Inicio", path: "/" },
+    { name: "Experiencias", path: "/experiencias/" },
+  ],
+  "/experiencias/",
+);
+
 export default function ExperienciasPage() {
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(experienciasJsonLd) }}
+      />
       <PageHeader />
 
       {/* Hero Section */}

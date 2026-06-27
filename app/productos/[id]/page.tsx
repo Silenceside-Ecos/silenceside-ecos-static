@@ -14,7 +14,7 @@ import {
   getProductImages,
   getPrimaryProductImage,
 } from "@/lib/services/product-images";
-import { absoluteUrl, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { absoluteUrl, buildBreadcrumbListJsonLd, SITE_NAME } from "@/lib/seo";
 
 type PageParams = {
   id: string;
@@ -100,30 +100,14 @@ export default async function ProductDetailPage({
   const productJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        "@id": `${productUrl}#breadcrumb`,
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Inicio",
-            item: SITE_URL,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Tienda",
-            item: `${SITE_URL}/productos/`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: product.title,
-            item: productUrl,
-          },
+      buildBreadcrumbListJsonLd(
+        [
+          { name: "Inicio", path: "/" },
+          { name: "Tienda", path: "/productos/" },
+          { name: product.title, path: `/productos/${product.id}/` },
         ],
-      },
+        `/productos/${product.id}/`,
+      ),
       {
         "@type": "Product",
         "@id": `${productUrl}#product`,
