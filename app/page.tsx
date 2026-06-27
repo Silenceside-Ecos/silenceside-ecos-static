@@ -8,7 +8,7 @@ import { Experiences } from "@/components/experiences";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { SOCIAL_LINKS } from "@/lib/social-links";
-import { SITE_NAME, SITE_URL } from "@/lib/seo";
+import { buildBreadcrumbListJsonLd, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Silenceside Ecos | Bienestar Emocional y Crecimiento Personal",
@@ -55,16 +55,7 @@ const homeJsonLd = {
       },
     },
     {
-      "@type": "BreadcrumbList",
-      "@id": `${SITE_URL}/#breadcrumb`,
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Inicio",
-          item: SITE_URL,
-        },
-      ],
+      ...buildBreadcrumbListJsonLd([{ name: "Inicio", path: "/" }], "/"),
     },
   ],
 };

@@ -21,6 +21,15 @@ import {
   selectKitsByIds,
   selectVelasByIds,
 } from "@/lib/services/registry";
+import { buildBreadcrumbListJsonLd } from "@/lib/seo";
+
+const espaciosJsonLd = buildBreadcrumbListJsonLd(
+  [
+    { name: "Inicio", path: "/" },
+    { name: "Espacios", path: "/espacios/" },
+  ],
+  "/espacios/",
+);
 
 export default function EspaciosPage() {
   const [expandedFeature, setExpandedFeature] = useState<string | null>(null);
@@ -664,6 +673,10 @@ export default function EspaciosPage() {
 
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(espaciosJsonLd) }}
+      />
       <PageHeader />
 
       {/* Hero Section */}
