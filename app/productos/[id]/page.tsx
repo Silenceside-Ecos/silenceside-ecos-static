@@ -107,6 +107,7 @@ export default async function ProductDetailPage({
           { name: product.title, path: `/productos/${product.id}/` },
         ],
         `/productos/${product.id}/`,
+        false,
       ),
       {
         "@type": "Product",
