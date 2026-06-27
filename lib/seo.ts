@@ -21,7 +21,8 @@ export function buildBreadcrumbListJsonLd(
   idPath?: string,
   includeContext = true,
 ) {
-  const fallbackPath = items[items.length - 1]?.path ?? "/";
+  const lastItem = items.length > 0 ? items[items.length - 1] : undefined;
+  const fallbackPath = lastItem?.path ?? "/";
 
   return {
     ...(includeContext ? { "@context": "https://schema.org" } : {}),
