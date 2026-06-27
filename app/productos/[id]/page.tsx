@@ -131,7 +131,7 @@ export default async function ProductDetailPage({
         description: product.description,
         category: product.category,
         sku: product.id,
-        image: imageUrls,
+        image: imageUrls.length > 0 ? imageUrls : undefined,
         brand: {
           "@type": "Brand",
           name: SITE_NAME,

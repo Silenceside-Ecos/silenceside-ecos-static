@@ -6,11 +6,11 @@ export const dynamic = "force-static";
 
 const STATIC_ROUTES = [
   "/",
-  "/productos",
-  "/experiencias",
-  "/espacios",
-  "/privacidad",
-  "/terminos",
+  "/productos/",
+  "/experiencias/",
+  "/espacios/",
+  "/privacidad/",
+  "/terminos/",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const productEntries: MetadataRoute.Sitemap = allProducts.map((product) => ({
-    url: absoluteUrl(`/productos/${product.id}`),
+    url: absoluteUrl(`/productos/${product.id}/`),
     lastModified,
     changeFrequency: "weekly",
     priority: 0.7,
