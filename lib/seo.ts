@@ -19,11 +19,12 @@ export function absoluteUrl(path: string): string {
 export function buildBreadcrumbListJsonLd(
   items: BreadcrumbItemInput[],
   idPath?: string,
+  includeContext = true,
 ) {
-  const fallbackPath = items.at(-1)?.path ?? "/";
+  const fallbackPath = items[items.length - 1]?.path ?? "/";
 
   return {
-    "@context": "https://schema.org",
+    ...(includeContext ? { "@context": "https://schema.org" } : {}),
     "@type": "BreadcrumbList",
     "@id": `${absoluteUrl(idPath ?? fallbackPath)}#breadcrumb`,
     itemListElement: items.map((item, index) => ({

@@ -153,7 +153,9 @@ export default function ExperienciasPage() {
     <main className="min-h-screen">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(experienciasJsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(experienciasJsonLd).replace(/</g, "\\u003c"),
+        }}
       />
       <PageHeader />
 

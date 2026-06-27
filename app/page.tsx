@@ -55,7 +55,7 @@ const homeJsonLd = {
       },
     },
     {
-      ...buildBreadcrumbListJsonLd([{ name: "Inicio", path: "/" }], "/"),
+      ...buildBreadcrumbListJsonLd([{ name: "Inicio", path: "/" }], "/", false),
     },
   ],
 };

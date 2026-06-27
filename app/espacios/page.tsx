@@ -675,7 +675,9 @@ export default function EspaciosPage() {
     <main className="min-h-screen">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(espaciosJsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(espaciosJsonLd).replace(/</g, "\\u003c"),
+        }}
       />
       <PageHeader />
 
