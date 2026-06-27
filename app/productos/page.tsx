@@ -28,11 +28,49 @@ import {
   selectKitsByIds,
 } from "@/lib/services/registry";
 import { getPrimaryProductImage } from "@/lib/services/product-images";
+import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Tienda | Silenceside Ecos",
   description:
     "Libros, guías, cuadernos de trabajo, velas aromáticas y materiales didácticos elaborados con intención para tu viaje hacia la sabiduría interior.",
+  alternates: {
+    canonical: "/productos/",
+  },
+  openGraph: {
+    title: "Tienda | Silenceside Ecos",
+    description:
+      "Libros, guías, cuadernos de trabajo, velas aromáticas y materiales didácticos elaborados con intención para tu viaje hacia la sabiduría interior.",
+    url: "/productos/",
+    images: ["/logo_black.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tienda | Silenceside Ecos",
+    description:
+      "Libros, guías, cuadernos de trabajo, velas aromáticas y materiales didácticos elaborados con intención para tu viaje hacia la sabiduría interior.",
+    images: ["/logo_black.png"],
+  },
+};
+
+const productosJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": `${SITE_URL}/productos/#breadcrumb`,
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Inicio",
+      item: SITE_URL,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: `Tienda ${SITE_NAME}`,
+      item: `${SITE_URL}/productos/`,
+    },
+  ],
 };
 
 const categories = [
@@ -60,6 +98,10 @@ const categories = [
 export default function ProductosPage() {
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productosJsonLd) }}
+      />
       <PageHeader />
 
       {/* Hero Section */}

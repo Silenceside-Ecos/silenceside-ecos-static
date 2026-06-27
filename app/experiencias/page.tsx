@@ -16,6 +16,23 @@ export const metadata: Metadata = {
   title: "Experiencias | Silenceside Ecos",
   description:
     "Viajes sonoros, experiencias transformadoras y testimonios de quienes han vivido nuestros talleres.",
+  alternates: {
+    canonical: "/experiencias/",
+  },
+  openGraph: {
+    title: "Experiencias | Silenceside Ecos",
+    description:
+      "Viajes sonoros, experiencias transformadoras y testimonios de quienes han vivido nuestros talleres.",
+    url: "/experiencias/",
+    images: ["/logo_black.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Experiencias | Silenceside Ecos",
+    description:
+      "Viajes sonoros, experiencias transformadoras y testimonios de quienes han vivido nuestros talleres.",
+    images: ["/logo_black.png"],
+  },
 };
 
 const experienceTypes = [
