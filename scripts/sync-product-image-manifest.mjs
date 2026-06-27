@@ -4,7 +4,15 @@ import path from "node:path";
 const repoRoot = process.cwd();
 const productsFilePath = path.join(repoRoot, "lib", "services", "productos.ts");
 const manifestPath = path.join(repoRoot, "data", "product-image-routes.json");
-const publicProductsDir = path.join(repoRoot, "public", "productos");
+const publicProductsDir = path.join(repoRoot, "public", "productos-media");
+const legacyRoutePrefix = "/productos/";
+const routePrefix = "/productos-media/";
+
+function normalizeProductImageRoute(route) {
+  return typeof route === "string" && route.startsWith(legacyRoutePrefix)
+    ? route.replace(legacyRoutePrefix, routePrefix)
+    : route;
+}
 
 const productsRaw = fs.readFileSync(productsFilePath, "utf8");
 const productIds = [...productsRaw.matchAll(/id:\s*"([^"]+)"/g)].map(
@@ -41,7 +49,9 @@ fs.mkdirSync(publicProductsDir, { recursive: true });
 const nextManifest = {};
 for (const id of productIds) {
   const existing = manifest[id];
-  nextManifest[id] = Array.isArray(existing) ? existing : [];
+  nextManifest[id] = Array.isArray(existing)
+    ? existing.map(normalizeProductImageRoute)
+    : [];
 
   const folderPath = path.join(publicProductsDir, id);
   fs.mkdirSync(folderPath, { recursive: true });
@@ -59,7 +69,7 @@ fs.writeFileSync(
 );
 
 console.log(`Products found: ${productIds.length}`);
-console.log(`Folders ensured: public/productos/<id> for all products`);
+console.log(`Folders ensured: public/productos-media/<id> for all products`);
 console.log(`Manifest synced: ${manifestPath}`);
 if (unknownManifestIds.length > 0) {
   console.log(
