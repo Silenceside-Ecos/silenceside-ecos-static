@@ -27,9 +27,9 @@ export function generateStaticParams(): PageParams[] {
 export async function generateMetadata({
   params,
 }: {
-  params: PageParams;
+  params: Promise<PageParams>;
 }): Promise<Metadata> {
-  const { id } = params;
+  const { id } = await params;
   const product = getProductById(id);
 
   if (!product) {
@@ -71,9 +71,9 @@ export async function generateMetadata({
 export default async function ProductDetailPage({
   params,
 }: {
-  params: PageParams;
+  params: Promise<PageParams>;
 }) {
-  const { id } = params;
+  const { id } = await params;
   const product = getProductById(id);
 
   if (!product) {
