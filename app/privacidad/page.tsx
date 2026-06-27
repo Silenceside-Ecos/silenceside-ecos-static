@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/page-header";
 import { PageFooter } from "@/components/page-footer";
+import { buildBreadcrumbListJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Política de Privacidad | Silenceside Ecos",
@@ -24,9 +25,23 @@ export const metadata: Metadata = {
   },
 };
 
+const privacidadJsonLd = buildBreadcrumbListJsonLd(
+  [
+    { name: "Inicio", path: "/" },
+    { name: "Política de Privacidad", path: "/privacidad/" },
+  ],
+  "/privacidad/",
+);
+
 export default function PrivacidadPage() {
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(privacidadJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <PageHeader />
 
       <section className="pt-32 pb-24 lg:pt-40 lg:pb-32">
