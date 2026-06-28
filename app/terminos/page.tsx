@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/page-header";
 import { PageFooter } from "@/components/page-footer";
+import { buildBreadcrumbListJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Términos de Servicio | Silenceside Ecos",
@@ -24,9 +25,23 @@ export const metadata: Metadata = {
   },
 };
 
+const terminosJsonLd = buildBreadcrumbListJsonLd(
+  [
+    { name: "Inicio", path: "/" },
+    { name: "Términos de Servicio", path: "/terminos/" },
+  ],
+  "/terminos/",
+);
+
 export default function TerminosPage() {
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(terminosJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <PageHeader />
 
       <section className="pt-32 pb-24 lg:pt-40 lg:pb-32">

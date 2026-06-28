@@ -28,7 +28,7 @@ import {
   selectKitsByIds,
 } from "@/lib/services/registry";
 import { getPrimaryProductImage } from "@/lib/services/product-images";
-import { SITE_NAME, SITE_URL } from "@/lib/seo";
+import { buildBreadcrumbListJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Tienda | Silenceside Ecos",
@@ -53,25 +53,13 @@ export const metadata: Metadata = {
   },
 };
 
-const productosJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "@id": `${SITE_URL}/productos/#breadcrumb`,
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Inicio",
-      item: SITE_URL,
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: `Tienda ${SITE_NAME}`,
-      item: `${SITE_URL}/productos/`,
-    },
+const productosJsonLd = buildBreadcrumbListJsonLd(
+  [
+    { name: "Inicio", path: "/" },
+    { name: "Tienda", path: "/productos/" },
   ],
-};
+  "/productos/",
+);
 
 const categories = [
   {
@@ -100,7 +88,9 @@ export default function ProductosPage() {
     <main className="min-h-screen">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productosJsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productosJsonLd).replace(/</g, "\\u003c"),
+        }}
       />
       <PageHeader />
 
