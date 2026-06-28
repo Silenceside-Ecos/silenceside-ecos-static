@@ -88,7 +88,9 @@ export default function ProductosPage() {
     <main className="min-h-screen">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productosJsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productosJsonLd).replace(/</g, "\\u003c"),
+        }}
       />
       <PageHeader />
 
