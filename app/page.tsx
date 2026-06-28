@@ -65,7 +65,9 @@ export default function Home() {
     <main className="min-h-screen">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homeJsonLd).replace(/</g, "\\u003c"),
+        }}
       />
       <Header />
       <Hero />
